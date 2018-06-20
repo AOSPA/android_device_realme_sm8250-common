@@ -26,6 +26,9 @@ TARGET_BOARD_PLATFORM := kona
 
 DEVICE_PATH := device/oppo/OP4A79
 
+# Build System
+BUILD_BROKEN_DUP_RULES := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
