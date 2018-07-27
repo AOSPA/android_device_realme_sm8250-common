@@ -104,7 +104,7 @@
          should be empty.  An example would be "softap.*" -->
     <string-array name="config_tether_wifi_regexs">
         <item>"softap.*"</item>
-        <item>wlan0</item>
+        <item>"wlan\\d"</item>
     </string-array>
 
 </resources>
