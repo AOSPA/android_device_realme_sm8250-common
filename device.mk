@@ -72,6 +72,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.oppo_OP4A79
 
+# LiveDisplay
+PRODUCT_PACKAGES += \
+    lineage.livedisplay@2.0-service-sdm
+
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     device/oppo/OP4A79

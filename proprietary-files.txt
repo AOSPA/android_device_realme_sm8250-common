@@ -31,6 +31,10 @@ product/lib64/lib-imsvtutils.so
 product/lib64/vendor.qti.imsrtpservice@2.0.so
 product/lib64/vendor.qti.imsrtpservice@2.1.so
 
+# SDM
+product/lib64/libsdm-disp-apis.qti.so
+product/lib64/vendor.display.color@1.0.so
+
 # Telephony
 etc/permissions/privapp-permissions-qti.xml
 etc/permissions/qti_libpermissions.xml
