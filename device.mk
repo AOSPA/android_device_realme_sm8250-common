@@ -68,7 +68,8 @@ PRODUCT_PACKAGES += \
 # Overlays
 PRODUCT_PACKAGES += \
     OPPOBluetooth \
-    OPPOFrameworks
+    OPPOFrameworks \
+    OPPOSystemUI
 
 # Overlays - override vendor ones
 PRODUCT_PACKAGES += \
