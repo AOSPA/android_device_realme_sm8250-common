@@ -22,5 +22,10 @@ persist.vendor.service.bt.iotinfo.report.enable=true
 # DPM
 persist.vendor.dpm.feature=11
 
+# IMS
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
+
 # Radio
 persist.vendor.radio.poweron_opt=1
