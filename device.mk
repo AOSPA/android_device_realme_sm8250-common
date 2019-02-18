@@ -217,10 +217,11 @@ PRODUCT_PACKAGES += \
     vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A79
 
 PRODUCT_PACKAGES += \
+    IFAAService \
     ifaamanager
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ifaamanager/etc/permissions/org.ifaa.android.manager.permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/org.ifaa.android.manager.permissions.xml
+PRODUCT_BOOT_JARS += \
+    ifaamanager
 
 # GPS
 PRODUCT_PACKAGES += \

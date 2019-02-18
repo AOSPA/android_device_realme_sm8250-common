@@ -20,11 +20,11 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
-LOCAL_MODULE := ifaamanager
+LOCAL_CERTIFICATE := platform
+LOCAL_JAVA_LIBRARIES := ifaamanager
 LOCAL_MODULE_TAGS := optional
-LOCAL_STATIC_JAVA_LIBRARIES := \
-	vendor.oppo.hardware.biometrics.fingerprintpay-V1.0-java \
-	android.hidl.base-V1.0-java \
-        unsupportedappusage
+LOCAL_PACKAGE_NAME := IFAAService
+LOCAL_PRIVATE_PLATFORM_APIS := true
+LOCAL_PROGUARD_ENABLED := disabled
 
-include $(BUILD_JAVA_LIBRARY)
+include $(BUILD_PACKAGE)

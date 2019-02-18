@@ -1,0 +1,3 @@
+allow system_app hal_fingerprint_oplus_hwservice:hwservice_manager find;
+
+binder_call(system_app, hal_fingerprint_default)
