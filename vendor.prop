@@ -170,3 +170,4 @@ debug.stagefright.ccodec=1
 persist.vendor.ssr.restart_level=RELATED
 ro.separate.soft=19066
 ro.boot.flash.locked=0
+ro.charger.enable_suspend=true
