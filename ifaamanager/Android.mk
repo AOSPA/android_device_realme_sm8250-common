@@ -24,6 +24,7 @@ LOCAL_MODULE := ifaamanager
 LOCAL_MODULE_TAGS := optional
 LOCAL_STATIC_JAVA_LIBRARIES := \
 	vendor.oppo.hardware.biometrics.fingerprintpay-V1.0-java \
-	android.hidl.base-V1.0-java
+	android.hidl.base-V1.0-java \
+        unsupportedappusage
 
 include $(BUILD_JAVA_LIBRARY)

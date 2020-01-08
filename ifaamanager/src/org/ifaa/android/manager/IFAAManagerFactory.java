@@ -1,7 +1,7 @@
 package org.ifaa.android.manager;
 
 import android.app.KeyguardManager;
-import android.annotation.UnsupportedAppUsage;
+import android.compat.annotation.UnsupportedAppUsage;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
