@@ -29,5 +29,9 @@
             <name>IPictureAdjustment</name>
             <instance>default</instance>
         </interface>
+        <interface>
+            <name>ISunlightEnhancement</name>
+            <instance>default</instance>
+        </interface>
     </hal>
 </manifest>

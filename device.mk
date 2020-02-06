@@ -74,7 +74,8 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    lineage.livedisplay@2.0-service-sdm
+    lineage.livedisplay@2.0-service-sdm \
+    lineage.livedisplay@2.0-service.oppo_OP4A79
 
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
