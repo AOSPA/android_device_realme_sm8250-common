@@ -13,8 +13,7 @@
 -->
 <resources>
 
-    <string name="device_specific_settings_title">Device-specific settings</string>
-    <string name="device_specific_settings_summary">Refresh rate configuration</string>
+    <string name="refresh_rate_settings_title">Refresh rate configuration</string>
     <string name="device_refresh_rate">Refresh Rate</string>
 
 </resources>
