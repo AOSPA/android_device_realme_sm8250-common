@@ -39,11 +39,11 @@ public class RefreshRate extends PreferenceActivity {
     }
 
     public static class RefreshRateFragment extends PreferenceFragment {
-        private static final String KEY_REFRESH_RATE = "pref_refresh_rate";
+        public static final String KEY_REFRESH_RATE = "pref_refresh_rate";
 
         private ListPreference mPrefRefreshRate;
 
-        IBinder surfaceFlinger = ServiceManager.getService("SurfaceFlinger");
+        static IBinder surfaceFlinger = ServiceManager.getService("SurfaceFlinger");
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -67,9 +67,11 @@ public class RefreshRate extends PreferenceActivity {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object value) {
                     final String key = preference.getKey();
+                    int fps = Integer.parseInt((String) value);
 
                     if (KEY_REFRESH_RATE.equals(key)) {
-                        setFPS((int) Integer.parseInt((String) value));
+                        setFPS(fps);
+                        SettingsUtils.putInt(getActivity(), KEY_REFRESH_RATE, fps);
                     }
 
                     updateValuesAndSummaries();
@@ -77,7 +79,7 @@ public class RefreshRate extends PreferenceActivity {
                 }
             };
 
-        public final void setFPS(int v) {
+        public static final void setFPS(int v) {
             Parcel var10000 = Parcel.obtain();
             Parcel data = var10000;
             data.writeInterfaceToken("android.ui.ISurfaceComposer");
