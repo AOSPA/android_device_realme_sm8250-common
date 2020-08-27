@@ -1,0 +1,46 @@
+# DPM
+framework/tcmclient.jar
+product/bin/dpmd
+product/etc/dpm/dpm.conf
+product/etc/init/dpmd.rc
+product/etc/permissions/com.qti.dpmframework.xml
+product/etc/permissions/dpmapi.xml
+product/framework/com.qti.dpmframework.jar
+product/framework/dpmapi.jar
+product/lib/com.qualcomm.qti.dpm.api@1.0.so
+product/lib/libdpmctmgr.so
+product/lib/libdpmfdmgr.so
+product/lib/libdpmframework.so
+product/lib/libdpmtcm.so
+product/lib64/com.qualcomm.qti.dpm.api@1.0.so
+product/lib64/libdpmctmgr.so
+product/lib64/libdpmfdmgr.so
+product/lib64/libdpmframework.so
+product/lib64/libdpmtcm.so
+-product/priv-app/dpmserviceapp/dpmserviceapp.apk
+
+# IMS
+-product/priv-app/ims/ims.apk
+product/lib64/libdiag_system.so
+product/lib64/libimscamera_jni.so
+product/lib64/libimsmedia_jni.so
+product/lib64/lib-imsvideocodec.so
+product/lib64/lib-imsvtextutils.so
+product/lib64/lib-imsvt.so
+product/lib64/lib-imsvtutils.so
+product/lib64/vendor.qti.imsrtpservice@2.0.so
+product/lib64/vendor.qti.imsrtpservice@2.1.so
+
+# Telephony
+etc/permissions/privapp-permissions-qti.xml
+etc/permissions/qti_libpermissions.xml
+etc/permissions/qti_permissions.xml
+etc/sysconfig/qti_whitelist.xml
+-product/app/QtiTelephonyService/QtiTelephonyService.apk
+product/etc/permissions/qcrilhook.xml
+product/etc/permissions/telephony_product_privapp-permissions-qti.xml
+product/etc/permissions/telephonyservice.xml
+product/framework/qcrilhook.jar
+product/framework/QtiTelephonyServicelibrary.jar
+product/framework/qti-telephony-common.jar
+-product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
