@@ -225,9 +225,6 @@
     <!-- The restoring is handled by modem if it is true-->
      <bool name="skip_restoring_network_selection">false</bool>
 
-    <!-- Height of the status bar -->
-     <dimen name="status_bar_height_portrait">37.0dip</dimen>
-
     <!-- The maximum range of gamma adjustment possible using the screen
          auto-brightness adjustment setting. -->
      <fraction name="config_autoBrightnessAdjustmentMaxGamma">300.0%</fraction>
@@ -399,5 +396,28 @@
 
     <!-- default refresh rate in the zone defined by brightness and ambient thresholds -->
     <integer name="config_defaultRefreshRateInZone">120</integer>
+
+    <!-- The bounding path of the cutout region of the main built-in display.
+         Must either be empty if there is no cutout region, or a string that is parsable by
+         {@link android.util.PathParser}.
+         The path is assumed to be specified in display coordinates with pixel units and in
+         the display's native orientation, with the origin of the coordinate system at the
+         center top of the display.
+         To facilitate writing device-independent emulation overlays, the marker `@dp` can be
+         appended after the path string to interpret coordinates in dp instead of px units.
+         Note that a physical cutout should be configured in pixels for the best results.
+         -->
+    <string translatable="false" name="config_mainBuiltInDisplayCutout">
+        M 0, 0
+        H 195
+        V 121
+        H 0
+        L 0, 0
+        @left
+    </string>
+
+    <!-- Height of the status bar -->
+    <dimen name="status_bar_height_portrait">153px</dimen>
+    <dimen name="status_bar_height_landscape">153px</dimen>
 
 </resources>

@@ -29,6 +29,10 @@ $(call inherit-product, vendor/oppo/OP4A79/OP4A79-vendor.mk)
 -include $(LOCAL_PATH)/product_prop.mk
 -include $(LOCAL_PATH)/system_prop.mk
 
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage
+
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 29
 
