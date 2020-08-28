@@ -98,6 +98,12 @@ TARGET_KERNEL_CONFIG := vendor/kona-perf_defconfig
 # Platform
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno650
 
+# Display
+TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.oppo_OP4A79
+
+# HIDL
+DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
+
 # Partitions
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 BOARD_USES_PRODUCTIMAGE := true
