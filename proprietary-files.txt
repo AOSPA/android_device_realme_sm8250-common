@@ -20,7 +20,7 @@ product/lib64/libdpmtcm.so
 -product/priv-app/dpmserviceapp/dpmserviceapp.apk
 
 # IMS
--product/priv-app/ims/ims.apk
+-product/priv-app/ims/ims.apk|df0b116bec248f6d7402abe3c10379fe7b62759f
 product/lib64/libdiag_system.so
 product/lib64/libimscamera_jni.so
 product/lib64/libimsmedia_jni.so
