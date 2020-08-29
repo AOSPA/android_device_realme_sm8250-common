@@ -10,6 +10,11 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.vendor.dpm.feature=9
 
+# Graphics
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    debug.sf.enable_hwc_vds=1 \
+    debug.sf.latch_unsignaled=1
+
 # IMS
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.dbg.volte_avail_ovr=1 \

@@ -1,6 +1,4 @@
-# Telephony
+# Audio
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.telephony.default_network=22,22 \
-    persist.dbg.volte_avail_ovr=1 \
-    persist.dbg.vt_avail_ovr=1 \
-    persist.dbg.wfc_avail_ovr=1
+    ro.config.media_vol_steps=25 \
+    ro.config.vc_call_vol_steps=7
