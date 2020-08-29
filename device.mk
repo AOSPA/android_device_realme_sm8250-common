@@ -51,6 +51,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Snap
 
+# Doze
+PRODUCT_PACKAGES += \
+    OPPODoze
+
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
