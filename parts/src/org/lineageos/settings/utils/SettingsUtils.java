@@ -24,14 +24,14 @@ public class SettingsUtils {
     public static final String PREFERENCES = "SettingsUtilsPreferences";
 
     public static boolean putInt(Context context, String name, int value) {
-        SharedPreferences settings = context.getSharedPreferences(PREFERENCES, 2);
+        SharedPreferences settings = context.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
         editor.putInt(name, value);
         return editor.commit();
     }
 
     public static int getInt(Context context, String name, int def) {
-        SharedPreferences settings = context.getSharedPreferences(PREFERENCES, 2);
+        SharedPreferences settings = context.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
         return settings.getInt(name, def);
     }
 };
