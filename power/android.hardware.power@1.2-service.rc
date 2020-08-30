@@ -1,0 +1,8 @@
+on init
+    chown system system /proc/touchpanel/double_tap_enable
+    chmod 0660 /proc/touchpanel/double_tap_enable
+
+service vendor.power-hal-1-2 /vendor/bin/hw/android.hardware.power@1.2-service
+    class hal
+    user system
+    group system
