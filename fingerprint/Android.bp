@@ -21,4 +21,5 @@ cc_binary {
         "android.hardware.biometrics.fingerprint@2.1",
         "vendor.oppo.hardware.biometrics.fingerprint@2.1",
     ],
+    vendor: true,
 }

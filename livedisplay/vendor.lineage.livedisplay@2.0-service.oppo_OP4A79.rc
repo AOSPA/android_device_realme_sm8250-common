@@ -1,7 +1,7 @@
 on boot
     chown system system /sys/kernel/oppo_display/hbm
 
-service livedisplay-hal-2-0 /system/bin/hw/lineage.livedisplay@2.0-service.oppo_OP4A79
+service vendor.livedisplay-hal-2-0 /vendor/bin/hw/vendor.lineage.livedisplay@2.0-service.oppo_OP4A79
     class hal
     user system
     group system

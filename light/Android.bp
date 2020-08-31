@@ -28,4 +28,5 @@ cc_binary {
         "liblog",
         "libutils",
     ],
+    vendor: true,
 }

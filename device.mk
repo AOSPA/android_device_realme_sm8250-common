@@ -198,7 +198,7 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.oppo_OP4A79 \
-    lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A79
+    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A79
 
 PRODUCT_PACKAGES += \
     ifaamanager
@@ -230,8 +230,8 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    lineage.livedisplay@2.0-service-sdm \
-    lineage.livedisplay@2.0-service.oppo_OP4A79
+    vendor.lineage.livedisplay@2.0-service-sdm \
+    vendor.lineage.livedisplay@2.0-service.oppo_OP4A79
 
 # Media
 PRODUCT_COPY_FILES += \
