@@ -168,8 +168,8 @@ TARGET_USES_MKE2FS := true
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
-# Sepolicy
--include device/qcom/sepolicy/sepolicy.mk
+# SELinux
+include device/qcom/sepolicy_vndr/SEPolicy.mk
 
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 
