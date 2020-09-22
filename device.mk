@@ -318,7 +318,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service.oppo_OP4A79
+    android.hardware.power-service-qti
 
 # QTI
 PRODUCT_PACKAGES += \
