@@ -7,6 +7,7 @@ on boot
 on post-fs
     # WLAN
     mkdir /mnt/vendor/persist/wlan 0777 system system
+    setprop oppo.camera.packname com.oppo.camera
 
 service vl53l1_daemon_main /odm/bin/vl53l1_daemon_main
     class late_start
