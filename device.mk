@@ -338,9 +338,7 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti \
-    android.hardware.power@1.2.vendor \
-    vendor.qti.hardware.perf@2.2.vendor
+    android.hardware.power-service.oplus-libperfmgr
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -415,6 +413,8 @@ PRODUCT_COPY_FILES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     device/realme/bitra \
+    hardware/google/interfaces \
+    hardware/google/pixel \
     hardware/oplus \
     vendor/nxp/opensource/sn100x \
     vendor/qcom/opensource/usb/etc

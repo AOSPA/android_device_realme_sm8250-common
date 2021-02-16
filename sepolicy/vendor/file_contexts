@@ -40,6 +40,9 @@
 /(odm|vendor/odm)/bin/hw/vendor\.qti\.esepowermanager@1\.1-service                                                     u:object_r:vendor_hal_esepowermanager_qti_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service                                                      u:object_r:hal_secure_element_default_exec:s0
 
+# Power
+/vendor/bin/hw/android\.hardware\.power-service\.oplus-libperfmgr                                                      u:object_r:hal_power_default_exec:s0
+
 # Radio
 /(odm|vendor/odm)/bin/oemnvbkdaemon                                                                                    u:object_r:rild_exec:s0
 
