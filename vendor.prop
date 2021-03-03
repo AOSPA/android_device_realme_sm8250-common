@@ -106,6 +106,10 @@ vendor.qcom.bluetooth.soc=hastings
 # Camera
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,org.lineageos.snap
 
+# Chipset
+ro.soc.manufacturer=Qualcomm
+ro.soc.model=SM8250
+
 # Crypto
 ro.crypto.allow_encrypt_override=true
 ro.crypto.volume.filenames_mode=aes-256-cts
