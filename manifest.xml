@@ -1025,7 +1025,4 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <sepolicy>
-        <version>29.0</version>
-    </sepolicy>
 </manifest>
