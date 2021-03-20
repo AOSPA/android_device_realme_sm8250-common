@@ -1,5 +1,5 @@
 
-# Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+# Copyright (c) 2018-2020, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -29,11 +29,13 @@
 #
 
 on early-init
-#ifndef VENDOR_EDIT
-#xiaoke.Zhi@PSW.MM.AudioDriver.SmartPA, 2019/06/26, Add for Max98937
-#    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_q6_pdr audio_q6_notifier audio_snd_event audio_apr audio_adsp_loader audio_q6 audio_native audio_usf audio_pinctrl_wcd audio_pinctrl_lpi audio_swr audio_platform audio_hdmi audio_stub audio_wcd_core audio_wsa881x audio_bolero_cdc audio_wsa_macro audio_va_macro audio_rx_macro audio_tx_macro audio_wcd938x audio_wcd938x_slave audio_machine_kona
+#ifndef OPLUS_ARCH_EXTENDS
+#FEATURE_MAX98937
+#FEATURE_TFA98XX
+#xiaoke.Zhi@MULTIMEDIA.AUDIODRIVER.CODEC, 2019/06/26, Add for Max98937 and TFA98XX
+#    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules q6_pdr q6_notifier snd_event apr adsp_loader q6 native usf pinctrl_wcd pinctrl_lpi swr platform hdmi stub wcd_core wsa881x bolero_cdc wsa_macro va_macro rx_macro tx_macro wcd938x wcd938x_slave machine_kona
 #else
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_q6_pdr audio_q6_notifier audio_snd_event audio_apr audio_adsp_loader audio_q6 audio_native audio_usf audio_pinctrl_wcd audio_pinctrl_lpi audio_swr audio_platform audio_hdmi audio_stub audio_wcd_core audio_wsa881x audio_bolero_cdc audio_wsa_macro audio_va_macro audio_rx_macro audio_tx_macro audio_wcd938x audio_wcd938x_slave audio_machine_kona audio_max98937
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules q6_pdr_dlkm q6_notifier_dlkm snd_event_dlkm apr_dlkm adsp_loader_dlkm q6_dlkm native_dlkm usf_dlkm pinctrl_wcd_dlkm pinctrl_lpi_dlkm swr_dlkm platform_dlkm hdmi_dlkm stub_dlkm wcd_core_dlkm wsa881x_dlkm bolero_cdc_dlkm wsa_macro_dlkm va_macro_dlkm rx_macro_dlkm tx_macro_dlkm wcd938x_dlkm wcd938x_slave_dlkm extend_dlkm machine_kona_dlkm max98937_dlkm
 #endif
     write /proc/sys/kernel/sched_boost 1
 
@@ -47,6 +49,8 @@ on init
     write /dev/stune/top-app/schedtune.colocate 1
     wait /dev/block/platform/soc/1d84000.ufshc
     symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
+    chown system system /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
+    chmod 0660 /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     start logd
 
 on early-fs
@@ -54,22 +58,23 @@ on early-fs
 
 on fs
     start hwservicemanager
+    #ifdef OPLUS_FEATURE_STORAGE_RESERVEPARTITION
+    #Xuefeng.Peng@ANDROID.STORAGE.1207580, 2018/11/19, Add for change opporeserve mount point for google GSI test
+    mkdir /mnt/vendor/opporeserve 0771 system system
+    #endif /*OPLUS_FEATURE_STORAGE_RESERVEPARTITION*/
     mkdir /mnt/vendor/spunvm 0660 system system
-    #ifdef VENDOR_EDIT
-    #Xuefeng.Peng@PSW.AD.Storage.0, 2019/01/27, Add for remove 5G dump mountpoint to fstab
+    #ifdef OPLUS_FEATURE_STORAGE_CUSTOMIZE_PARTITION
+    #Xuefeng.Peng@ANDROID.STORAGE.0, 2019/01/27, Add for remove 5G dump mountpoint to fstab
     mkdir /mnt/vendor/modemdump 0771 system system
-    #endif /*VENDOR_EDIT*/
+    #endif /*OPLUS_FEATURE_STORAGE_CUSTOMIZE_PARTITION*/
     mount_all /vendor/etc/fstab.qcom --early
 
-    #ifdef VENDOR_EDIT
-    #Xuefeng.Peng@PSW.AD.Storage.0, 2018/11/21, Add for 5G dump mountpoint
-    #wait /dev/block/bootdevice/by-name/modemdump
-    #mount ext4 /dev/block/bootdevice/by-name/modemdump /mnt/vendor/modemdump nosuid nodev barrier=1
+    #ifdef OPLUS_FEATURE_STORAGE_CUSTOMIZE_PARTITION
+    #Xuefeng.Peng@ANDROID.STORAGE.0, 2018/11/21, Add for 5G dump mountpoint
     chown root system /mnt/vendor/modemdump
     chmod 0771 /mnt/vendor/modemdump
     restorecon_recursive /mnt/vendor/modemdump
-    #endif/*VENDOR_EDIT*/
-
+    #endif/*OPLUS_FEATURE_STORAGE_CUSTOMIZE_PARTITION*/
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
     restorecon_recursive /mnt/vendor/persist
@@ -89,10 +94,13 @@ on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
     # Enable WLAN cold boot calibration
     write /sys/devices/platform/soc/b0000000.qcom,cnss-qca6390/fs_ready 1
-    #ifdef VENDOR_EDIT
-    # JunQian.Lin@PSW.MM.AudioServer.Dolby, 2019/09/18, add for dolby
+
+    #ifdef OPLUS_FEATURE_DOLBY
+    #LinJunqian@MULTIMEDIA.AUDIOSERVER.EFFECT, 2019/09/18, add for dolby
     mkdir /data/vendor/dolby 0770 media media
-    #endif /*VENDOR_EDIT*/
+    #WuHao@MULTIMEDIA.AUDIOSERVER.EFFECT, 2019/10/29, add for dolby Rom update
+    mkdir /data/vendor/multimedia 0775 system system
+    #endif /* OPLUS_FEATURE_DOLBY */
 
 on early-boot
     start vendor.sensors
@@ -112,8 +120,23 @@ on boot
     chown cameraserver cameraserver /dev/cpuset/camera-daemon
     chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
     chmod 0660 /dev/cpuset/camera-daemon/tasks
+
+    #ifeq ($(OPLUS_FEATURE_HAPTIC_VIBRATE),yes)
+    chown audioserver audioserver /dev/awinic_haptic
+    chown audioserver audioserver /sys/class/leds/vibrator/haptic_audio
+    chown audioserver audioserver /sys/calss/leds/vibrator/gun_type
+    chown audioserver audioserver /sys/class/leds/vibrator/bullet_nr
+    chown audioserver audioserver /sys/class/leds/vibrator/register
+    chown audioserver audioserver /sys/class/leds/vibrator/gun_mode
+    chmod 777 /sys/class/leds/vibrator/gun_type
+    chmod 777 /sys/class/leds/vibrator/bullet_nr
+    chmod 777 /sys/class/leds/vibrator/gun_mode
+    chmod 777 /sys/class/leds/vibrator/register
+    chmod 777 /sys/class/leds/vibrator/haptic_audio
+    #endif /* OPLUS_FEATURE_HAPTIC_VIBRATE */
+
 # ifdef VENDOR_EDIT
-# natao.Lin@Camera 2019/9/20 for laser calibration
+# shoulei.Sun@Camera 2020/05/07 for laser calibration
     chmod 0666 /dev/stmvl53l1_ranging
 # endif
 
@@ -124,16 +147,16 @@ on boot
     setprop vendor.usb.dpl.inst.name "dpl"
     setprop vendor.usb.qdss.inst.name "qdss"
     setprop vendor.usb.controller a600000.dwc3
-    #Load WLAN driver
-    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ qca_cld3_wlan
-
+    # Load all wlan drivers
+    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ qca_cld3_qca6390 qca_cld3_qca6490
+#ifndef  OPLUS_FEATURE_PERFORMANCE
+#//MoSiTing@ANDROID.PERFORMANCE, 2020/02/28, Modify for change dalvik.vm
+#on property:vendor.display.lcd_density=560
+#   setprop dalvik.vm.heapgrowthlimit 256m
+#else
 on property:vendor.display.lcd_density=560
-   #ifndef VENDOR_EDIT
-   #Tian.Chen@PSW.AD.BuildConfig.Baseconfig.1810000,2019/01/24,Add for change dalvik.vm
-   #setprop dalvik.vm.heapgrowthlimit 256m
-   #else
    setprop dalvik.vm.heapgrowthlimit 384m
-   #endif
+#endif /* OPLUS_FEATURE_PERFORMANCE */
 
 on property:vendor.display.lcd_density=640
    setprop dalvik.vm.heapgrowthlimit 512m
@@ -189,47 +212,24 @@ on property:init.svc.vendor.per_mgr=running
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
 
-#ifndef VENDOR_EDIT
-#Pan.Zhang@PSW.CN.WiFi.Basic.Log.1072015, 2016/08/03,
-#Remove for wifi log enhance function
+#ifndef OPLUS_BUG_COMPATIBILITY
+#//ZhangPan@CONNECTIVITY.WIFI.BASIC.LOG.1072015,2016/08/03, Remove for wifi log enhance function
 #on property:vold.decrypt=trigger_restart_framework
 #   start vendor.cnss_diag
-#endif
 
 #service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -b 128 -t HELIUM
 #   class main
- #  user system
- #  group system wifi inet sdcard_rw media_rw diag
-#ifdef VENDOR_EDIT
-#Pan.Zhang@PSW.CN.WiFi.Basic.Log.1072015, 2016/08/03,
-#Add for wifi log enhance function
-    #oneshot
-#else
- #   disabled
+#   user system
+#   group system wifi inet sdcard_rw media_rw diag
+#   oneshot
+#endif /* OPLUS_BUG_COMPATIBILITY */
 
+service dcvs-sh /vendor/bin/init.qti.dcvs.sh
+    class late_start
+    user root
+    group root system
+    disabled
+    oneshot
 
-#Yuan.Huang@PSW.CN.WiFi.Network.internet.1140781, 2017/12/21,
-#Modify for data stall enable log by default
-#on property:persist.sys.assert.panic=true
- #   stop cnss_diag_b
- #   start vendor.cnss_diag
-
-#on property:persist.sys.assert.panic=false
-#    stop vendor.cnss_diag
- #   start cnss_diag_b
-
-#on property:oppo.wifi.ftm=1
- #   stop vendor.cnss_diag
- #   stop cnss_diag_b
-
-#service cnss_diag_b /system/vendor/bin/cnss_diag -q -u -w -b 4096
- #   class main
-  #  user system
-#    group system wifi inet net_admin sdcard_rw media_rw diag
- #   disabled
-#endif
-
-#on property:vold.decrypt=trigger_restart_framework && property:persist.sys.assert.panic=true
- #   start vendor.cnss_diag
-#endif /* VENDOR_EDIT */   
-
+on property:vendor.dcvs.prop=1
+   start dcvs-sh

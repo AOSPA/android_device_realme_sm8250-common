@@ -456,12 +456,12 @@ buildvariant=`getprop ro.build.type`
 case "$buildvariant" in
     "userdebug" | "eng")
         #set default loglevel to KERN_INFO
-        #if VENDOR_EDIT
-        #Canjie.Zheng@PSW.AD.OppoDebug.LogKit.1078692, 2017/11/20, Add for modified kernel log level
+        #ifdef OPLUS_FEATURE_LOGKIT
+        #Canjie.Zheng@ANDROID.DEBUG.1078692, 2017/11/20, Add for modified kernel log level
         echo "1 6 1 7" > /proc/sys/kernel/printk
         #else
         #echo "6 6 1 7" > /proc/sys/kernel/printk
-        #endif
+        #endif OPLUS_FEATURE_LOGKIT
         ;;
     *)
         #set default loglevel to KERN_WARNING

@@ -21,3 +21,6 @@ on boot
     chown system system /proc/touchpanel/game_switch_enable
     chown system system /proc/touchpanel/fp_enable
     chown system system /proc/touchpanel/baseline_test
+    chown system system /proc/touchpanel/charge_detect
+    chown system system /proc/touchpanel/wireless_charge_detect
+
