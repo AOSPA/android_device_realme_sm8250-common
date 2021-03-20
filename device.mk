@@ -86,7 +86,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
-    frameworks/native/data/etc/android.software.webview.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.webview.xml
+    frameworks/native/data/etc/android.software.webview.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.webview.xml \
     vendor/lineage/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
 
 # Shipping API level
@@ -106,18 +106,24 @@ PRODUCT_PACKAGES += \
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService \
-    com.dsi.ant.antradio_library
+    com.dsi.ant@1.0.vendor
 
 PRODUCT_COPY_FILES += \
     external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
 
+# Atrace
+PRODUCT_PACKAGES += \
+    android.hardware.atrace@1.0-service
+
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-service \
+    android.hardware.audio.service \
     android.hardware.audio@6.0-impl \
     android.hardware.audio.effect@6.0-impl \
-    android.hardware.soundtrigger@2.2-impl \
+    android.hardware.bluetooth.audio@2.0-impl \
+    android.hardware.soundtrigger@2.3-impl \
     audio.a2dp.default \
+    audio.bluetooth.default \
     audio.r_submix.default \
     audio.usb.default \
     libqcompostprocbundle \
@@ -178,7 +184,8 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     libtinyxml \
     libvulkan \
-    vendor.display.config@1.15.vendor \
+    vendor.display.config@1.16.vendor \
+    vendor.display.config@2.0.vendor \
     vendor.qti.hardware.display.allocator@3.0 \
     vendor.qti.hardware.display.mapper@3.0.vendor
 
@@ -188,8 +195,6 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service \
     android.hardware.drm@1.3-service.clearkey
 
 # fastbootd
@@ -215,8 +220,8 @@ PRODUCT_PACKAGES += \
     libgnsspps \
 
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@2.0-impl-qti \
-    android.hardware.gnss@2.0-service-qti
+    android.hardware.gnss@2.1-impl-qti \
+    android.hardware.gnss@2.1-service-qti
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/apdr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/apdr.conf \
@@ -229,15 +234,19 @@ PRODUCT_COPY_FILES += \
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-impl \
-    android.hardware.health@2.0-service
+    android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-service
 
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.base@1.0_system \
     android.hidl.manager@1.0 \
-    android.hidl.manager@1.0_system
+    android.hidl.manager@1.0_system \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder \
+    libhwbinder.vendor
 
 # IPACM
 PRODUCT_PACKAGES += \
@@ -274,6 +283,26 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
 
+PRODUCT_PACKAGES += \
+    init.qti.media.sh \
+    libcodec2_vndk.vendor \
+    libcodec2_hidl@1.0.vendor \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxG711Enc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc \
+    libsfplugin_ccodec \
+    libstagefrighthw
+
+PRODUCT_PACKAGES += \
+    libavservices_minijail \
+    libavservices_minijail.vendor \
+    libavservices_minijail_vendor
+
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     device/oppo/OP4A79
@@ -299,18 +328,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf \
     $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
-# Overlays
-PRODUCT_PACKAGES += \
-    OPPOBluetooth \
-    OPPOFrameworks \
-    OPPOSystemUI
-
-# Overlays - override vendor ones
-PRODUCT_PACKAGES += \
-    FrameworksResCommon \
-    FrameworksResTarget
-
 # Partition
+PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Parts
@@ -319,11 +338,13 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti
+    android.hardware.power-service-qti \
+    vendor.qti.hardware.perf@2.0.vendor
 
 # QTI
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect \
+    libqti_vndfwk_detect.vendor \
     libvndfwk_detect_jni.qti \
     libvndfwk_detect_jni.qti.vendor
 
@@ -347,10 +368,12 @@ PRODUCT_PACKAGES += \
     init.class_main.sh \
     init.mdm.sh \
     init.msm.usb.configfs.rc \
+    init.oppo.display.rc \
+    init.oppo.sensor.rc \
+    init.oppo.vendor.touchpress.rc \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
     init.qcom.rc \
-    init.qcom.sensors.sh \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
@@ -371,6 +394,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensor
 PRODUCT_PACKAGES += \
+    android.hardware.sensors@2.0-service.multihal \
     libsensorndkbridge
 
 # Telephony
@@ -392,24 +416,21 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
+    android.hardware.usb@1.2-service-qti
 
 # VNDK-SP
 PRODUCT_PACKAGES += \
     vndk_package
 
-# VR
-PRODUCT_PACKAGES += \
-    android.hardware.vr@1.0-impl \
-    android.hardware.vr@1.0-service \
-    vr.kona
-
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     hostapd \
+    libwifi-hal-ctrl \
     libwifi-hal-qcom \
     libwpa_client \
+    vendor.qti.hardware.wifi.hostapd@1.2.vendor \
+    vendor.qti.hardware.wifi.supplicant@2.2.vendor \
     WifiOverlay \
     wpa_supplicant \
     wpa_supplicant.conf

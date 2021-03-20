@@ -3,7 +3,6 @@ libadsprpc.so
 libcdsprpc.so
 libsdsprpc.so
 libfastcvopt.so
-liblistenjni.so
 liblistensoundmodel2.so
 libOpenCL.so
 libnpu.so
@@ -13,11 +12,5 @@ libAlgoProcess.so
 libancbase_rt_bokeh.so
 libAncHumBokeh.so
 libsnpe_loader.so
-liboddi.so
-libnativehelpers.so
-libdiag.so
-libSuperSensor.so
-libSuperSensorFallback.so
-libSuperSensorProcessor.so
-libSuperSensorProcessorCWrapper.so
-libSuperSensor_skel.so
+libstblur_api.so
+libstdc++.so

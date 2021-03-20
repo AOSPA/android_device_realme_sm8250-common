@@ -28,6 +28,7 @@ DEVICE_PATH := device/oppo/OP4A79
 
 # Build System
 BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
 
 # Architecture
 TARGET_ARCH := arm64
@@ -97,7 +98,7 @@ BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 GNSS_HIDL_VERSION := 2.0
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 loop.max_part=7 cgroup.memory=nokmem,nosocket reboot=p>
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 loop.max_part=7 cgroup.memory=nokmem,nosocket
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_BOOTIMG_HEADER_VERSION := 2
@@ -132,19 +133,24 @@ BOARD_DTBOIMG_PARTITION_SIZE := 25165824
 BOARD_CACHEIMAGE_PARTITION_SIZE := 438247424
 BOARD_SUPER_PARTITION_SIZE := 9932111872
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
-BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system product vendor odm
+BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor odm
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9932111872
 BOARD_ODMIMAGE_PARTITION_SIZE := 2147483648
 BOARD_PRODUCTIMAGE_PARTITION_SIZE := 2147483648
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2147483648
+BOARD_SYSTEM_EXTIMAGE_PARTITION_SIZE := 1073741824
 BOARD_VENDORIMAGE_PARTITION_SIZE := 2147483648
-BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_PRODUCT := product
+TARGET_COPY_OUT_SYSTEM_EXT := system_ext
+BOARD_USES_METADATA_PARTITION := true
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
@@ -172,6 +178,7 @@ include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 
 # Telephony
+ENABLE_VENDOR_RIL_SERVICE := true
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
 # VNDK

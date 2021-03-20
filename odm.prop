@@ -1,2 +1,5 @@
 # Framework detect
 ro.vendor.qti.va_odm.support=1
+
+# OPPO Extra
+persist.vendor.radio.custom_ecc=0

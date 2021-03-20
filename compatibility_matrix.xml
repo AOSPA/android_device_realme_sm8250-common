@@ -1,9 +1,8 @@
 <!--
     Input:
         compatibility_matrix.xml
-        compatibility_matrix_oppo_nfc_device.xml
 -->
-<compatibility-matrix version="1.0" type="device">
+<compatibility-matrix version="2.0" type="device">
     <hal format="hidl" optional="false">
         <name>android.frameworks.schedulerservice</name>
         <version>1.0</version>
@@ -61,11 +60,11 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.oppo.hardware.nfc</name>
+        <name>vendor.qti.hardware.qccsyshal</name>
         <version>1.0</version>
         <interface>
-            <name>IOppoNfc</name>
-            <instance>default</instance>
+            <name>IQccsyshal</name>
+            <instance>qccsyshal</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
