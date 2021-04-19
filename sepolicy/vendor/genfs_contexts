@@ -28,10 +28,23 @@ genfscon proc /devinfo                              u:object_r:vendor_proc_devin
 # Display
 genfscon proc /devinfo/lcd                          u:object_r:vendor_proc_display:s0
 genfscon proc /touchpanel                           u:object_r:vendor_proc_display:s0
+genfscon sysfs /devices/platform/soc/2c00000.qcom,kgsl-3d0                                          u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/idle_state                               u:object_r:vendor_sysfs_graphics:s0
+genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/early_wakeup        u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu-cpu-llcc-bw                                       u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu-llcc-ddr-bw                                       u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu0-cpu-l3-lat                                       u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu6-cpu-l3-lat                                       u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display                                           u:object_r:vendor_sysfs_graphics:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,gpubw                                                 u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,gpubw/devfreq                                         u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /kernel/oplus_display                u:object_r:vendor_sysfs_graphics:s0
 
 # Fingerprint
 genfscon proc /fp_id                                u:object_r:vendor_proc_fingerprint:s0
+
+# UFS
+genfscon sysfs /devices/platform/soc/1d84000.ufshc/clkgate_enable               u:object_r:vendor_sysfs_scsi_host:s0
 
 # Vibrator
 genfscon sysfs /devices/platform/soc/a8c000.i2c/i2c-6/6-005a/leds/vibrator u:object_r:sysfs_leds:s0

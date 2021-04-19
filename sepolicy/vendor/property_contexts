@@ -12,6 +12,7 @@ vendor.fingerprint.             u:object_r:vendor_fingerprint_prop:s0
 
 # Power
 persist.vendor.rpmb.enable.state u:object_r:vendor_powerctl_prop:s0
+vendor.powerhal.                   u:object_r:vendor_power_prop:s0
 
 # Oplus
 ro.vendor.oplus.                u:object_r:vendor_oplus_prop:s0
