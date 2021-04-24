@@ -1,6 +1,6 @@
 # Bluetooth
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    vendor.bluetooth.soc=hastings
+    ro.bluetooth.library_name=libbluetooth_qti.so
 
 # CNE
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
