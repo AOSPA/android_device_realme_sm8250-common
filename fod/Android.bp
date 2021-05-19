@@ -18,6 +18,7 @@ cc_binary {
     defaults: ["hidl_defaults"],
     name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A79",
     init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A79.rc"],
+    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A79.xml"],
     srcs: [
 	"service.cpp",
         "FingerprintInscreen.cpp",
