@@ -109,7 +109,7 @@ Gnss::Gnss() {
 Gnss::~Gnss() {
     ENTRY_LOG_CALLFLOW();
     if (mApi != nullptr) {
-        delete mApi;
+        mApi->destroy();
         mApi = nullptr;
     }
     sGnss = nullptr;
@@ -237,7 +237,7 @@ Return<bool> Gnss::updateConfiguration(GnssConfig& gnssConfig) {
         }
         if (gnssConfig.flags & GNSS_CONFIG_FLAGS_LPP_PROFILE_VALID_BIT) {
             mPendingConfig.flags |= GNSS_CONFIG_FLAGS_LPP_PROFILE_VALID_BIT;
-            mPendingConfig.lppProfile = gnssConfig.lppProfile;
+            mPendingConfig.lppProfileMask = gnssConfig.lppProfileMask;
         }
         if (gnssConfig.flags & GNSS_CONFIG_FLAGS_LPPE_CONTROL_PLANE_VALID_BIT) {
             mPendingConfig.flags |= GNSS_CONFIG_FLAGS_LPPE_CONTROL_PLANE_VALID_BIT;
@@ -656,11 +656,7 @@ Return<sp<V2_0::IGnssDebug>> Gnss::getExtensionGnssDebug_2_0() {
 }
 
 Return<sp<V2_0::IGnssBatching>> Gnss::getExtensionGnssBatching_2_0() {
-    ENTRY_LOG_CALLFLOW();
-    if (mGnssBatching == nullptr) {
-        mGnssBatching = new GnssBatching();
-    }
-    return mGnssBatching;
+    return nullptr;
 }
 
 V1_0::IGnss* HIDL_FETCH_IGnss(const char* hal) {
