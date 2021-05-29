@@ -1,4 +1,4 @@
-package vendor.oppo.hardware.biometrics.fingerprintpay.V1_0;
+package vendor.oplus.hardware.biometrics.fingerprintpay.V1_0;
 
 import java.util.ArrayList;
 
@@ -13,14 +13,11 @@ public final class RequestStatus {
         if (o == 0) {
             return "REQUESTSTATUS_OK";
         }
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("0x");
-        stringBuilder.append(Integer.toHexString(o));
-        return stringBuilder.toString();
+        return "0x" + Integer.toHexString(o);
     }
 
     public static final String dumpBitfield(int o) {
-        ArrayList<String> list = new ArrayList();
+        ArrayList<String> list = new ArrayList<>();
         int flipped = 0;
         if ((o & 1) == 1) {
             list.add("REQUESTSTATUS_UNKNOWN");
@@ -28,10 +25,7 @@ public final class RequestStatus {
         }
         list.add("REQUESTSTATUS_OK");
         if (o != flipped) {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("0x");
-            stringBuilder.append(Integer.toHexString((~flipped) & o));
-            list.add(stringBuilder.toString());
+            list.add("0x" + Integer.toHexString((~flipped) & o));
         }
         return String.join(" | ", list);
     }

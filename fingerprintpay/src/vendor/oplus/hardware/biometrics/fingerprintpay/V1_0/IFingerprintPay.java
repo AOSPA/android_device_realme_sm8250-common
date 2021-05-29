@@ -1,4 +1,4 @@
-package vendor.oppo.hardware.biometrics.fingerprintpay.V1_0;
+package vendor.oplus.hardware.biometrics.fingerprintpay.V1_0;
 
 import android.hidl.base.V1_0.DebugInfo;
 import android.hidl.base.V1_0.IBase;
@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.Objects;
 
 public interface IFingerprintPay extends IBase {
-    public static final String kInterfaceName = "vendor.oppo.hardware.biometrics.fingerprintpay@1.0::IFingerprintPay";
+    public static final String kInterfaceName = "vendor.oplus.hardware.biometrics.fingerprintpay@1.0::IFingerprintPay";
 
     public static final class Proxy implements IFingerprintPay {
         private IHwBinder mRemote;
@@ -39,7 +39,7 @@ public interface IFingerprintPay extends IBase {
                 stringBuilder.append("@Proxy");
                 return stringBuilder.toString();
             } catch (RemoteException e) {
-                return "[class or subclass of vendor.oppo.hardware.biometrics.fingerprintpay@1.0::IFingerprintPay]@Proxy";
+                return "[class or subclass of vendor.oplus.hardware.biometrics.fingerprintpay@1.0::IFingerprintPay]@Proxy";
             }
         }
 

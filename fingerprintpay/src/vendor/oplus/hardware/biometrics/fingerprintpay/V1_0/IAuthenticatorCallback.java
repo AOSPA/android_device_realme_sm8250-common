@@ -1,4 +1,4 @@
-package vendor.oppo.hardware.biometrics.fingerprintpay.V1_0;
+package vendor.oplus.hardware.biometrics.fingerprintpay.V1_0;
 
 import android.hidl.base.V1_0.DebugInfo;
 import android.hidl.base.V1_0.IBase;
@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.Objects;
 
 public interface IAuthenticatorCallback extends IBase {
-    public static final String kInterfaceName = "vendor.oppo.hardware.biometrics.fingerprintpay@1.0::IAuthenticatorCallback";
+    public static final String kInterfaceName = "vendor.oplus.hardware.biometrics.fingerprintpay@1.0::IAuthenticatorCallback";
 
     public static final class Proxy implements IAuthenticatorCallback {
         private IHwBinder mRemote;
@@ -36,12 +36,9 @@ public interface IAuthenticatorCallback extends IBase {
 
         public String toString() {
             try {
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(interfaceDescriptor());
-                stringBuilder.append("@Proxy");
-                return stringBuilder.toString();
+                return interfaceDescriptor() + "@Proxy";
             } catch (RemoteException e) {
-                return "[class or subclass of vendor.oppo.hardware.biometrics.fingerprintpay@1.0::IAuthenticatorCallback]@Proxy";
+                return "[class or subclass of vendor.oplus.hardware.biometrics.fingerprintpay@1.0::IAuthenticatorCallback]@Proxy";
             }
         }
 
@@ -240,7 +237,7 @@ public interface IAuthenticatorCallback extends IBase {
         }
 
         public final ArrayList<byte[]> getHashChain() {
-            return new ArrayList(Arrays.asList(new byte[][]{new byte[]{(byte) 98, (byte) -37, (byte) 57, (byte) -86, (byte) -90, (byte) -104, (byte) 61, (byte) -1, (byte) -85, (byte) 13, (byte) -72, (byte) -62, (byte) 115, (byte) 115, (byte) -38, (byte) -90, (byte) 117, (byte) -76, (byte) 16, (byte) -113, (byte) -112, (byte) 37, (byte) 126, (byte) -114, (byte) 75, (byte) 108, (byte) -104, (byte) -122, (byte) 81, (byte) -34, (byte) 75, (byte) 35}, new byte[]{(byte) -67, (byte) -38, (byte) -74, (byte) 24, (byte) 77, (byte) 122, (byte) 52, (byte) 109, (byte) -90, (byte) -96, (byte) 125, (byte) -64, (byte) 0x82, (byte) -116, (byte) -15, (byte) -102, (byte) 105, (byte) 111, (byte) 76, (byte) -86, (byte) 54, (byte) 17, (byte) -59, (byte) 31, (byte) 46, (byte) 20, (byte) 86, (byte) 90, (byte) 20, (byte) -76, (byte) 15, (byte) -39}}));
+            return new ArrayList<>(Arrays.asList(new byte[]{-125, -8, -95, -106, -62, 21, -13, -86, -5, -48, -46, 38, -49, -90, -44, -4, 73, 12, 115, 57, 49, 86, 126, 29, 1, -118, -53, 34, 102, -18, 81, 73}, new byte[]{-20, Byte.MAX_VALUE, -41, -98, -48, 45, -6, -123, -68, 73, -108, 38, -83, -82, 62, -66, 35, -17, 5, 36, -13, -51, 105, 87, 19, -109, 36, -72, 59, 24, -54, 76}));
         }
 
         public final void setHALInstrumentation() {
@@ -281,10 +278,7 @@ public interface IAuthenticatorCallback extends IBase {
         }
 
         public String toString() {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(interfaceDescriptor());
-            stringBuilder.append("@Stub");
-            return stringBuilder.toString();
+            return interfaceDescriptor() + "@Stub";
         }
 
         public void onTransact(int _hidl_code, HwParcel _hidl_request, HwParcel _hidl_reply, int _hidl_flags) throws RemoteException {
@@ -401,11 +395,14 @@ public interface IAuthenticatorCallback extends IBase {
                             _hidl_blob.putInt32(8, _hidl_vec_size);
                             _hidl_blob.putBool(12, false);
                             HwBlob childBlob = new HwBlob(_hidl_vec_size * 32);
-                            int _hidl_index_0 = 0;
-                            while (_hidl_index_0 < _hidl_vec_size) {
-                                childBlob.putInt8Array((long) (_hidl_index_0 * 32), (byte[]) _hidl_out_hashchain.get(_hidl_index_0));
-                                _hidl_index_0++;
+                        for (int _hidl_index_0 = 0; _hidl_index_0 < _hidl_vec_size; _hidl_index_0++) {
+                            long _hidl_array_offset_1 = (long) (_hidl_index_0 * 32);
+                            byte[] _hidl_array_item_1 = _hidl_out_hashchain.get(_hidl_index_0);
+                            if (_hidl_array_item_1 == null || _hidl_array_item_1.length != 32) {
+                                throw new IllegalArgumentException("Array element is not of the expected length");
                             }
+                            childBlob.putInt8Array(_hidl_array_offset_1, _hidl_array_item_1);
+                        }
                             _hidl_blob.putBlob(0, childBlob);
                             _hidl_reply.writeBuffer(_hidl_blob);
                             _hidl_reply.send();

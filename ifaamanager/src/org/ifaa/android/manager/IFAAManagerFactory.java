@@ -20,7 +20,7 @@ import android.view.WindowManager;
 import java.util.List;
 import java.util.ArrayList;
 import org.json.JSONObject;
-import vendor.oppo.hardware.biometrics.fingerprintpay.V1_0.IFingerprintPay;
+import vendor.oplus.hardware.biometrics.fingerprintpay.V1_0.IFingerprintPay;
 
 public class IFAAManagerFactory {
     public static final String TAG = "IFAAManagerFactory";

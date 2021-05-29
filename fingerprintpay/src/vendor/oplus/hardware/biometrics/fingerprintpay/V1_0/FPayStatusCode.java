@@ -1,4 +1,4 @@
-package vendor.oppo.hardware.biometrics.fingerprintpay.V1_0;
+package vendor.oplus.hardware.biometrics.fingerprintpay.V1_0;
 
 import java.util.ArrayList;
 
@@ -17,14 +17,11 @@ public final class FPayStatusCode {
         if (o == -2) {
             return "ERROR_FAILED";
         }
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("0x");
-        stringBuilder.append(Integer.toHexString(o));
-        return stringBuilder.toString();
+        return "0x" + Integer.toHexString(o);
     }
 
     public static final String dumpBitfield(int o) {
-        ArrayList<String> list = new ArrayList();
+        ArrayList<String> list = new ArrayList<>();
         int flipped = 0;
         list.add("STATUS_OK");
         if ((o & -1) == -1) {
@@ -36,10 +33,7 @@ public final class FPayStatusCode {
             flipped |= -2;
         }
         if (o != flipped) {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("0x");
-            stringBuilder.append(Integer.toHexString((~flipped) & o));
-            list.add(stringBuilder.toString());
+            list.add("0x" + Integer.toHexString((~flipped) & o));
         }
         return String.join(" | ", list);
     }

@@ -1,4 +1,4 @@
-package vendor.oppo.hardware.biometrics.fingerprintpay.V1_0;
+package vendor.oplus.hardware.biometrics.fingerprintpay.V1_0;
 
 import java.util.ArrayList;
 
@@ -101,10 +101,7 @@ public final class IFAAStatusCode {
         if (o == IFAA_ERR_NO_OPTIONAL_LEVEL) {
             return "IFAA_ERR_NO_OPTIONAL_LEVEL";
         }
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("0x");
-        stringBuilder.append(Integer.toHexString(o));
-        return stringBuilder.toString();
+        return "0x" + Integer.toHexString(o);
     }
 
     public static final String dumpBitfield(int o) {
@@ -204,10 +201,7 @@ public final class IFAAStatusCode {
             flipped |= IFAA_ERR_NO_OPTIONAL_LEVEL;
         }
         if (o != flipped) {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("0x");
-            stringBuilder.append(Integer.toHexString((~flipped) & o));
-            list.add(stringBuilder.toString());
+            list.add("0x" + Integer.toHexString((~flipped) & o));
         }
         return String.join(" | ", list);
     }
