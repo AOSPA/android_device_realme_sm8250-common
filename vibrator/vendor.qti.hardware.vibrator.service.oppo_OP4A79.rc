@@ -1,0 +1,4 @@
+service vendor.qti.vibrator.oppo_OP4A79 /vendor/bin/hw/vendor.qti.hardware.vibrator.service.oppo_OP4A79
+    class hal
+    user system
+    group system input
