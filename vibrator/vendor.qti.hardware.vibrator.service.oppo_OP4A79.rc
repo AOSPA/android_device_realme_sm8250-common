@@ -1,3 +1,25 @@
+on boot
+    chown system system /sys/class/leds/vibrator/haptic_audio
+    chown system system /sys/class/leds/vibrator/waveform_index
+    chown system system /sys/class/leds/vibrator/activate
+    chown system system /sys/class/leds/vibrator/brightness
+    chown system system /sys/class/leds/vibrator/duration
+    chown system system /sys/class/leds/vibrator/gain
+    chown system system /sys/class/leds/vibrator/loop
+    chown system system /sys/class/leds/vibrator/seq
+    chown system system /sys/class/leds/vibrator/state
+    chown system system /sys/class/leds/vibrator/vmax
+    chmod 0666 /sys/class/leds/vibrator/haptic_audio
+    chmod 0666 /sys/class/leds/vibrator/waveform_index
+    chmod 0666 /sys/class/leds/vibrator/activate
+    chmod 0666 /sys/class/leds/vibrator/brightness
+    chmod 0666 /sys/class/leds/vibrator/duration
+    chmod 0666 /sys/class/leds/vibrator/gain
+    chmod 0666 /sys/class/leds/vibrator/loop
+    chmod 0666 /sys/class/leds/vibrator/seq
+    chmod 0666 /sys/class/leds/vibrator/state
+    chmod 0666 /sys/class/leds/vibrator/vmax
+
 service vendor.qti.vibrator.oppo_OP4A79 /vendor/bin/hw/vendor.qti.hardware.vibrator.service.oppo_OP4A79
     class hal
     user system
