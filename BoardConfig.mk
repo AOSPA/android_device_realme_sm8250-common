@@ -88,6 +88,7 @@ endif
 
 # Display
 TARGET_USES_ION := true
+TARGET_SCREEN_DENSITY := 560
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
