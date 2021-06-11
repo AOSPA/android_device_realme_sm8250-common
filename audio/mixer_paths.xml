@@ -801,6 +801,15 @@
     <ctl name="HDR34 MUX" value="NO_HDR34" />
 
     <ctl name="Incall_Music_2 Audio Mixer MultiMedia9" value="0" />
+
+    <ctl name="MultiMedia8 Mixer SLIM_8_TX" value="0" />
+    <ctl name="RX INT1 MIX2 INP" value="ZERO" />
+    <ctl name="RX INT2 MIX2 INP" value="ZERO" />
+    <ctl name="MultiMedia6 Mixer TX_CDC_DMA_TX_4" value="0" />
+    <ctl name="RX_CDC_DMA_RX_0 Audio Mixer MultiMedia6" value="0" />
+    <ctl name="MultiMedia6 Mixer USB_AUDIO_TX" value="0" />
+    <ctl name="USB_AUDIO_RX Audio Mixer MultiMedia6" value="0" />
+    <ctl name="HDMI Mixer MultiMedia16" value="0" />
     <!--#endif /* VENDOR_EDIT */-->
 
     <!-- These are audio route (FE to BE) specific mixer settings -->
@@ -1226,6 +1235,10 @@
 
     <path name="compress-offload-playback2 speaker">
         <ctl name="TERT_MI2S_RX Audio Mixer MultiMedia7" value="1" />
+    </path>
+
+    <path name="compress-offload-playback2 dummy">
+        <ctl name="AFE_PCM_RX Audio Mixer MultiMedia7" value="1" />
     </path>
 
     <path name="compress-offload-playback2 display-port">
@@ -2313,7 +2326,7 @@
 
     <path name="voicemmode2-call usb-headphones">
         <ctl name="USB_AUDIO_RX_Voice Mixer VoiceMMode2" value="1" />
-        <ctl name="VoiceMMode2_Tx Mixer SLIM_0_TX_MMode2" value="1" />
+        <ctl name="VoiceMMode2_Tx Mixer TX_CDC_DMA_TX_3_MMode2" value="1" />
     </path>
 
     <path name="voicemmode2-call usb-headset">
@@ -2844,7 +2857,7 @@
     </path>
 
     <!--#ifdef VENDOR_EDIT-->
-    <!--Yongzhi.Zhang@PSW.MM.AudioDriver.feature.2891155, 2020/03/23, modify for ktv loopback-->
+    <!--Jianfeng.Qiu@PSW.MM.AudioDriver.feature.1234017, 2017/04/05, Add for ktv loopback-->
     <path name="headset-mic-ktv">
         <ctl name="Bob Regulator Mode Switch" value="MODE_FAST" />
         <ctl name="TX_CDC_DMA_TX_4 Channels" value="One" />
@@ -2853,20 +2866,20 @@
         <ctl name="TX_AIF2_CAP Mixer DEC0" value="1" />
         <ctl name="ADC2_MIXER Switch" value="1" />
         <ctl name="ADC2 MUX" value="INP2" />
-        <ctl name="TX_DEC0 Volume" value="80" />
+        <ctl name="TX_DEC0 Volume" value="84" />
     </path>
 
     <path name="usb-headset-mic-ktv">
     </path>
 
-    <path name="headphone-loopback headphones">
-        <ctl name="RX_CDC_DMA_RX_0_DL_HL Switch" value="1" />
-        <ctl name="RX_CDC_DMA_RX_0 Port Mixer TX_CDC_DMA_TX_4" value="1" />
+    <path name="headphone-loopback">
+        <ctl name="MultiMedia6 Mixer TX_CDC_DMA_TX_4" value="1" />
+        <ctl name="RX_CDC_DMA_RX_0 Audio Mixer MultiMedia6" value="1" />
     </path>
 
-    <path name="usb-headset-loopback usb-headset">
-        <ctl name="USB_DL_HL Switch" value="1" />
-        <ctl name="USB_AUDIO_RX Port Mixer USB_AUDIO_TX" value="1" />
+    <path name="usb-headset-loopback">
+        <ctl name="MultiMedia6 Mixer USB_AUDIO_TX" value="1" />
+        <ctl name="USB_AUDIO_RX Audio Mixer MultiMedia6" value="1" />
     </path>
     <!--#endif /* VENDOR_EDIT */-->
 

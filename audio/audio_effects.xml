@@ -44,7 +44,8 @@
         <!-- #ifdef VENDOR_EDIT-->
         <!-- JunQian.Lin@PSW.MM.Dolby, 2019/08/14, add for dolby -->
         <!--DOLBY DAP-->
-        <library name="dap" path="libswdap.so"/>
+        <library name="dap_sw" path="libswdap.so"/>
+        <library name="dap_hw" path="libhwdap.so"/>
         <!--DOLBY END-->
          <!--DOLBY VQE-->
         <library name="vqe" path="libswvqe.so"/>
@@ -101,7 +102,10 @@
         <!-- #ifdef VENDOR_EDIT-->
         <!--JunQian.Lin@PSW.MM.Dolby, 2019/09/18, add for dolby -->
         <!--DOLBY DAP-->
-        <effect name="dap" library="dap" uuid="9d4921da-8225-4f29-aefa-39537a04bcaa"/>
+        <effectProxy name="dap" library="proxy" uuid="9d4921da-8225-4f29-aefa-39537a04bcaa">
+            <libsw library="dap_sw" uuid="6ab06da4-c516-4611-8166-452799218539"/>
+            <libhw library="dap_hw" uuid="a0c30891-8246-4aef-b8ad-d53e26da0253"/>
+        </effectProxy>
         <!--DOLBY END-->
         <!--DOLBY VQE-->
         <effect name="vqe" library="vqe" uuid="64a0f614-7fa4-48b8-b081-d59dc954616f"/>
