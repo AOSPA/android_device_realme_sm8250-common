@@ -14,12 +14,16 @@
 // limitations under the License.
 
 cc_binary {
-    name: "vendor.lineage.livedisplay@2.0-service.oppo_OP4A79",
-    init_rc: ["vendor.lineage.livedisplay@2.0-service.oppo_OP4A79.rc"],
-    vintf_fragments: ["vendor.lineage.livedisplay@2.0-service.oppo_OP4A79.xml"],
+    name: "vendor.lineage.livedisplay@2.1-service.oppo_OP4A79",
+    init_rc: ["vendor.lineage.livedisplay@2.1-service.oppo_OP4A79.rc"],
+    vintf_fragments: ["vendor.lineage.livedisplay@2.1-service.oppo_OP4A79.xml"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     srcs: [
+        ":vendor.lineage.livedisplay@2.0-sdm-pa",
+        ":vendor.lineage.livedisplay@2.0-sdm-utils",
+        "AntiFlicker.cpp",
+        "DisplayModes.cpp",
         "SunlightEnhancement.cpp",
         "service.cpp",
     ],
@@ -29,6 +33,10 @@ cc_binary {
         "libhidlbase",
         "libutils",
         "vendor.lineage.livedisplay@2.0",
+        "vendor.lineage.livedisplay@2.1",
     ],
-    vendor: true,
+    header_libs: [
+        "vendor.lineage.livedisplay@2.0-sdm-headers",
+    ],
+    proprietary: true,
 }

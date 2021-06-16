@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-#ifndef VENDOR_LINEAGE_LIVEDISPLAY_V2_1_SUNLIGHTENHANCEMENT_H
-#define VENDOR_LINEAGE_LIVEDISPLAY_V2_1_SUNLIGHTENHANCEMENT_H
+#ifndef VENDOR_LINEAGE_LIVEDISPLAY_V2_1_ANTIFLICKER_H
+#define VENDOR_LINEAGE_LIVEDISPLAY_V2_1_ANTIFLICKER_H
 
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
-#include <vendor/lineage/livedisplay/2.1/ISunlightEnhancement.h>
+#include <vendor/lineage/livedisplay/2.1/IAntiFlicker.h>
 
 namespace vendor {
 namespace lineage {
@@ -31,9 +31,9 @@ using ::android::hardware::Return;
 using ::android::hardware::Void;
 using ::android::sp;
 
-class SunlightEnhancement : public ISunlightEnhancement {
+class AntiFlicker : public IAntiFlicker {
   public:
-    // Methods from ::vendor::lineage::livedisplay::V2_1::ISunlightEnhancement follow.
+    // Methods from ::vendor::lineage::livedisplay::V2_1::IAntiFlicker follow.
     Return<bool> isEnabled() override;
     Return<bool> setEnabled(bool enabled) override;
 };
@@ -44,4 +44,4 @@ class SunlightEnhancement : public ISunlightEnhancement {
 }  // namespace lineage
 }  // namespace vendor
 
-#endif  // VENDOR_LINEAGE_LIVEDISPLAY_V2_1_SUNLIGHTENHANCEMENT_H
+#endif  // VENDOR_LINEAGE_LIVEDISPLAY_V2_1_ANTIFLICKER_H

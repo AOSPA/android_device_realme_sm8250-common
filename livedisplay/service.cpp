@@ -14,12 +14,16 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.lineage.livedisplay@2.0-service.oppo_OP4A79"
+#define LOG_TAG "vendor.lineage.livedisplay@2.1-service.oppo_OP4A79"
 
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
+#include <livedisplay/sdm/PictureAdjustment.h>
+#include <vendor/lineage/livedisplay/2.1/IPictureAdjustment.h>
 
+#include "AntiFlicker.h"
+#include "DisplayModes.h"
 #include "SunlightEnhancement.h"
 
 using android::OK;
@@ -28,42 +32,69 @@ using android::status_t;
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
-using ::vendor::lineage::livedisplay::V2_0::ISunlightEnhancement;
-using ::vendor::lineage::livedisplay::V2_0::implementation::SunlightEnhancement;
+using ::vendor::lineage::livedisplay::V2_0::sdm::PictureAdjustment;
+using ::vendor::lineage::livedisplay::V2_0::sdm::SDMController;
+using ::vendor::lineage::livedisplay::V2_1::IAntiFlicker;
+using ::vendor::lineage::livedisplay::V2_1::IDisplayModes;
+using ::vendor::lineage::livedisplay::V2_1::IPictureAdjustment;
+using ::vendor::lineage::livedisplay::V2_1::ISunlightEnhancement;
+using ::vendor::lineage::livedisplay::V2_1::implementation::AntiFlicker;
+using ::vendor::lineage::livedisplay::V2_1::implementation::DisplayModes;
+using ::vendor::lineage::livedisplay::V2_1::implementation::SunlightEnhancement;
 
 int main() {
-    sp<SunlightEnhancement> sunlightEnhancement;
-    status_t status;
+    status_t status = OK;
 
-    LOG(INFO) << "LiveDisplay HAL custom service is starting.";
+    android::ProcessState::initWithDriver("/dev/vndbinder");
 
-    sunlightEnhancement = new SunlightEnhancement();
-    if (sunlightEnhancement == nullptr) {
-        LOG(ERROR) << "Can not create an instance of LiveDisplay HAL SunlightEnhancement Iface,"
-                   << "exiting.";
-        goto shutdown;
-    }
+    LOG(INFO) << "LiveDisplay HAL service is starting.";
 
-    if (!sunlightEnhancement->isSupported()) {
-        LOG(ERROR) << "SunlightEnhancement Iface is not supported, gracefully bailing out.";
-        return 1;
-    }
+    std::shared_ptr<SDMController> controller = std::make_shared<SDMController>();
+    sp<AntiFlicker> af = new AntiFlicker();
+    sp<DisplayModes> dm = new DisplayModes(controller);
+    sp<PictureAdjustment> pa = new PictureAdjustment(controller);
+    sp<SunlightEnhancement> se = new SunlightEnhancement();
 
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
-    status = sunlightEnhancement->registerAsService();
+    status = af->registerAsService();
+    if (status != OK) {
+        LOG(ERROR) << "Could not register service for LiveDisplay HAL AntiFlicker Iface ("
+                   << status << ")";
+        goto shutdown;
+    }
+
+    status = dm->registerAsService();
+    if (status != OK) {
+        LOG(ERROR) << "Could not register service for LiveDisplay HAL DisplayModes Iface ("
+                   << status << ")";
+        goto shutdown;
+    }
+
+    status = pa->registerAsService();
+    if (status != OK) {
+        LOG(ERROR) << "Could not register service for LiveDisplay HAL PictureAdjustment Iface ("
+                   << status << ")";
+        goto shutdown;
+    }
+
+    status = se->registerAsService();
     if (status != OK) {
         LOG(ERROR) << "Could not register service for LiveDisplay HAL SunlightEnhancement Iface ("
                    << status << ")";
         goto shutdown;
     }
 
-    LOG(INFO) << "LiveDisplay HAL custom service is ready.";
+    // Update default PA on setDisplayMode
+    dm->registerDisplayModeSetCallback(
+            std::bind(&PictureAdjustment::updateDefaultPictureAdjustment, pa));
+
+    LOG(INFO) << "LiveDisplay HAL service is ready.";
     joinRpcThreadpool();
     // Should not pass this line
 
 shutdown:
     // In normal operation, we don't expect the thread pool to shutdown
-    LOG(ERROR) << "LiveDisplay HAL custom service is shutting down.";
+    LOG(ERROR) << "LiveDisplay HAL service is shutting down.";
     return 1;
 }

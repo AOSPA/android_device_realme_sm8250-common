@@ -19,50 +19,31 @@
 #include <fstream>
 
 #include <android-base/logging.h>
-#include <android-base/properties.h>
-#include <android-base/strings.h>
-#include <utils/Errors.h>
 
 #include "SunlightEnhancement.h"
 
 namespace vendor {
 namespace lineage {
 namespace livedisplay {
-namespace V2_0 {
+namespace V2_1 {
 namespace implementation {
 
 static constexpr const char* kHbmPath =
         "/sys/kernel/oppo_display/hbm";
 
-bool hasAmoledPanel() {
-    std::string device = android::base::GetProperty("ro.product.device", "");
-    return (device == "OP4A79");
-}
-
-bool SunlightEnhancement::isSupported() {
-    if (hasAmoledPanel()) {
-        std::fstream hbm_path_file(kHbmPath);
-        if (!hbm_path_file.is_open()) {
-            LOG(ERROR) << "Failed to open " << kHbmPath << ", error=" << errno
-                       << " (" << strerror(errno) << ")";
-        }
-        return !hbm_path_file.fail();
-    }
-    return false;
-}
-
 Return<bool> SunlightEnhancement::isEnabled() {
-    std::ifstream hbm_status_file(kHbmPath);
+    std::ifstream file(kHbmPath);
     int result = -1;
-    hbm_status_file >> result;
-    return !hbm_status_file.fail() && result > 0;
+    file >> result;
+    LOG(DEBUG) << "Got result " << result << " fail " << file.fail();
+    return !file.fail() && result > 0;
 }
 
 Return<bool> SunlightEnhancement::setEnabled(bool enabled) {
-    std::ofstream hbm_param_file(kHbmPath);
-    hbm_param_file << (enabled ? 1 : 0);
-    LOG(DEBUG) << "setEnabled fail " << hbm_param_file.fail();
-    return !hbm_param_file.fail();
+    std::ofstream file(kHbmPath);
+    file << (enabled ? "1" : "0");
+    LOG(DEBUG) << "setEnabled fail " << file.fail();
+    return !file.fail();
 }
 
 }  // namespace implementation

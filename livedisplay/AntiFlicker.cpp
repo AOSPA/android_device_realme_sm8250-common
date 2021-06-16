@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-#ifndef VENDOR_LINEAGE_LIVEDISPLAY_V2_1_SUNLIGHTENHANCEMENT_H
-#define VENDOR_LINEAGE_LIVEDISPLAY_V2_1_SUNLIGHTENHANCEMENT_H
+#define LOG_TAG "AntiFlickerService"
 
-#include <hidl/MQDescriptor.h>
-#include <hidl/Status.h>
-#include <vendor/lineage/livedisplay/2.1/ISunlightEnhancement.h>
+#include "AntiFlicker.h"
+#include <android-base/logging.h>
+#include <fstream>
 
 namespace vendor {
 namespace lineage {
@@ -27,21 +26,26 @@ namespace livedisplay {
 namespace V2_1 {
 namespace implementation {
 
-using ::android::hardware::Return;
-using ::android::hardware::Void;
-using ::android::sp;
+static constexpr const char* kDcDimmingPath =
+    "/sys/kernel/oppo_display/dimlayer_bl_en";
 
-class SunlightEnhancement : public ISunlightEnhancement {
-  public:
-    // Methods from ::vendor::lineage::livedisplay::V2_1::ISunlightEnhancement follow.
-    Return<bool> isEnabled() override;
-    Return<bool> setEnabled(bool enabled) override;
-};
+Return<bool> AntiFlicker::isEnabled() {
+    std::ifstream file(kDcDimmingPath);
+    int result = -1;
+    file >> result;
+    LOG(DEBUG) << "Got result " << result << " fail " << file.fail();
+    return !file.fail() && result > 0;
+}
+
+Return<bool> AntiFlicker::setEnabled(bool enabled) {
+    std::ofstream file(kDcDimmingPath);
+    file << (enabled ? "1" : "0");
+    LOG(DEBUG) << "setEnabled fail " << file.fail();
+    return !file.fail();
+}
 
 }  // namespace implementation
 }  // namespace V2_1
 }  // namespace livedisplay
 }  // namespace lineage
 }  // namespace vendor
-
-#endif  // VENDOR_LINEAGE_LIVEDISPLAY_V2_1_SUNLIGHTENHANCEMENT_H
