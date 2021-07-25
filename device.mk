@@ -416,6 +416,10 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay
 
+# Touch
+PRODUCT_PACKAGES += \
+    vendor.lineage.touch@1.0-service.oppo_OP4A79
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.2-service-qti
