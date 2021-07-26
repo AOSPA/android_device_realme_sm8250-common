@@ -174,3 +174,5 @@ ro.surface_flinger.set_touch_timer_ms=200
 ro.surface_flinger.use_color_management=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
 persist.vendor.debug.wfd.config=/odm/etc/wfdconfig.xml
+ro.gfx.driver.0=com.oplus.gpudrivers.sm8250.api30
+ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.kona.api30

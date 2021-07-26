@@ -820,6 +820,8 @@ vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so
 -vendor/lib/liblbs_core.so
 
 # Graphics
+-my_product/app/oplusgpudrivers/oplusgpudrivers.apk:vendor/app/com.oplus.gpudrivers.sm8250.api30/com.oplus.gpudrivers.sm8250.api30.apk;PRESIGNED
+-vendor/app/com.qualcomm.qti.gpudrivers.kona.api30/com.qualcomm.qti.gpudrivers.kona.api30.apk;PRESIGNED
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
 vendor/lib64/egl/libGLESv1_CM_adreno.so
