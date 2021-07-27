@@ -65,27 +65,11 @@ LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE       := init.oppo.display.rc
+LOCAL_MODULE       := init.op4a79.rc
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.oppo.display.rc
-LOCAL_MODULE_PATH  := $(TARGET_OUT_ODM_ETC)/init/hw
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE       := init.oppo.sensor.rc
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.oppo.sensor.rc
-LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE       := init.oppo.vendor.touchpress.rc
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.oppo.vendor.touchpress.rc
-LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
+LOCAL_SRC_FILES    := etc/init.op4a79.rc
+LOCAL_MODULE_PATH  := $(TARGET_OUT_ODM_ETC)/init
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)

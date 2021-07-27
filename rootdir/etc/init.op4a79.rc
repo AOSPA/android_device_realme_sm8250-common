@@ -1,0 +1,15 @@
+on boot
+    # Camera
+    write /dev/cpuset/camera-daemon/cpus 0-7
+    chmod 0666 /dev/stmvl53l1_ranging
+    chown system system /dev/stmvl53l1_ranging
+
+on post-fs
+    # WLAN
+    mkdir /mnt/vendor/persist/wlan 0777 system system
+
+service vl53l1_daemon_main /odm/bin/vl53l1_daemon_main
+    class late_start
+    user root
+    group root
+    socket vl53l1_daemon stream 660 root system
