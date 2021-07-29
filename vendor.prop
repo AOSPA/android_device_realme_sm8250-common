@@ -103,6 +103,9 @@ ro.vendor.bluetooth.wipower=false
 vendor.hw.fm.init=0
 vendor.qcom.bluetooth.soc=hastings
 
+# Camera
+vendor.camera.aux.packagelist=org.codeaurora.snapcam,org.lineageos.snap
+
 # Charging
 ro.charger.enable_suspend=true
 
