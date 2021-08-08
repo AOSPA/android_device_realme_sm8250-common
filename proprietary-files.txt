@@ -50,7 +50,6 @@ odm/lib/rfsa/adsp/libktveffect.so
 odm/lib/rfsa/adsp/libktveq.so
 odm/lib/rfsa/adsp/libktvns.so
 odm/lib/rfsa/adsp/libktvreverb.so
-odm/lib/rfsa/adsp/libktvsoundtouch.so
 odm/lib/rfsa/adsp/libktvvolume.so
 odm/lib/rfsa/adsp/libsnpe_dsp_domains_skel.so
 odm/lib/rfsa/adsp/libsnpe_dsp_skel.so

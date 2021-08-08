@@ -182,7 +182,7 @@ TARGET_USES_MKE2FS := true
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2021-02-05
+VENDOR_SECURITY_PATCH := 2021-08-05
 
 # SELinux
 include device/qcom/sepolicy_vndr/SEPolicy.mk
