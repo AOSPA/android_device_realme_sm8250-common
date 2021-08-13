@@ -121,7 +121,7 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := DTC_EXT=$(shell pwd)/prebuilts/misc/$(HOST_OS)
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_SOURCE := kernel/oppo/sm8250
-TARGET_KERNEL_CONFIG := vendor/kona-perf_defconfig
+TARGET_KERNEL_CONFIG := op4a79_defconfig
 
 # Platform
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno650
