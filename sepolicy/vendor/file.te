@@ -1,0 +1,5 @@
+type vendor_persist_camera_file, file_type;
+
+type proc_touchpanel, fs_type, proc_type;
+
+type sysfs_vl53l1, fs_type, sysfs_type;

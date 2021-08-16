@@ -1,0 +1,8 @@
+# Camera
+/mnt/vendor/persist/camera(/.*)?                     u:object_r:vendor_persist_camera_file:s0
+
+# Display
+/sys/kernel/oppo_display(/.*)?      u:object_r:vendor_sysfs_graphics:s0
+
+# Fingerprinht
+/dev/goodix_fp            u:object_r:fingerprintd_device:s0
