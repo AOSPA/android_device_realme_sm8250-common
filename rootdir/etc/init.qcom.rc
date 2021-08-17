@@ -26,7 +26,7 @@
 #
 
 import /vendor/etc/init/hw/init.qcom.usb.rc
-
+import /vendor/etc/init/hw/init.qcom.power.rc
 import /vendor/etc/init/hw/init.target.rc
 import /odm/etc/init/hw/init.oppo.display.rc
 import /odm/etc/init/init.oplus.sensor.rc

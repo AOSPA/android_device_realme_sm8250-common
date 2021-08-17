@@ -376,6 +376,7 @@ PRODUCT_PACKAGES += \
     init.oppo.display.rc \
     init.oplus.charging.rc \
     init.oplus.usb.rc \
+    init.qcom.power.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
