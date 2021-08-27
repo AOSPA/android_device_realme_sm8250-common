@@ -1,0 +1,2 @@
+allow tee vendor_persist_fingerprint_file:dir create_dir_perms;
+allow tee vendor_persist_fingerprint_file:file create_file_perms;

@@ -1,0 +1,19 @@
+allow hal_camera_default proc_oplus:dir r_dir_perms;
+allow hal_camera_default proc_oplus:file r_file_perms;
+
+allow hal_camera_default mnt_vendor_file:dir r_dir_perms;
+allow hal_camera_default vendor_persist_file:dir r_dir_perms;
+
+allow hal_camera_default vendor_persist_camera_file:dir rw_dir_perms;
+allow hal_camera_default vendor_persist_camera_file:file create_file_perms;
+
+allow hal_camera_default proc_meminfo:file r_file_perms;
+
+allow hal_camera_default proc_flash:file rw_file_perms;
+
+allow hal_camera_default sysfs_vl53l1:dir r_dir_perms;
+allow hal_camera_default sysfs_vl53l1:file rw_file_perms;
+
+set_prop(hal_camera_default, vendor_camera_prop)
+get_prop(hal_camera_default, vendor_sensors_prop)
+vndbinder_use(hal_camera_default)

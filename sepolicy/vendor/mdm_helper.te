@@ -1,0 +1,9 @@
+allow vendor_mdm_helper rild_exec:file execute_no_trans;
+
+allow vendor_mdm_helper proc_oplus:dir r_dir_perms;
+allow vendor_mdm_helper proc_oplus:file rw_file_perms;
+
+allow vendor_mdm_helper vendor_efs_boot_dev:file rw_file_perms;
+
+set_prop(vendor_mdm_helper, vendor_modem_prop)
+get_prop(vendor_mdm_helper, vendor_radio_prop)

@@ -1,0 +1,7 @@
+type hal_camera_oplus_hwservice, hwservice_manager_type;
+type hal_charger_oplus_hwservice, hwservice_manager_type;
+type hal_fingerprint_oplus_hwservice, hwservice_manager_type;
+type hal_nfc_oplus_hwservice, hwservice_manager_type;
+type hal_orms_oplus_hwservice, hwservice_manager_type;
+
+type hal_display_iris_hwservice, hwservice_manager_type;

@@ -1,0 +1,9 @@
+type hal_charger_oplus, domain;
+type hal_charger_oplus_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(hal_charger_oplus)
+
+get_prop(hal_charger_oplus, hwservicemanager_prop)
+
+hwbinder_use(hal_charger_oplus)
+add_hwservice(hal_charger_oplus, hal_charger_oplus_hwservice)

@@ -1,0 +1,5 @@
+type vendor_fingerprint_prop, property_type;
+type vendor_modem_prop, property_type;
+type vendor_nfc_prop, property_type;
+type vendor_oplus_prop, property_type;
+type vendor_wcnss_prop, property_type;

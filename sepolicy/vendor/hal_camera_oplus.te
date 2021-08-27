@@ -1,0 +1,11 @@
+type hal_camera_oplus, domain;
+type hal_camera_oplus_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(hal_camera_oplus)
+
+get_prop(hal_camera_oplus, hwservicemanager_prop)
+
+add_service(hal_camera_oplus, vendor_camera_vndservice)
+hwbinder_use(hal_camera_oplus)
+vndbinder_use(hal_camera_oplus)
+add_hwservice(hal_camera_oplus, hal_camera_oplus_hwservice)

@@ -1,0 +1,9 @@
+type hal_orms_oplus, domain;
+type hal_orms_oplus_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(hal_orms_oplus)
+
+get_prop(hal_orms_oplus, hwservicemanager_prop)
+
+add_hwservice(hal_orms_oplus, hal_orms_oplus_hwservice)
+hwbinder_use(hal_orms_oplus)

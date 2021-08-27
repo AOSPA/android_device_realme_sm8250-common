@@ -1,0 +1,2 @@
+get_prop(vendor_wcnss_service, vendor_modem_prop)
+set_prop(vendor_wcnss_service, vendor_wcnss_prop)

@@ -5,12 +5,14 @@ on boot
     chown system system /dev/stmvl53l1_ranging
 
 on post-fs
+    # Radio
+    mkdir /cache/opponvitems 0775 radio radio
     # WLAN
     mkdir /mnt/vendor/persist/wlan 0777 system system
     setprop oppo.camera.packname com.oppo.camera
 
 service vl53l1_daemon_main /odm/bin/vl53l1_daemon_main
     class late_start
-    user root
-    group root
+    user system
+    group system
     socket vl53l1_daemon stream 660 root system

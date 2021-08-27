@@ -1,0 +1,3 @@
+allow vendor_hal_esepowermanager_qti hal_nfc_oplus_hwservice:hwservice_manager find;
+
+binder_call(vendor_hal_esepowermanager_qti, hal_nfc_oplus)
