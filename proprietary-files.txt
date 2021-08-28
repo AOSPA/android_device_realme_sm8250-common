@@ -308,7 +308,6 @@ odm/etc/camera/filters_lut/sky-blue.cube.rgb.bin
 odm/etc/camera/filters_lut/tree-green.cube.rgb.bin
 odm/etc/camera/filters_lut/yuanqi-2.2s.cube.rgb.bin
 odm/etc/camera/gasryuv_1.2_wp.model
-odm/etc/camera/license_release_fdc.lic
 odm/etc/camera/megvii/cache
 odm/etc/camera/megvii/merged_model
 odm/etc/camera/megvii/merged_model_post
@@ -322,7 +321,6 @@ odm/etc/camera/megvii32/cache
 odm/etc/camera/megvii32/siq_ocl_cache
 odm/etc/camera/megvii32/superiq_model
 odm/etc/camera/model/DocDetectV15.xbin
-odm/etc/camera/model/license.lic
 odm/etc/camera/model_fdc.data
 odm/etc/camera/mtStereoParams.bin
 odm/etc/camera/mwStereoParams.bin
@@ -341,7 +339,6 @@ odm/etc/camera/pfb_bin/PreSurfaceBlurBinary.bin
 odm/etc/camera/pfb_bin/PreVertFilterBinary.bin
 odm/etc/camera/pfb_bin/PreVertSurBinary.bin
 odm/etc/camera/settings_fdc.txt
-odm/etc/camera/singleblur/license_release.license
 odm/etc/camera/tonemap/curve_lut_0
 odm/etc/camera/tonemap/curve_lut_1
 odm/etc/camera/tonemap/curve_lut_10
