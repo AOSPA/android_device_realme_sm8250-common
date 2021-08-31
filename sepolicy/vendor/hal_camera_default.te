@@ -14,6 +14,8 @@ allow hal_camera_default proc_flash:file rw_file_perms;
 allow hal_camera_default sysfs_vl53l1:dir r_dir_perms;
 allow hal_camera_default sysfs_vl53l1:file rw_file_perms;
 
+allow hal_camera_default hal_orms_oplus_hwservice:hwservice_manager find;
+
 set_prop(hal_camera_default, vendor_camera_prop)
 get_prop(hal_camera_default, vendor_sensors_prop)
 vndbinder_use(hal_camera_default)
