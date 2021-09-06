@@ -1,4 +1,4 @@
 hidl_package_root {
     name: "vendor.oplus.hardware",
-    path: "device/oppo/OP4A79/interfaces",
+    path: "device/oppo/OP4A7A/interfaces",
 }

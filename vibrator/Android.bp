@@ -2,7 +2,7 @@ Common_CFlags = ["-Wall"]
 Common_CFlags += ["-Werror"]
 
 cc_library_shared {
-    name: "vendor.qti.hardware.vibrator.impl.oppo_OP4A79",
+    name: "vendor.qti.hardware.vibrator.impl.oppo_OP4A7A",
     vendor: true,
     cflags: Common_CFlags,
     srcs: [
@@ -20,12 +20,12 @@ cc_library_shared {
 }
 
 cc_binary {
-    name: "vendor.qti.hardware.vibrator.service.oppo_OP4A79",
+    name: "vendor.qti.hardware.vibrator.service.oppo_OP4A7A",
     vendor: true,
     relative_install_path: "hw",
-    init_rc: ["vendor.qti.hardware.vibrator.service.oppo_OP4A79.rc"],
+    init_rc: ["vendor.qti.hardware.vibrator.service.oppo_OP4A7A.rc"],
     vintf_fragments: [
-        "vendor.qti.hardware.vibrator.service.oppo_OP4A79.xml",
+        "vendor.qti.hardware.vibrator.service.oppo_OP4A7A.xml",
     ],
     cflags: Common_CFlags,
     srcs: [
@@ -37,6 +37,6 @@ cc_binary {
         "libbase",
         "libbinder_ndk",
         "android.hardware.vibrator-ndk_platform",
-        "vendor.qti.hardware.vibrator.impl.oppo_OP4A79",
+        "vendor.qti.hardware.vibrator.impl.oppo_OP4A7A",
     ],
 }

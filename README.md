@@ -3,7 +3,7 @@ Copyright (C) 2020 The LineageOS Project
 Device configuration for OPPO Find X2 Pro
 =========================================
 
-The OPPO Find X2 Pro (codenamed _"OP4A79"_) is a high-end smartphone from OPPO.
+The OPPO Find X2 Pro (codenamed _"OP4A7A"_) is a high-end smartphone from OPPO.
 
 It was announced & released in March 2020.
 

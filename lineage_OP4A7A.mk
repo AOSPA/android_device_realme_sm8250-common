@@ -25,9 +25,9 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
 PRODUCT_BRAND := OPPO
-PRODUCT_DEVICE := OP4A79
+PRODUCT_DEVICE := OP4A7A
 PRODUCT_MANUFACTURER := OPPO
-PRODUCT_NAME := lineage_OP4A79
+PRODUCT_NAME := lineage_OP4A7A
 PRODUCT_MODEL := PDEM30
 
 PRODUCT_GMS_CLIENTID_BASE := android-oppo

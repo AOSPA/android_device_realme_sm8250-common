@@ -29,7 +29,7 @@ on boot
     chown system system /proc/touchpanel/single_tap_enable
     chown system system /proc/touchpanel/double_tap_enable
 
-service vendor.touch-hal-1-0 /vendor/bin/hw/vendor.lineage.touch@1.0-service.oppo_OP4A79
+service vendor.touch-hal-1-0 /vendor/bin/hw/vendor.lineage.touch@1.0-service.oppo_OP4A7A
     interface vendor.lineage.touch@1.0::ITouchscreenGesture default
     class hal
     user system

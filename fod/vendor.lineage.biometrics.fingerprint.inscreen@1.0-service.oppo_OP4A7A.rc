@@ -8,7 +8,7 @@ on boot
     chown system system /sys/kernel/oppo_display/notify_fppress
     chown system system /sys/kernel/oppo_display/notify_panel_blank
 
-service vendor.fingerprint-inscreen-1-0 /vendor/bin/hw/vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A79
+service vendor.fingerprint-inscreen-1-0 /vendor/bin/hw/vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A7A
     interface vendor.lineage.biometrics.fingerprint.inscreen@1.0::IFingerprintInscreen default
     class hal
     user system

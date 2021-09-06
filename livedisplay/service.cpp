@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.lineage.livedisplay@2.1-service.oppo_OP4A79"
+#define LOG_TAG "vendor.lineage.livedisplay@2.1-service.oppo_OP4A7A"
 
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>

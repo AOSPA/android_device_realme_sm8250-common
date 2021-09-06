@@ -16,9 +16,9 @@
 cc_binary {
     relative_install_path: "hw",
     defaults: ["hidl_defaults"],
-    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A79",
-    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A79.rc"],
-    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A79.xml"],
+    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A7A",
+    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A7A.rc"],
+    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A7A.xml"],
     srcs: [
 	"service.cpp",
         "FingerprintInscreen.cpp",
@@ -35,7 +35,7 @@ cc_binary {
 }
 
 cc_library_static {
-    name: "libfod_extension.oppo_OP4A79",
+    name: "libfod_extension.oppo_OP4A7A",
     srcs: ["FodExtension.cpp"],
     include_dirs: [
         "frameworks/native/services/surfaceflinger/CompositionEngine/include"

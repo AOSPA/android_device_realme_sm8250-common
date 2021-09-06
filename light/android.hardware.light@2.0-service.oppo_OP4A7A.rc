@@ -4,7 +4,7 @@ on boot
 
     chmod 660 /sys/class/backlight/panel0-backlight/brightness
 
-service vendor.light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.oppo_OP4A79
+service vendor.light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.oppo_OP4A7A
     class hal
     user system
     group system

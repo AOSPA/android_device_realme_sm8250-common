@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A79"
+#define LOG_TAG "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A7A"
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
