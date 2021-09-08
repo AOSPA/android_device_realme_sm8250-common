@@ -1,3 +1,5 @@
+# All unpinned blobs below are extracted from PDEM30domestic_11_C.17_2021072317570000
+
 # ACDB
 odm/etc/acdbdata/Bluetooth_cal.acdb
 odm/etc/acdbdata/General_cal.acdb
