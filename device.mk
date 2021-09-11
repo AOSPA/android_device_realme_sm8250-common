@@ -274,7 +274,7 @@ PRODUCT_COPY_FILES += \
 
 # Light
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.oppo_OP4A7A
+    android.hardware.light-service.oppo_OP4A7A
 
 # LiveDisplay
 PRODUCT_PACKAGES += \

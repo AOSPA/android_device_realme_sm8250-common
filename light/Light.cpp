@@ -22,11 +22,17 @@
 #include <android-base/stringprintf.h>
 #include <fstream>
 
+namespace aidl {
 namespace android {
 namespace hardware {
 namespace light {
-namespace V2_0 {
-namespace implementation {
+
+#define AutoHwLight(light) {.id = (int)light, .type = light, .ordinal = 0}
+
+// List of supported lights
+const static std::vector<HwLight> kAvailableLights = {
+    AutoHwLight(LightType::BACKLIGHT)
+};
 
 /*
  * Write value to path and close file.
@@ -52,18 +58,14 @@ static T get(const std::string& path, const T& def) {
 
 static constexpr int kDefaultMaxBrightness = 255;
 
-static uint32_t rgbToBrightness(const LightState& state) {
+static uint32_t rgbToBrightness(const HwLightState& state) {
     uint32_t color = state.color & 0x00ffffff;
     return ((77 * ((color >> 16) & 0xff))
             + (150 * ((color >> 8) & 0xff))
             + (29 * (color & 0xff))) >> 8;
 }
 
-Light::Light() {
-    mLights.emplace(Type::BACKLIGHT, std::bind(&Light::handleBacklight, this, std::placeholders::_1));
-}
-
-void Light::handleBacklight(const LightState& state) {
+void Lights::handleBacklight(const HwLightState& state) {
     int maxBrightness = get("/sys/class/backlight/panel0-backlight/max_brightness", -1);
     if (maxBrightness < 0) {
         maxBrightness = kDefaultMaxBrightness;
@@ -75,35 +77,31 @@ void Light::handleBacklight(const LightState& state) {
     set("/sys/class/backlight/panel0-backlight/brightness", brightness);
 }
 
-Return<Status> Light::setLight(Type type, const LightState& state) {
-    auto it = mLights.find(type);
-
-    if (it == mLights.end()) {
-        return Status::LIGHT_NOT_SUPPORTED;
-    }
-
-    // Lock global mutex until light state is updated.
-    std::lock_guard<std::mutex> lock(mLock);
-
-    it->second(state);
-
-    return Status::SUCCESS;
+Lights::Lights() {
 }
 
-Return<void> Light::getSupportedTypes(getSupportedTypes_cb _hidl_cb) {
-    std::vector<Type> types;
-
-    for (auto const& light : mLights) {
-        types.push_back(light.first);
+// AIDL methods
+ndk::ScopedAStatus Lights::setLightState(int id, const HwLightState& state) {
+    switch (id) {
+        case (int)LightType::BACKLIGHT:
+            handleBacklight(state);
+            break;
+        default:
+            return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+            break;
     }
 
-    _hidl_cb(types);
-
-    return Void();
+    return ndk::ScopedAStatus::ok();
 }
 
-}  // namespace implementation
-}  // namespace V2_0
+ndk::ScopedAStatus Lights::getLights(std::vector<HwLight>* lights) {
+    for (auto i = kAvailableLights.begin(); i != kAvailableLights.end(); i++) {
+        lights->push_back(*i);
+    }
+    return ndk::ScopedAStatus::ok();
+}
+
 }  // namespace light
 }  // namespace hardware
 }  // namespace android
+}  // namespace aidl

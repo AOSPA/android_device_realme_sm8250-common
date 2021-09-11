@@ -13,19 +13,18 @@
 // limitations under the License.
 
 cc_binary {
+    name: "android.hardware.light-service.oppo_OP4A7A",
     relative_install_path: "hw",
-    defaults: ["hidl_defaults"],
-    name: "android.hardware.light@2.0-service.oppo_OP4A7A",
-    init_rc: ["android.hardware.light@2.0-service.oppo_OP4A7A.rc"],
-    vintf_fragments: ["android.hardware.light@2.0-service.oppo_OP4A7A.xml"],
-    srcs: ["service.cpp", "Light.cpp"],
-    shared_libs: [
-        "android.hardware.light@2.0",
-        "libbase",
-        "libhardware",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-    ],
+    init_rc: ["android.hardware.light-service.oppo_OP4A7A.rc"],
+    vintf_fragments: ["android.hardware.light-service.oppo_OP4A7A.xml"],
     vendor: true,
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "android.hardware.light-ndk_platform",
+    ],
+    srcs: [
+        "Light.cpp",
+        "main.cpp",
+    ],
 }
