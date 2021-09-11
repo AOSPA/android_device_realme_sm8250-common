@@ -208,10 +208,6 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
-# RenderScript
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
-
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@2.0-service.multihal
