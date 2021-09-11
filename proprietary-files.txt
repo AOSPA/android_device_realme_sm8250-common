@@ -138,7 +138,7 @@ vendor/bin/hw/android.hardware.authsecret@1.0-service-qti
 vendor/etc/init/android.hardware.authsecret@1.0-service-qti.rc
 
 # Bluetooth
-odm/etc/vintf/manifest/manifest_oplus_bluetooth_audio.xml
+-odm/etc/vintf/manifest/manifest_oplus_bluetooth_audio.xml
 odm/lib64/hw/vendor.oplus.hardware.bluetooth_audio@1.0-impl.so
 odm/lib64/oppo_btaudio_offload_if.so
 odm/lib64/vendor.oplus.hardware.bluetooth_audio@1.0.so
@@ -368,8 +368,8 @@ odm/etc/camera/tonemap/tonemap_lut_9
 odm/etc/camera/wide.bin
 odm/etc/init/vendor.oplus.hardware.extcamera@1.0-service.rc
 odm/etc/init/vendor.oplus.hardware.orms.ormsHalService@1.0-service.rc
-odm/etc/vintf/manifest/manifest_oplus_extcamera.xml
-odm/etc/vintf/manifest/manifest_oplus_orms.xml
+-odm/etc/vintf/manifest/manifest_oplus_extcamera.xml
+-odm/etc/vintf/manifest/manifest_oplus_orms.xml
 odm/lib64/camera/components/com.oplus.node.drawafinfo.so
 odm/lib64/camera/components/com.oplus.node.ecs.so
 odm/lib64/camera/components/com.oplus.node.preview.so
@@ -572,7 +572,7 @@ vendor/lib/libsysmon_cdsp_skel.so
 # Charger
 odm/bin/hw/vendor.oplus.hardware.charger@1.0-service
 odm/etc/init/vendor.oplus.hardware.charger@1.0-service.rc
-odm/etc/vintf/manifest/manifest_oplus_charger.xml
+-odm/etc/vintf/manifest/manifest_oplus_charger.xml
 odm/firmware/fastchg/19065/oppo_vooc_fw.bin
 odm/firmware/fastchg/19066/oppo_vooc_fw.bin
 odm/lib/vendor.oplus.hardware.charger@1.0.so
@@ -785,7 +785,7 @@ vendor/bin/lowi-server
 vendor/bin/slim_daemon
 vendor/bin/xtra-daemon
 vendor/etc/cacert_location.pem
-vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml
+-vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml
 vendor/etc/xtra_root_cert.pem
 vendor/lib64/hw/vendor.qti.gnss@4.0-impl.so
 vendor/lib64/libaoa.so
@@ -907,8 +907,8 @@ odm/etc/inparm/irissoft/inParm8.txt
 odm/etc/inparm/irissoft/inParm9.txt
 odm/etc/inparm/irissoft/mcfCheck.txt
 odm/etc/irissoft.fw
-odm/etc/vintf/manifest/vendor.pixelworks.hardware.display.iris-service.xml
-odm/etc/vintf/manifest/vendor.pixelworks.hardware.feature.irisfeature-service.xml
+-odm/etc/vintf/manifest/vendor.pixelworks.hardware.display.iris-service.xml
+-odm/etc/vintf/manifest/vendor.pixelworks.hardware.feature.irisfeature-service.xml
 odm/lib64/libpwirisIoctlWrapper.so
 odm/lib64/libpwirisPCS.so
 odm/lib64/libpwiriscalibrate.so
@@ -1084,8 +1084,7 @@ vendor/lib64/unnhal-acc-hvx.so
 
 # NFC
 odm/bin/hw/vendor.oplus.hardware.nfc@1.0-service
-odm/etc/vintf/manifest/manifest_nfc_sn100t.xml
-odm/etc/vintf/manifest/manifest_oplus_nfc.xml
+-odm/etc/vintf/manifest/manifest_oplus_nfc.xml
 odm/etc/init/vendor.oplus.hardware.nfc@1.0-service.rc
 odm/etc/nfc/nfc_chipset_ref
 odm/etc/nfc/nfc_conf_ref
@@ -1276,7 +1275,6 @@ vendor/radio/qcril_database/upgrade/3_version_update_wps_config.sql
 vendor/radio/qcril_database/upgrade/4_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/6_version_update_ecc_table.sql
-odm/etc/vintf/manifest_dsds.xml:odm/etc/vintf/manifest/manifest_dsds.xml
 
 # Telephony (qti-telephony-common) - from DRG - QKQ1.190828.002
 system_ext/framework/qti-telephony-common.jar|b4d187700f279cdbd40e74b4c3be4504f10d8b29
@@ -2212,7 +2210,7 @@ odm/firmware/barca_notice_ring_RTP_122.bin
 # Widevine
 odm/bin/hw/android.hardware.drm@1.3-service.widevine
 odm/etc/init/android.hardware.drm@1.3-service.widevine.rc
-odm/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
+-odm/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
 odm/lib64/liboemcrypto.so
 odm/lib64/mediadrm/libwvdrmengine.so
 odm/lib64/libwvhidl.so

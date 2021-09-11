@@ -28,7 +28,6 @@ DEVICE_PATH := device/oppo/OP4A7A
 
 # Build System
 BUILD_BROKEN_DUP_RULES := true
-BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
 
 # Architecture
 TARGET_ARCH := arm64
@@ -129,6 +128,9 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno650
 TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.oppo_OP4A7A
 
 # HIDL
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
+    $(DEVICE_PATH)/device_framework_matrix.xml \
+    vendor/lineage/config/device_framework_matrix.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 
