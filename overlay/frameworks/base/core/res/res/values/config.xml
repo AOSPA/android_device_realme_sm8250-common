@@ -273,14 +273,6 @@
     <!-- Period of time in which to consider light samples in milliseconds. -->
      <integer name="config_autoBrightnessAmbientLightHorizon">8000</integer>
 
-    <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
-         for debouncing the light sensor.  Different constants are used to debounce the light sensor
-         when adapting to brighter or darker environments.  This parameter controls how quickly
-         brightness changes occur in response to an observed change in light level that exceeds the
-         hysteresis threshold. -->
-     <integer name="config_autoBrightnessBrighteningLightDebounce">500</integer>
-     <integer name="config_autoBrightnessDarkeningLightDebounce">500</integer>
-
     <!-- Operating volatage for bluetooth controller. 0 by default-->
      <integer name="config_bluetooth_operating_voltage_mv">3300</integer>
 
@@ -307,12 +299,12 @@
          For example, a multi-sim device can have 2 phones/logical modems, but 3 physical slots,
          or a single SIM device can have 1 phones/logical modems, but 2 physical slots (one eSIM
          and one pSIM) -->
-     <integer name="config_num_physical_slots">1</integer>
+     <integer name="config_num_physical_slots">2</integer>
 
     <!-- Screen brightness used to dim the screen when the user activity
          timeout expires.  May be less than the minimum allowed brightness setting
          that can be set by the user. -->
-     <integer name="config_screenBrightnessDim">15</integer>
+     <integer name="config_screenBrightnessDim">10</integer>
 
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
          May be less than the minimum allowed brightness setting
@@ -330,6 +322,17 @@
     <!-- Maximum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness above this level. -->
     <integer name="config_screenBrightnessSettingMaximum">255</integer>
+
+    <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
+         for debouncing the light sensor.  Different constants are used to debounce the light sensor
+         when adapting to brighter or darker environments.  This parameter controls how quickly
+         brightness changes occur in response to an observed change in light level that exceeds the
+         hysteresis threshold. -->
+    <integer name="config_autoBrightnessBrighteningLightDebounce">4000</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">8000</integer>
+
+    <!-- Light sensor event rate in milliseconds for automatic brightness control. -->
+    <integer name="config_autoBrightnessLightSensorRate">250</integer>
 
     <!-- Array of light sensor lux values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 control points as follows:
@@ -1003,9 +1006,6 @@
         <item>418.36</item>
         <item>420</item>
     </array>
-
-    <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
-    <integer name="config_shutdownBatteryTemperature">680</integer>
 
     <!-- Integer parameters of the wifi to cellular handover feature
          wifi should not stick to bad networks -->

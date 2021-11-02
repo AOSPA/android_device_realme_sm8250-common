@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!--- Copyright (c) 2013-2019, The Linux Foundation. All rights reserved.       -->
+<!--- Copyright (c) 2013-2020, The Linux Foundation. All rights reserved.       -->
 <!---                                                                           -->
 <!--- Redistribution and use in source and binary forms, with or without        -->
 <!--- modification, are permitted provided that the following conditions are    -->
@@ -53,8 +53,10 @@
         <param platform_lpi_enable="true" />
         <param enable_debug_dumps="false" />
         <param support_non_lpi_without_ec="false" />
+        <!-- Kaijia.Lin@MULTIMEDIA.AudioDriver.ST_HAL.2672650, 2019/12/13, OPLUS_BUG_STABILITY Modify for CR#2585011 fixing incall wakeup -->
         <param concurrent_voice_call="false" />
         <param concurrent_voip_call="false" />
+        <!-- Kaijia.Lin@MULTIMEDIA.AudioDriver.ST_HAL.2672650, 2019/12/13, OPLUS_BUG_STABILITY Modify for CR#2585011 fixing incall wakeup END-->
     </common_config>
     <acdb_ids>
         <param DEVICE_HANDSET_MIC_APE="100" />
