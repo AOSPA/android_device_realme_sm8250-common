@@ -38,7 +38,7 @@ on early-boot
     write /sys/bus/msm_subsys/devices/subsys11/restart_level RELATED
 
     # Disable serial console notification
-    setprop init.svc.console stopped
+    stop console
 
 on boot
     # Charger
