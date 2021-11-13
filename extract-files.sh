@@ -64,6 +64,9 @@ function blob_fixup() {
     system_ext/lib64/libwfdnative.so | system_ext/lib/libwfdnative.so )
         patchelf --remove-needed "android.hidl.base@1.0.so" "${2}"
     ;;
+    odm/lib64/libgf_hal_G5.so)
+        sed -i "s/ro.boot.flash.locked/vendor.flash.locked\x00/" "${2}"
+    ;;
     esac
 }
 

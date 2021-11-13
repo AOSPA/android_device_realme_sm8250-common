@@ -147,8 +147,8 @@ vendor.gralloc.disable_ubwc=0
 drm.service.enabled=true
 
 # Fingerprint
-ro.boot.flash.locked=0
 ro.separate.soft=19066
+vendor.flash.locked=0
 
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
