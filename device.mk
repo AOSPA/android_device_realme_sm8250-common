@@ -155,9 +155,14 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
+# Authsecret
+PRODUCT_PACKAGES += \
+    android.hardware.authsecret@1.0.vendor
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     liba2dpoffload \
+    android.hardware.bluetooth@1.0.vendor \
     android.hardware.bluetooth.audio@2.0-impl \
     audio.bluetooth.default \
     libbthost_if \
@@ -204,6 +209,7 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
+    android.hardware.drm@1.3.vendor \
     android.hardware.drm@1.4-service.clearkey
 
 # fastbootd
@@ -222,6 +228,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     ifaamanager
 
+# Gatekeeper
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0.vendor
+
 # GPS
 PRODUCT_PACKAGES += \
     libbatching \
@@ -230,6 +240,10 @@ PRODUCT_PACKAGES += \
     libgnsspps \
 
 PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
+    android.hardware.gnss.measurement_corrections@1.1.vendor \
+    android.hardware.gnss.visibility_control@1.0.vendor \
+    android.hardware.gnss@2.1.vendor \
     android.hardware.gnss@2.1-impl-qti \
     android.hardware.gnss@2.1-service-qti
 
@@ -270,6 +284,10 @@ PRODUCT_COPY_FILES += \
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/touchpanel.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/touchpanel.kl
+
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.1.vendor
 
 # Light
 PRODUCT_PACKAGES += \
@@ -331,11 +349,18 @@ PRODUCT_COPY_FILES += \
 
 # Net
 PRODUCT_PACKAGES += \
+    android.system.net.netd@1.1.vendor \
     netutils-wrapper-1.0
+
+# Neural networks
+PRODUCT_PACKAGES += \
+    android.hardware.neuralnetworks@1.3.vendor
 
 # NFC
 PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.2.vendor \
     android.hardware.nfc@1.2-service \
+    android.hardware.secure_element@1.2.vendor \
     com.android.nfc_extras \
     com.gsma.services.nfc \
     NfcNci \
@@ -353,6 +378,7 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
+    android.hardware.power@1.2.vendor \
     vendor.qti.hardware.perf@2.0.vendor
 
 # QTI
@@ -368,6 +394,9 @@ PRODUCT_COPY_FILES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    android.hardware.radio@1.5.vendor \
+    android.hardware.radio.config@1.2.vendor \
+    android.hardware.radio.deprecated@1.0.vendor \
     android.hardware.radio.config@1.0 \
     android.hardware.radio@1.4 \
     android.hardware.secure_element@1.0 \
