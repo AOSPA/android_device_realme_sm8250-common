@@ -46,6 +46,16 @@ on init
     chmod 0660 /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     start logd
 
+    # Update Fastchg FW
+    chmod 0660 /proc/fastchg_fw_update
+    chown system system /proc/fastchg_fw_update
+    write /proc/fastchg_fw_update 1
+
+    # Enable decimal charging
+    chmod 0666 /proc/ui_soc_decimal
+    chown system system /proc/ui_soc_decimal
+    write /proc/ui_soc_decimal 1
+
 on early-fs
     start vold
 
