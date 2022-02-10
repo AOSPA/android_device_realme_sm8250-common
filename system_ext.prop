@@ -1,6 +1,6 @@
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
-bluetooth.profile.asha.central=false
+bluetooth.profile.asha.central.enabled=false
 persist.bluetooth.bqr.choppy_threshold=9,6
 persist.bluetooth.bqr.event_mask=0x8000000E
 persist.bluetooth.bqr.min_interval_ms=60000
