@@ -198,6 +198,7 @@ persist.vendor.sensors.sync_request=true
 
 # USB
 vendor.usb.diag.func.name=diag
+vendor.usb.product_string=realme GT Neo2 5G
 vendor.usb.use_ffs_mtp=0
 
 # Wifi
