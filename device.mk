@@ -363,7 +363,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.oppo.display \
+    init.oppo.display.rc \
+    init.oplus.usb.rc \
     init.qcom.rc \
     init.recovery.qcom.rc \
     init.target.rc \
