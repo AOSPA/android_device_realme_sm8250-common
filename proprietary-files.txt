@@ -1367,6 +1367,7 @@ vendor/app/IWlanService/IWlanService.apk
 vendor/bin/hw/qcrild
 vendor/bin/ATFWD-daemon
 vendor/bin/adpl
+vendor/bin/init.mdm.sh
 vendor/bin/ks
 vendor/bin/mdm_helper
 vendor/bin/netmgrd
