@@ -205,7 +205,7 @@ PRODUCT_PACKAGES += \
 
 # Doze
 PRODUCT_PACKAGES += \
-    OPPODoze
+    OplusDoze
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -218,15 +218,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.oppo_OP4A7A \
-    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oppo_OP4A7A
-
-PRODUCT_PACKAGES += \
-    IFAAService \
-    ifaamanager
-
-PRODUCT_BOOT_JARS += \
-    ifaamanager
+    android.hardware.biometrics.fingerprint@2.3-service.oplus
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
@@ -295,7 +287,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.1-service.oppo_OP4A7A
+    vendor.lineage.livedisplay@2.1-service.oplus
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -341,7 +333,8 @@ PRODUCT_PACKAGES += \
 
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    device/realme/bitra
+    device/realme/bitra \
+    hardware/oplus
 
 # Native Public Libraries
 PRODUCT_COPY_FILES += \
@@ -457,7 +450,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.oppo_OP4A7A
+    vendor.lineage.touch@1.0-service.oplus
 
 # USB
 PRODUCT_PACKAGES += \
@@ -476,7 +469,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service.oppo_OP4A7A
+    vendor.qti.hardware.vibrator.service.oplus
 
 PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml

@@ -126,7 +126,7 @@ TARGET_KERNEL_CONFIG := bitra_defconfig
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno650
 
 # Display
-TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.oppo_OP4A7A
+TARGET_SURFACEFLINGER_FOD_LIB := //hardware/oplus:libudfps_extension.oplus
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
