@@ -1555,7 +1555,6 @@ odm/lib64/android.hardware.secure_element@1.0-impl.so
 
 # Sensors
 odm/bin/oplus_sensor_fb
-odm/etc/init/init.oplus.sensor.rc
 odm/lib64/liboplus_service.so
 odm/lib64/sensors.hal.tof.so
 odm/lib64/sensors.hal.tofcalib.so
