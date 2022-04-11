@@ -25,11 +25,11 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import /vendor/etc/init/hw/init.qti.ufs.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
-import /vendor/etc/init/hw/init.qcom.power.rc
+import /vendor/etc/init/hw/init.qcom.test.rc
 import /vendor/etc/init/hw/init.target.rc
-import /odm/etc/init/hw/init.oppo.display.rc
-import /odm/etc/init/init.oplus.sensor.rc
+import /vendor/etc/init/hw/init.qcom.factory.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -105,8 +105,6 @@ on early-boot
     chown system system /mnt/vendor/persist/data/pfm/licenses/store_4
     chmod 0664 /mnt/vendor/persist/data/pfm/licenses/store_4
 
-    stop console
-
 on boot
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
@@ -154,6 +152,7 @@ on boot
     mkdir /mnt/vendor/persist/secnvm 0770 system system
     mkdir /mnt/vendor/persist/iar_db 0770 system system
     mkdir /mnt/vendor/spunvm 0770 system system
+
     #Create WIGIG socket area
     mkdir /dev/socket/wigig 0770 wifi wifi
 
@@ -178,7 +177,7 @@ on boot
     write /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal 1
 
     # Set the console loglevel to < KERN_WARN
-    # Set the default message loglevel to KERN_WARN
+    # Set the default message loglevel to KERN_INFO
     write /proc/sys/kernel/printk "4 6 1 7"
 
     # Allow access for CCID command/response timeout configuration
@@ -219,20 +218,11 @@ on boot
     mkdir /mnt/vendor/persist/vpp 0770 media media
 
 
-    #add for display
-    chown system system /sys/kernel/oplus_display/power_current
-    chmod 0666 /sys/kernel/oplus_display/power_current
-
     # Create hvdcp_opti directory
     mkdir /mnt/vendor/persist/hvdcp_opti 0770 root system
 
     # limit discard size to 128MB in order to avoid long IO latency
     write /sys/block/sda/queue/discard_max_bytes 134217728
-
-on property:sys.boot_completed=1
-    copy /vendor/etc/Oppo_QC_LTM_Commercial_2020_01_03.pfm /mnt/vendor/persist/data/pfm/licenses/1000-1000-no-exp-958228818.pfm
-    chmod 0600 /mnt/vendor/persist/data/pfm/licenses/1000-1000-no-exp-958228818.pfm
-    chown system system /mnt/vendor/persist/data/pfm/licenses/1000-1000-no-exp-958228818.pfm
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -328,6 +318,7 @@ on post-fs-data
     mkdir /dev/socket/location 0770 gps gps
     mkdir /dev/socket/location/mq 0770 gps gps
     mkdir /dev/socket/location/xtra 0770 gps gps
+    mkdir /dev/socket/location/dgnss 0770 gps gps
 
     #Create directories for wifihal services
     mkdir /dev/socket/wifihal 0770 wifi wifi
@@ -345,7 +336,15 @@ on post-fs-data
     mkdir /data/vendor/fm 0770 system system
     chmod 0770 /data/vendor/fm
 
+    #Create PERFD deamon related dirs
+    mkdir /data/vendor/perfd 0770 root system
+    chmod 2770 /data/vendor/perfd
+    rm /data/vendor/perfd/default_values
+
     mkdir /data/vendor/secure_element 0777 system system
+
+    #Create IOP  deamon related dirs
+    mkdir /data/vendor/iop 0700 root system
 
     # Mark the copy complete flag to not completed
     write /data/vendor/radio/copy_complete 0
@@ -392,12 +391,6 @@ on post-fs-data
     #Create dir for TUI
     mkdir /data/vendor/tui 0700 system drmrpc
 
-    chown system system /sys/module/tpd/parameters/tpd_enable
-    chown system system /sys/module/tpd/parameters/tpd_cmds
-    chown system system /sys/module/tpd/parameters/tpd_id
-    chown system system /sys/module/tpd/parameters/tpd_dynamic
-    chown system system /sys/module/tpd/parameters/st_tpd_enable
-
 service nqnfcinfo /system/vendor/bin/nqnfcinfo
     class late_start
     group nfc
@@ -410,6 +403,18 @@ service iop /system/vendor/bin/iop
     group root
     disabled
     socket iop seqpacket 0666 root system
+
+service qcomsysd /system/vendor/bin/qcom-system-daemon
+    class main
+    user root
+    group root diag oem_2901
+    disabled
+
+on property:persist.vendor.qcomsysd.enabled=1
+    enable qcomsysd
+
+on property:persist.vendor.qcomsysd.enabled=0
+    stop qcomsysd
 
 service vendor.ssr_setup /system/vendor/bin/ssr_setup
     oneshot
@@ -512,9 +517,6 @@ on property:vold.decrypt=trigger_restart_framework
     start qcom-c_main-sh
     start wcnss-service
 
-on property:persist.env.fastdorm.enabled=true
-    setprop persist.radio.data_no_toggle 1
-
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core
     user vendor_qrtr
@@ -532,13 +534,24 @@ service qmiproxy /system/bin/qmiproxy
     group radio diag
     disabled
 
-# Adjust socket buffer to enlarge TCP receive window for high bandwidth
-# but only if ro.data.large_tcp_window_size property is set.
-on property:ro.data.large_tcp_window_size=true
-    write /proc/sys/net/ipv4/tcp_adv_win_scale  2
-
-on property:sys.sysctl.tcp_adv_win_scale=*
-    write /proc/sys/net/ipv4/tcp_adv_win_scale ${sys.sysctl.tcp_adv_win_scale}
+service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
+    -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 -dd \
+    -g@android:vendor_wpa_wlan0
+#   we will start as root and wpa_supplicant will switch to user wifi
+#   after setting up the capabilities required for WEXT
+#   user wifi
+#   group wifi inet keystore
+    interface android.hardware.wifi.supplicant@1.0::ISupplicant default
+    interface android.hardware.wifi.supplicant@1.1::ISupplicant default
+    interface android.hardware.wifi.supplicant@1.2::ISupplicant default
+    interface android.hardware.wifi.supplicant@1.3::ISupplicant default
+    interface vendor.qti.hardware.wifi.supplicant@2.0::ISupplicantVendor default
+    interface vendor.qti.hardware.wifi.supplicant@2.1::ISupplicantVendor default
+    interface vendor.qti.hardware.wifi.supplicant@2.2::ISupplicantVendor default
+    class main
+    socket vendor_wpa_wlan0 dgram 660 wifi wifi
+    disabled
+    oneshot
 
 service vendor.wigig_supplicant /vendor/bin/hw/wpa_supplicant \
     -iwigig0 -Dnl80211 -c/data/vendor/wifi/wigig_supplicant.conf \
@@ -564,6 +577,7 @@ service vendor.move_wifi_data /system/bin/move_wifi_data.sh
     oneshot
 
 service wigignpt /vendor/bin/wigignpt
+    interface vendor.qti.hardware.wigig.netperftuner@1.0::INetPerfTuner default
     class hal
     socket wigig/wigignpt stream 660 system wifi
     user system
@@ -713,28 +727,6 @@ service wifi-crda /vendor/bin/init.crda.sh
 
 on property:sys.boot_completed=1
     start qcom-post-boot
-    setprop vendor.schedutil.enabled 1
-
-on property:vendor.schedutil.enabled=1
-    chmod 0664 /dev/stune/background/schedtune.window_policy
-    chown root system /dev/stune/background/schedtune.window_policy
-    chmod 0664 /dev/stune/foreground/schedtune.window_policy
-    chown root system /dev/stune/foreground/schedtune.window_policy
-    chmod 0664 /dev/stune/top-app/schedtune.window_policy
-    chown root system /dev/stune/top-app/schedtune.window_policy
-    chmod 0664 /dev/stune/schedtune.window_policy
-    chown root system /dev/stune/schedtune.window_policy
-    chown root system /sys/devices/system/cpu/cpufreq/policy0/schedutil/target_loads
-    chmod 0664 /sys/devices/system/cpu/cpufreq/policy0/schedutil/above_hispeed_delay
-    chown root system /sys/devices/system/cpu/cpufreq/policy0/schedutil/above_hispeed_delay
-    chown root system /sys/devices/system/cpu/cpufreq/policy4/schedutil/target_loads
-    chmod 0664 /sys/devices/system/cpu/cpufreq/policy4/schedutil/above_hispeed_delay
-    chown root system /sys/devices/system/cpu/cpufreq/policy4/schedutil/above_hispeed_delay
-    chmod 0664 /sys/devices/system/cpu/cpufreq/policy6/schedutil/above_hispeed_delay
-    chown root system /sys/devices/system/cpu/cpufreq/policy6/schedutil/above_hispeed_delay
-    chown root system /sys/devices/system/cpu/cpufreq/policy7/schedutil/target_loads
-    chmod 0664 /sys/devices/system/cpu/cpufreq/policy7/schedutil/above_hispeed_delay
-    chown root system /sys/devices/system/cpu/cpufreq/policy7/schedutil/above_hispeed_delay
 
 on property:ro.vendor.ril.mbn_copy_completed=1
     write /data/vendor/radio/copy_complete 1
@@ -898,6 +890,20 @@ service vendor.power_off_alarm /vendor/bin/power_off_alarm
     disabled
     oneshot
 
+service vendor.hbtp /vendor/bin/hbtp_daemon
+     class main
+     user system
+     group system
+     capabilities SYS_NICE
+     disabled
+
+service chre /vendor/bin/chre
+    class late_start
+    user system
+    group system
+    socket chre seqpacket 0660 root system
+    shutdown critical
+
 on property:vendor.chre.enabled=0
    stop chre
 
@@ -906,12 +912,6 @@ service bugreport /system/bin/dumpstate -d -p -B -z -o /data/user_de/0/com.andro
     disabled
     oneshot
     keycodes 114 115 116
-
-service vl53l1_daemon_main /odm/bin/vl53l1_daemon_main
-    class late_start
-    user root
-    group root
-    socket vl53l1_daemon stream 660 root system
 
 #Set GPU Opengles version
 on property:vendor.opengles.version=*
@@ -931,11 +931,3 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     ioprio rt 4
     writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
     onrestart restart audioserver
-
-service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0-service
-    override
-    class hal
-    interface android.hardware.contexthub@1.0::IContexthub default
-    user system
-    group system
-    disabled

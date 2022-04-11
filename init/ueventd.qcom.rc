@@ -28,17 +28,7 @@
 # Firmware directory Path
 # Below macro will be read by uevent and path will
 # be added to search path for firmware loading
-
-# ifndef OPLUS_FEATURE_WIFI_BDF
-# WuGuotian@CONNECTIVITY.WIFI.HARDWARE.BDF.1065227 , 2021/05/26,
-# Modify for: multi projects using different bdf, adding persist into firmware_directories
-# firmware_directories /vendor/firmware_mnt/image/
-# else /* OPLUS_FEATURE_WIFI_BDF */
-firmware_directories /mnt/vendor/persist/copy/ /mnt/vendor/persist/ /odm/etc/wifi/ /vendor/firmware_mnt/image/
-# endif /* OPLUS_FEATURE_WIFI_BDF */
-
-# Reserve
-/dev/block/bootdevice/by-name/oplusreserve1    0660    root    system
+firmware_directories /vendor/firmware_mnt/image/
 
 # the DIAG device node is not world writable/readable.
 /dev/diag                 0660   system     oem_2901
@@ -69,6 +59,7 @@ firmware_directories /mnt/vendor/persist/copy/ /mnt/vendor/persist/ /odm/etc/wif
 /dev/ipa_adpl             0660   system     oem_2905
 /dev/synx_device          0660   root       camera
 /dev/hab                  0666   system     system
+/dev/hgsl                 0666   system     system
 /dev/iio:device*          0664   system     system
 
 #permissions for UFS RPMB BSG device node
@@ -81,6 +72,7 @@ firmware_directories /mnt/vendor/persist/copy/ /mnt/vendor/persist/ /odm/etc/wif
 /dev/smd2                 0660   bluetooth  bluetooth
 /dev/smd3                 0660   bluetooth  bluetooth
 /dev/btpower              0660   bluetooth  system
+/dev/btfmslim             0660   bluetooth  system
 
 #permissions for pta
 /dev/pta                  0660   system     system
@@ -182,10 +174,8 @@ firmware_directories /mnt/vendor/persist/copy/ /mnt/vendor/persist/ /odm/etc/wif
 
 #qvr
 /dev/qvr_external_sensor_ioctl      0660  system  system
-/sys/kernel/qvr_external_sensor fd  0660  system  system
-
-#rawdump
-/dev/block/platform/soc/*/by-name/rawdump       0660   root     system
+/dev/bus/usb/*                      0660  root    usb
+/dev/hidraw*                        0660  root    usb
 
 # wlan
 /dev/wcnss_wlan           0660   system     system
@@ -194,6 +184,7 @@ firmware_directories /mnt/vendor/persist/copy/ /mnt/vendor/persist/ /odm/etc/wif
 /sys/devices/soc/a000000.qcom,wcnss-wlan/net/p2p0/queues/rx-* rps_cpus            0660   system     system
 /sys/devices/platform/soc/*.qcom,icnss/net/wlan*/queues/rx-* rps_cpus             0660   system     system
 /sys/devices/platform/soc/1c00000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/wlan*/queues/rx-* rps_cpus      0660   system     system
+/sys/devices/platform/soc/17a10040.qcom,wcn6750/net/wlan*/queues/rx-* rps_cpus    0660   system     system
 /dev/spidev0.0            0660   system     audio
 /dev/i2c-7                0660   system     audio
 /dev/msm_camera/*         0660   system     camera
@@ -249,6 +240,7 @@ firmware_directories /mnt/vendor/persist/copy/ /mnt/vendor/persist/ /odm/etc/wif
 /dev/avtimer              0660   system     audio
 /dev/spidev2.0            0660   system     audio
 /dev/spidev22.0           0660   system     audio
+/dev/spidev10.0           0660   system     audio
 
 # DVB devices
 /dev/dvb/adapter0/demux*  0440   media       media
@@ -393,9 +385,6 @@ firmware_directories /mnt/vendor/persist/copy/ /mnt/vendor/persist/ /odm/etc/wif
 
 /sys/devices/virtual/hdcp/msm_hdcp  min_level_change 0664    system  graphics
 
-#KGSL
-/sys/class/kgsl/kgsl-3d0    perfcounter              0660    root    shell
-
 # sys-fs display
 /sys/class/graphics/fb*     hpd                      0664    system  graphics
 /sys/class/graphics/fb*     res_info                 0664    system  graphics
@@ -425,6 +414,7 @@ firmware_directories /mnt/vendor/persist/copy/ /mnt/vendor/persist/ /odm/etc/wif
 /sys/class/graphics/fb0     modes                    0664    system  graphics
 /sys/class/graphics/fb0     mode                     0664    system  graphics
 /sys/class/graphics/fb0     msm_cmd_autorefresh_en   0664    system  graphics
+*/
 
 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp power/control 0664 system graphics
 
