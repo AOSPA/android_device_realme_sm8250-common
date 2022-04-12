@@ -99,6 +99,9 @@ on post-fs-data
     chmod 777 /sys/class/leds/vibrator/register
     chmod 777 /sys/class/leds/vibrator/haptic_audio
 
+on property:ro.boot.prjname=*
+    setprop ro.separate.soft ${ro.boot.prjname}
+
 on early-boot
     start vendor.sensors
 

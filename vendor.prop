@@ -149,7 +149,6 @@ vendor.gralloc.disable_ubwc=0
 drm.service.enabled=true
 
 # Fingerprint
-ro.separate.soft=2169A
 vendor.flash.locked=0
 
 # FRP
