@@ -13,10 +13,10 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.light-service.oppo_OP4A7A",
+    name: "android.hardware.light-service.realme_bitra",
     relative_install_path: "hw",
-    init_rc: ["android.hardware.light-service.oppo_OP4A7A.rc"],
-    vintf_fragments: ["android.hardware.light-service.oppo_OP4A7A.xml"],
+    init_rc: ["android.hardware.light-service.realme_bitra.rc"],
+    vintf_fragments: ["android.hardware.light-service.realme_bitra.xml"],
     vendor: true,
     shared_libs: [
         "libbase",

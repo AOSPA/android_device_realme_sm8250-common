@@ -17,8 +17,8 @@
 
 set -e
 
-DEVICE=OP4A7A
-VENDOR=oppo
+DEVICE=bitra
+VENDOR=realme
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

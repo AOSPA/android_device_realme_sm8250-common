@@ -24,7 +24,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Inherit proprietary libraries
-$(call inherit-product, vendor/oppo/OP4A7A/OP4A7A-vendor.mk)
+$(call inherit-product, vendor/realme/bitra/bitra-vendor.mk)
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
@@ -291,7 +291,7 @@ PRODUCT_PACKAGES += \
 
 # Light
 PRODUCT_PACKAGES += \
-    android.hardware.light-service.oppo_OP4A7A
+    android.hardware.light-service.realme_bitra
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
@@ -341,7 +341,7 @@ PRODUCT_PACKAGES += \
 
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    device/oppo/OP4A7A
+    device/realme/bitra
 
 # Native Public Libraries
 PRODUCT_COPY_FILES += \

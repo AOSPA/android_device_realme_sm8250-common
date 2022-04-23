@@ -17,8 +17,8 @@
 
 set -e
 
-DEVICE=OP4A7A
-VENDOR=oppo
+DEVICE=bitra
+VENDOR=realme
 
 INITIAL_COPYRIGHT_YEAR=2020
 

@@ -21,7 +21,7 @@
 
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
-#define BTM_DEF_LOCAL_NAME   "OPPO Find X2 Pro"
+#define BTM_DEF_LOCAL_NAME   "realme GT Neo2 5G"
 // Disables read remote device feature
 #define BTM_WBS_INCLUDED TRUE
 #define BTIF_HF_WBS_PREFERRED TRUE
