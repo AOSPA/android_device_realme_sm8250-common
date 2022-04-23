@@ -25,12 +25,56 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import /vendor/etc/init/hw/init.qti.ufs.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
-import /vendor/etc/init/hw/init.qcom.test.rc
+
 import /vendor/etc/init/hw/init.target.rc
 import /vendor/etc/init/hw/init.qcom.factory.rc
+#ifdef OPLUS_BUG_STABILITY
+#Kai.Huang@BSP.Kernel.Stability 2020/2/12  Case:04451596 solve the testPocCVE_2016_6753 fail
+import /vendor/etc/init/hw/init.qcom.test.rc
+#endif
+#ifdef VENDOR_EDIT
+#ZhangLiangliang@MULTIMEDIA.DISPLAY.DS.FEATURE, 2020/03/31, Add for import init.oppo.display.rc
+import /odm/etc/init/hw/init.oppo.display.rc
+#endif /*VENDOR_EDIT*/
 
+#ifdef OPLUS_FEATURE_STORAGE_USB
+#Xuefeng.Peng@ANDROID.STORAGE.0, 2019/06/10, Add for init.oppo.reserve.rc
+import /odm/etc/init/init.oppo.reserve.rc
+#endif /*OPLUS_FEATURE_STORAGE_USB*/
+
+#ifdef VENDOR_EDIT
+#wen.luo@BSP.Kernel.Stability, 2019/10/16, add for Aging test config for debug
+import /odm/etc/init/hw/init.oplus.bsp_debug.rc
+#endif
+
+#ifdef VENDOR_EDIT
+#Jianchao.Shi@BSP.CHG.Basic 2018/03/20, sjc Add for oplus devices
+import init.oplus.rc
+#endif
+
+#ifdef OPLUS_FEATURE_SENSOR_DRIVER
+#Fei.Mo@PSW.BSP.Sensor 2018/03/20, Add for init.oplus.sensor.rc
+import /odm/etc/init/init.oplus.sensor.rc
+#endif /*OPLUS_FEATURE_SENSOR_DRIVER*/
+
+#ifdef OPLUS_FEATURE_WIFI_BDF
+#WuGuotian@CONNECTIVITY.WIFI.HARDWARE.BDF.1065227 , 2021/05/26, Add for : init.oplus.wifi.rc
+import /odm/etc/init/hw/init.oplus.wifi.rc
+#endif /* OPLUS_FEATURE_WIFI_BDF */
+
+#ifdef OPLUS_FEATURE_BT_EAP_LOG
+#Wangguolong@CONNECTIVITY.BT.Basic.Feature.2531788 , 2021/11/10, Add for : init.oplus.bt.rc
+import /odm/etc/init/hw/init.oplus.bt.rc
+#endif /* OPLUS_FEATURE_BT_EAP_LOG */
+
+#AndersonChen@Stability, 2021/09/15, Mount oem_cust
+import /vendor/etc/init/init.oplus.cust.rc
+
+on property:sys.oplus.bootupgrade=1
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 1766400
+    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq 2073600
+    write /dev/kmsg "first boot, sys.oplus.bootupgrade = 1.  limit cpufreq."
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
@@ -79,6 +123,10 @@ on init
 
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
+    #ifdef OPLUS_BUG_STABLITY
+    #Qiulei@CONNECTIVITY.WIFI.INTERNET.1074197,2019/11/30,Add for make WCNSS_qcom_cfg.ini Rom-update.
+    mkdir /mnt/vendor/persist/wlan 0777 system system
+    #endif /* OPLUS_BUG_STABLITY */
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -94,16 +142,6 @@ on early-boot
 
     chown system system /mnt/vendor/persist/data/pfm/licenses
     chmod 0775 /mnt/vendor/persist/data/pfm/licenses
-    chown system system /mnt/vendor/persist/data/pfm/licenses/store_0
-    chmod 0664 /mnt/vendor/persist/data/pfm/licenses/store_0
-    chown system system /mnt/vendor/persist/data/pfm/licenses/store_1
-    chmod 0664 /mnt/vendor/persist/data/pfm/licenses/store_1
-    chown system system /mnt/vendor/persist/data/pfm/licenses/store_2
-    chmod 0664 /mnt/vendor/persist/data/pfm/licenses/store_2
-    chown system system /mnt/vendor/persist/data/pfm/licenses/store_3
-    chmod 0664 /mnt/vendor/persist/data/pfm/licenses/store_3
-    chown system system /mnt/vendor/persist/data/pfm/licenses/store_4
-    chmod 0664 /mnt/vendor/persist/data/pfm/licenses/store_4
 
 on boot
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
@@ -152,7 +190,6 @@ on boot
     mkdir /mnt/vendor/persist/secnvm 0770 system system
     mkdir /mnt/vendor/persist/iar_db 0770 system system
     mkdir /mnt/vendor/spunvm 0770 system system
-
     #Create WIGIG socket area
     mkdir /dev/socket/wigig 0770 wifi wifi
 
@@ -176,9 +213,9 @@ on boot
     # an ack packet comes out of order
     write /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal 1
 
-    # Set the console loglevel to < KERN_WARN
+    # Set the console loglevel to < KERN_INFO
     # Set the default message loglevel to KERN_INFO
-    write /proc/sys/kernel/printk "4 6 1 7"
+    write /proc/sys/kernel/printk "6 6 1 7"
 
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
@@ -220,11 +257,22 @@ on boot
     mkdir /mnt/vendor/persist/vpp 0770 media media
 
 
+    #add for display
+    chown system system /sys/kernel/oplus_display/power_current
+    chmod 0666 /sys/kernel/oplus_display/power_current
+
     # Create hvdcp_opti directory
     mkdir /mnt/vendor/persist/hvdcp_opti 0770 root system
 
     # limit discard size to 128MB in order to avoid long IO latency
     write /sys/block/sda/queue/discard_max_bytes 134217728
+
+#ifdef/* VENDOR_EDIT */
+on property:sys.boot_completed=1
+    copy /vendor/etc/Oppo_QC_LTM_Commercial_2020_01_03.pfm /mnt/vendor/persist/data/pfm/licenses/1000-1000-no-exp-958228818.pfm
+    chmod 0600 /mnt/vendor/persist/data/pfm/licenses/1000-1000-no-exp-958228818.pfm
+    chown system system /mnt/vendor/persist/data/pfm/licenses/1000-1000-no-exp-958228818.pfm
+#endif /* VENDOR_EDIT */
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -238,9 +286,6 @@ on post-fs-data
 
     # Change lm related dirs
     mkdir /data/vendor/lm 0700 root root
-
-    # Create directory used by powermodule
-    mkdir /data/vendor/pwr 0700 root root
 
     # Create directory used by media clients
     mkdir /data/vendor/media 0770 mediacodec media
@@ -320,7 +365,6 @@ on post-fs-data
     mkdir /dev/socket/location 0770 gps gps
     mkdir /dev/socket/location/mq 0770 gps gps
     mkdir /dev/socket/location/xtra 0770 gps gps
-    mkdir /dev/socket/location/dgnss 0770 gps gps
 
     #Create directories for wifihal services
     mkdir /dev/socket/wifihal 0770 wifi wifi
@@ -393,6 +437,14 @@ on post-fs-data
     #Create dir for TUI
     mkdir /data/vendor/tui 0700 system drmrpc
 
+# ifdef OPLUS_FEATURE_TPD
+# rock.lin@OPTI, 2020/01/12, add for tpd
+    chown system system /sys/module/tpd/parameters/tpd_enable
+    chown system system /sys/module/tpd/parameters/tpd_cmds
+    chown system system /sys/module/tpd/parameters/tpd_id
+    chown system system /sys/module/tpd/parameters/tpd_dynamic
+    chown system system /sys/module/tpd/parameters/st_tpd_enable
+# endif
 service nqnfcinfo /system/vendor/bin/nqnfcinfo
     class late_start
     group nfc
@@ -406,17 +458,20 @@ service iop /system/vendor/bin/iop
     disabled
     socket iop seqpacket 0666 root system
 
-service qcomsysd /system/vendor/bin/qcom-system-daemon
-    class main
-    user root
-    group root diag oem_2901
-    disabled
-
-on property:persist.vendor.qcomsysd.enabled=1
-    enable qcomsysd
-
-on property:persist.vendor.qcomsysd.enabled=0
-    stop qcomsysd
+#ifdef VENDOR_EDIT
+# /* Hang.Zhao@PSW.BSP.CHG.Basic, 2019/10/22, Modify for can't exit *#8019 port */
+#service qcomsysd /system/vendor/bin/qcom-system-daemon
+#    class main
+#    user root
+#    group root diag oem_2901
+#    disabled
+#
+#on property:persist.vendor.qcomsysd.enabled=1
+#    enable qcomsysd
+#
+#on property:persist.vendor.qcomsysd.enabled=0
+#    stop qcomsysd
+#endif
 
 service vendor.ssr_setup /system/vendor/bin/ssr_setup
     oneshot
@@ -426,7 +481,6 @@ service vendor.ss_ramdump /system/vendor/bin/subsystem_ramdump
     class main
     user system
     group system
-    ioprio rt 4
     disabled
 
 on property:ro.vendor.iocgrp.config=1
@@ -483,6 +537,11 @@ on property:sys.boot_completed=1
     #Reinit lmkd to reconfigure lmkd properties
     setprop lmkd.reinit 1
 
+on property:sys.boot_completed=1 && property:sys.oplus.bootupgrade=1
+    write /dev/kmsg "first boot completed, sys.oplus.bootupgrade = 1. free cpufreq limit."
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 4294967295
+    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq 4294967295
+
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
 
@@ -496,9 +555,6 @@ on property:persist.debug.trace=1
 
 on property:vendor.media.target.version=*
     setprop vendor.sys.media.target.version ${vendor.media.target.version}
-
-on property:vendor.netflix.bsp_rev=*
-    setprop ro.netflix.bsp_rev ${vendor.netflix.bsp_rev}
 
 on property:vendor.media.target_variant=*
     setprop ro.media.xml_variant.codecs ${vendor.media.target_variant}
@@ -517,7 +573,23 @@ service qcom-c_main-sh /vendor/bin/init.class_main.sh
 
 on property:vold.decrypt=trigger_restart_framework
     start qcom-c_main-sh
+    # ifdef OPLUS_FEATURE_TP_BSPFWUPDATE
+    # Tong.Han@PSW.Bsp.Tp, 2018/01/31, Add to aceess data fw files
+    start bspFwUpdate
+    # endif /* OPLUS_FEATURE_TP_BSPFWUPDATE */
     start wcnss-service
+
+# ifdef OPLUS_FEATURE_TP_BSPFWUPDATE
+# Xiong.xing@BSP.TP, 2018/03/01, Add for start fw update service
+on property:ro.crypto.state=unencrypted
+    start bspFwUpdate
+
+on property:ro.crypto.state=unsupported
+    start bspFwUpdate
+# endif /* OPLUS_FEATURE_TP_BSPFWUPDATE */
+
+on property:persist.env.fastdorm.enabled=true
+    setprop persist.radio.data_no_toggle 1
 
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core
@@ -536,8 +608,33 @@ service qmiproxy /system/bin/qmiproxy
     group radio diag
     disabled
 
+# Adjust socket buffer to enlarge TCP receive window for high bandwidth
+# but only if ro.data.large_tcp_window_size property is set.
+on property:ro.data.large_tcp_window_size=true
+    write /proc/sys/net/ipv4/tcp_adv_win_scale  2
+
+on property:sys.sysctl.tcp_adv_win_scale=*
+    write /proc/sys/net/ipv4/tcp_adv_win_scale ${sys.sysctl.tcp_adv_win_scale}
+
+#ifndef OPLUS_BUG_STABILITY
+#HuiTao@CONNECTIVITY.WIFI.BASE.1072015, 2015/04/24,
+#Modify for:close defualt debug log of wpa_supplicant
+#service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
+#    -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 -dd \
+#    -g@android:vendor_wpa_wlan0
+#   we will start as root and wpa_supplicant will switch to user wifi
+#   after setting up the capabilities required for WEXT
+#   user wifi
+#   group wifi inet keystore
+#    interface android.hardware.wifi.supplicant@1.0::ISupplicant default
+#    interface android.hardware.wifi.supplicant@1.1::ISupplicant default
+#    class main
+#    socket vendor_wpa_wlan0 dgram 660 wifi wifi
+#    disabled
+#    oneshot
+#else
 service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
-    -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 -dd \
+    -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 \
     -g@android:vendor_wpa_wlan0
 #   we will start as root and wpa_supplicant will switch to user wifi
 #   after setting up the capabilities required for WEXT
@@ -545,15 +642,11 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
 #   group wifi inet keystore
     interface android.hardware.wifi.supplicant@1.0::ISupplicant default
     interface android.hardware.wifi.supplicant@1.1::ISupplicant default
-    interface android.hardware.wifi.supplicant@1.2::ISupplicant default
-    interface android.hardware.wifi.supplicant@1.3::ISupplicant default
-    interface vendor.qti.hardware.wifi.supplicant@2.0::ISupplicantVendor default
-    interface vendor.qti.hardware.wifi.supplicant@2.1::ISupplicantVendor default
-    interface vendor.qti.hardware.wifi.supplicant@2.2::ISupplicantVendor default
     class main
     socket vendor_wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
+#endif
 
 service vendor.wigig_supplicant /vendor/bin/hw/wpa_supplicant \
     -iwigig0 -Dnl80211 -c/data/vendor/wifi/wigig_supplicant.conf \
@@ -577,6 +670,18 @@ service vendor.move_wifi_data /system/bin/move_wifi_data.sh
     group wifi
     disabled
     oneshot
+
+service wigignpt /vendor/bin/wigignpt
+    interface vendor.qti.hardware.wigig.netperftuner@1.0::INetPerfTuner default
+    class hal
+    socket wigig/wigignpt stream 660 system wifi
+    user system
+    group wifi
+    capabilities NET_ADMIN
+    disabled
+
+on property:persist.vendor.wigig.npt.enable=1
+    start wigignpt
 
 service vendor.sensingdaemon /vendor/bin/sensingdaemon
     class hal
@@ -685,6 +790,18 @@ service loc_launcher /system/vendor/bin/loc_launcher
     user gps
     group gps
 
+service drmdiag /system/vendor/bin/drmdiagapp
+    class late_start
+     user root
+     disabled
+     oneshot
+
+on property:drmdiag.load=1
+    start drmdiag
+
+on property:drmdiag.load=0
+    stop drmdiag
+
 service qcom-sh /vendor/bin/init.qcom.sh
     class late_start
     user root
@@ -725,6 +842,29 @@ service wifi-crda /vendor/bin/init.crda.sh
 on property:sys.boot_completed=1
     start qcom-post-boot
     start qti-testscripts
+    # ifdef OPLUS_FEATURE_POWER_CPUFREQ
+    setprop vendor.schedutil.enabled 1
+
+# ifdef OPLUS_FEATURE_POWER_CPUFREQ
+on property:vendor.schedutil.enabled=1
+    chmod 0664 /dev/stune/background/schedtune.window_policy
+    chown root system /dev/stune/background/schedtune.window_policy
+    chmod 0664 /dev/stune/foreground/schedtune.window_policy
+    chown root system /dev/stune/foreground/schedtune.window_policy
+    chmod 0664 /dev/stune/top-app/schedtune.window_policy
+    chown root system /dev/stune/top-app/schedtune.window_policy
+    chmod 0664 /dev/stune/schedtune.window_policy
+    chown root system /dev/stune/schedtune.window_policy
+    chown root system /sys/devices/system/cpu/cpufreq/policy0/schedutil/target_loads
+    chmod 0664 /sys/devices/system/cpu/cpufreq/policy0/schedutil/above_hispeed_delay
+    chown root system /sys/devices/system/cpu/cpufreq/policy0/schedutil/above_hispeed_delay
+    chown root system /sys/devices/system/cpu/cpufreq/policy4/schedutil/target_loads
+    chmod 0664 /sys/devices/system/cpu/cpufreq/policy4/schedutil/above_hispeed_delay
+    chown root system /sys/devices/system/cpu/cpufreq/policy4/schedutil/above_hispeed_delay
+    chown root system /sys/devices/system/cpu/cpufreq/policy7/schedutil/target_loads
+    chmod 0664 /sys/devices/system/cpu/cpufreq/policy7/schedutil/above_hispeed_delay
+    chown root system /sys/devices/system/cpu/cpufreq/policy7/schedutil/above_hispeed_delay
+# endif
 
 on property:ro.vendor.ril.mbn_copy_completed=1
     write /data/vendor/radio/copy_complete 1
@@ -746,6 +886,18 @@ service hostapd_fst /vendor/bin/hw/hostapd -dd -g /data/vendor/wifi/hostapd/glob
     group wifi
     disabled
     oneshot
+
+service ims_regmanager /system/vendor/bin/exe-ims-regmanagerprocessnative
+    class late_start
+    group net_bt_admin inet radio wifi
+    disabled
+
+on property:persist.ims.regmanager.mode=1
+    start ims_regmanager
+
+on property:ro.data.large_tcp_window_size=true
+    # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
+    write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
 service battery_monitor /system/bin/battery_monitor
     user system
@@ -869,6 +1021,17 @@ service poweroffhandler /system/vendor/bin/poweroffhandler
     disabled
     oneshot
 
+# Logcat dump daemon, dumps logs to logdump partition
+service logdumpd /system/bin/logcat -b all -v threadtime -D -w /dev/block/bootdevice/by-name/logdump
+    class core
+    writepid /dev/cpuset/system-background/tasks
+    seclabel u:r:logdumpd:s0
+    disabled
+
+# Logdumpd is enabled only for userdebug non-perf build
+on property:ro.logdumpd.enabled=1
+    start logdumpd
+
 service time_daemon /vendor/bin/time_daemon
     class main
     user system
@@ -882,25 +1045,39 @@ on property:vendor.rild.libpath=*
 on property:ro.vendor.radio.noril=*
     setprop ro.radio.noril ${ro.vendor.radio.noril}
 
+#ifdef OPLUS_BUG_COMPATIBILITY
+#Bingshu.Zhou@PSW.AD.MEMORY.2256865, 2019/09/24, Remove for remove qssp feature
+#service seemp_healthd /vendor/bin/seemp_healthd
+#    class late_start
+#    user system
+#    group system
+#endif /* OPLUS_BUG_COMPATIBILITY */
+
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
     group system
     disabled
     oneshot
 
-service vendor.hbtp /vendor/bin/hbtp_daemon
-     class main
-     user system
-     group system
-     capabilities SYS_NICE
-     disabled
+#ifndef VENDOR_EDIT
+#Guqcai@psw.bsp.tp 2018/03/12 del for closing hbtp
+#service vendor.hbtp /vendor/bin/hbtp_daemon
+#     class main
+#     user system
+#     group system
+#     capabilities SYS_NICE
+#     disabled
+#endif
 
-service chre /vendor/bin/chre
-    class late_start
-    user system
-    group system
-    socket chre seqpacket 0660 root system
-    shutdown critical
+#ifndef VENDOR_EDIT
+#Nanwei.Deng@PSW.BSP.POWER 2018/11/21 add to remove the useless chre for power.
+#service chre /vendor/bin/chre
+#    class late_start
+#    user system
+#    group system
+#    socket chre seqpacket 0660 root system
+#    shutdown critical
+#endif /*VENDOR_EDIT*/
 
 on property:vendor.chre.enabled=0
    stop chre
@@ -910,6 +1087,15 @@ service bugreport /system/bin/dumpstate -d -p -B -z -o /data/user_de/0/com.andro
     disabled
     oneshot
     keycodes 114 115 116
+
+#ifdef VENDOR_EDIT
+#shoulei.sun@Camera for Laser daemon, 2020/04/23
+service vl53l1_daemon_main /odm/bin/vl53l1_daemon_main
+    class late_start
+    user root
+    group root
+    socket vl53l1_daemon stream 660 root system
+#endif
 
 #Set GPU Opengles version
 on property:vendor.opengles.version=*
@@ -929,3 +1115,131 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     ioprio rt 4
     writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
     onrestart restart audioserver
+
+#ifdef OPLUS_BUG_STABLITY
+#WuShuxun@CONNECTIVITY.WIFI.INTERNET.1074197, 2018/11/08,Add for make WCNSS_qcom_cfg.ini Rom-update.
+on post-fs-data
+    chmod 0666 /mnt/vendor/persist/wlan/WCNSS_qcom_cfg.ini
+
+# To rename ini_temp.txt into WCNSS_qcom_cfg.ini
+on property:sys.oplus.wifi.iniromupdate=*
+    copy /mnt/vendor/persist/ini_temp.txt /mnt/vendor/persist/wlan/WCNSS_qcom_cfg.ini
+    chmod 0666 /mnt/vendor/persist/wlan/WCNSS_qcom_cfg.ini
+
+# To enable /mnt/vendor/persist folder access right for ini romupdate feature
+on property:sys.oplus.wifi.enablepersistaccess=*
+    chmod 0777 /mnt/vendor/persist
+
+# To restore /mnt/vendor/persist folder access right for ini romupdate feature
+on property:sys.oplus.wifi.restorepersistaccess=*
+    chmod 0771 /mnt/vendor/persist
+#endif /* OPLUS_BUG_STABLITY */
+
+
+#ifdef OPLUS_FEATURE_DYNAMIC_SINGLESIM
+on property:ro.vendor.oplus.radio.multisim.config=*
+    setprop persist.radio.multisim.config ${ro.vendor.oplus.radio.multisim.config}
+#endif
+
+service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0-service
+    override
+    class hal
+    interface android.hardware.contexthub@1.0::IContexthub default
+    user system
+    group system
+    disabled
+
+#ifdef VENDOR_EDIT
+#Min.Yi@EXP.CN.WiFi.Hardware.1065227, 2017/12/28
+#Add for receive command from the PC tools
+service wifi_diag_stop /vendor/bin/wifistopftmtest
+    class late_start
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:oppo.wifi.ftmstoptest=1
+     start wifi_diag_stop
+on property:oppo.wifi.ftmstoptest=0
+     stop wifi_diag_stop
+
+#endif /* VENDOR_EDIT */
+#ifdef VENDOR_EDIT
+#Min.Yi@PSW.CN.WiFi.Hardware.1065227, 2017/11/02
+#Add for : Wifi ftm from the engineer app
+service wifi_ftm /system/vendor/bin/wififtmtest
+    class late_start
+    user root
+    group root
+    disabled
+    oneshot
+on property:oppo.wifi.ftmtest=1
+     start wifi_ftm
+on property:oppo.wifi.ftmtest=0
+     stop wifi_ftm
+#endif /* VENDOR_EDIT */
+#ifdef VENDOR_EDIT
+#Qiulei@Connectivity.WiFi.Hardware.1065227, 2016/07/23
+#Add for : Wifi ftm
+service wififtm /system/vendor/bin/wififtm
+    class late_start
+    user root
+    group root
+    disabled
+    oneshot
+on property:oppo.wifi.ftm=1
+     start wififtm
+on property:oppo.wifi.ftm=0
+     stop wififtm
+#endif /* VENDOR_EDIT */
+#ifdef VENDOR_EDIT
+#Qiulei@PSW.CN.WiFi.Hardware.1065227, 2016/07/23
+#Add for : Wifi HW ftm
+service wifihwftm /system/vendor/bin/wifihwftm
+    class late_start
+    user root
+    group root vendor_qti_diag
+    disabled
+    oneshot
+on property:oppo.wifi.hwtest=1
+     start wifihwftm
+on property:oppo.wifi.hwtest=0
+     stop wifihwftm
+on property:vendor.wifi.hwtest=1
+     start wifihwftm
+on property:vendor.wifi.hwtest=0
+     stop wifihwftm
+
+service wifirfmodetest /system/bin/wifirftest
+    class main
+    socket wifirf stream 0660 system system
+    user root
+    oneshot
+    disabled
+#endif /* VENDOR_EDIT */
+#ifdef OPLUS_FEATURE_WIFI_FTM
+#Tao.Hui@CONNECTIVITY.WIFI.BASIC.HARDWARE.1065227, 2020/08/31
+#Add for : Wifi BDF version
+service WifibdfVersion /odm/bin/vendor.autochmod.sh "WifibdfVersion"
+    class late_start
+    user root
+    group root
+    oneshot
+#endif /* VENDOR_EDIT */
+
+#ifdef OPLUS_FEATURE_DUMP_NETCFG
+#SuPei@CONNECTIVITY.WIFI.NETWORK.100259, 2020/09/20, add for dumping qcom netcfg
+on property:persist.sys.assert.panic=true
+    stop oplus_dump_netcfg
+
+on property:persist.sys.assert.panic=false
+    start oplus_dump_netcfg
+
+service oplus_dump_netcfg /system/bin/oplus_dump_netcfg
+    class main
+    user shell
+    group system net_raw net_admin readproc input inet
+    capabilities NET_ADMIN NET_RAW
+    oneshot
+#endif  /* OPLUS_FEATURE_DUMP_NETCFG */
