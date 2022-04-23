@@ -45,11 +45,14 @@
         <!-- #ifdef OPLUS_FEATURE_DOLBY -->
         <!-- WuHao@MULTIMEDIA.AUDIOSERVER.EFFECT, 2019/09/18, add for dolby -->
         <!-- DOLBY DAP -->
-        <library name="dap_sw" path="libswdap.so"/>
-        <library name="dap_hw" path="libhwdap.so"/>
+        <library name="dap_sw" path="libswdap_v3_6.so"/>
+        <library name="dap_hw" path="libhwdap_v3_6.so"/>
         <!-- DOLBY END -->
+        <!--DOLBY GAME-->
+        <library name="gamedap" path="libswgamedap_v3_6.so"/>
+        <!--DOLBY END-->
         <!-- DOLBY VQE -->
-        <library name="vqe" path="libswvqe.so"/>
+        <library name="vqe" path="libswvqe_v3_6.so"/>
         <!-- DOLBY END -->
         <!-- #endif OPLUS_FEATURE_DOLBY -->
         <!-- OPLUS_FEATURE_SURROUND_AUDIO -->
@@ -112,6 +115,9 @@
             <libhw library="dap_hw" uuid="a0c30891-8246-4aef-b8ad-d53e26da0253"/>
         </effectProxy>
         <!-- DOLBY END -->
+        <!--DOLBY GAME-->
+        <effect name="gamedap" library="gamedap" uuid="3783c334-d3a0-4d13-874f-0032e5fb80e2"/>
+        <!--DOLBY END-->
         <!-- DOLBY VQE -->
         <effect name="vqe" library="vqe" uuid="64a0f614-7fa4-48b8-b081-d59dc954616f"/>
         <!-- DOLBY END -->
