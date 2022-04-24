@@ -76,11 +76,6 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 # Fingerprint
 TARGET_SURFACEFLINGER_FOD_LIB := //hardware/oplus:libudfps_extension.oplus
 
-# GPS
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := true
-BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
-GNSS_HIDL_VERSION := 2.0
-
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/device_framework_matrix.xml \
