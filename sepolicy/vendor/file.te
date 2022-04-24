@@ -7,7 +7,6 @@ type proc_flash, fs_type, proc_type;
 type proc_fingerprint, fs_type, proc_type;
 type proc_nfc, fs_type, proc_type;
 type proc_oplus, fs_type, proc_type;
-type proc_sensor, fs_type, proc_type;
 type proc_touchpanel, fs_type, proc_type;
 
 type sysfs_vl53l1, fs_type, sysfs_type;

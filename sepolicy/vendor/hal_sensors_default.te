@@ -1,7 +1,4 @@
 allow hal_sensors_default proc_oplus:dir r_dir_perms;
 allow hal_sensors_default proc_oplus:file r_file_perms;
 
-allow hal_sensors_default proc_sensor:dir r_dir_perms;
-allow hal_sensors_default proc_sensor:file rw_file_perms;
-
 allow hal_sensors_default vendor_persist_sensors_file:fifo_file rw_file_perms;

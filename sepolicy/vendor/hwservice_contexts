@@ -1,13 +1,10 @@
 vendor.oplus.hardware.biometrics.fingerprint::IBiometricsFingerprint          u:object_r:hal_fingerprint_oplus_hwservice:s0
-vendor.oplus.hardware.biometrics.fingerprintservice::IFingerprintHalService   u:object_r:hal_fingerprint_oplus_hwservice:s0
 vendor.oplus.hardware.biometrics.fingerprintpay::IFingerprintPay              u:object_r:hal_fingerprint_oplus_hwservice:s0
 vendor.oplus.hardware.charger::ICharger                                       u:object_r:hal_charger_oplus_hwservice:s0
 vendor.oplus.hardware.extcamera::IExtCamera                                   u:object_r:hal_camera_oplus_hwservice:s0
-vendor.oplus.hardware.appradio::IOppoAppRadio                                 u:object_r:hal_telephony_hwservice:s0
-vendor.oplus.hardware.ims::IOppoImsRadio                                      u:object_r:hal_telephony_hwservice:s0
+vendor.oplus.hardware.appradio::IOplusAppRadio                                u:object_r:hal_telephony_hwservice:s0
+vendor.oplus.hardware.ims::IOplusImsRadio                                     u:object_r:hal_telephony_hwservice:s0
 vendor.oplus.hardware.orms.ormsHalService::IOrmsHalService                    u:object_r:hal_orms_oplus_hwservice:s0
 vendor.oplus.hardware.orms::IOrmsHalProxy                                     u:object_r:hal_orms_oplus_hwservice:s0
 vendor.oplus.hardware.nfc::IOplusNfc                                          u:object_r:hal_nfc_oplus_hwservice:s0
-vendor.oplus.hardware.radio::IOppoRadio                                       u:object_r:hal_telephony_hwservice:s0
-vendor.pixelworks.hardware.display::IIris                                     u:object_r:hal_display_iris_hwservice:s0
-vendor.pixelworks.hardware.feature::IIrisFeature                              u:object_r:hal_display_iris_hwservice:s0
+vendor.oplus.hardware.radio::IOplusRadio                                      u:object_r:hal_telephony_hwservice:s0

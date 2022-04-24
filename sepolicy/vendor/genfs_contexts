@@ -1,9 +1,8 @@
 genfscon proc /devinfo                              u:object_r:proc_oplus:s0
 genfscon proc /fp_id                                u:object_r:proc_fingerprint:s0
 genfscon proc /lcd_type                             u:object_r:proc_oplus:s0
-genfscon proc /oppoPressCali                        u:object_r:proc_sensor:s0
-genfscon proc /oppoVersion                          u:object_r:proc_oplus:s0
-genfscon proc /oppo_nfc                             u:object_r:proc_nfc:s0
+genfscon proc /oplusVersion                         u:object_r:proc_oplus:s0
+genfscon proc /oplus_nfc                            u:object_r:proc_nfc:s0
 genfscon proc /touchpanel                           u:object_r:proc_touchpanel:s0
 
 genfscon proc /qcom_flash                           u:object_r:proc_flash:s0
@@ -14,7 +13,7 @@ genfscon sysfs /devices/platform/soc/a8c000.i2c/i2c-3/3-005a/leds/vibrator      
 
 genfscon sysfs /devices/virtual/input/input6         u:object_r:sysfs_vl53l1:s0
 genfscon sysfs /module/stmvl53l1                     u:object_r:sysfs_vl53l1:s0
-genfscon sysfs /kernel/oppo_display                  u:object_r:vendor_sysfs_graphics:s0
+genfscon sysfs /kernel/oplus_display                  u:object_r:vendor_sysfs_graphics:s0
 
 # Wakeups
 genfscon sysfs /devices/0306_02.01.00/wakeup u:object_r:sysfs_wakeup:s0
