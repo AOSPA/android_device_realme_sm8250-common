@@ -16,6 +16,18 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+        <name>android.hardware.drm</name>
+        <version>1.4</version>
+        <interface>
+            <name>ICryptoFactory</name>
+            <instance>clearkey</instance>
+        </interface>
+        <interface>
+            <name>IDrmFactory</name>
+            <instance>clearkey</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
         <name>android.hardware.gnss</name>
         <version>1.0-1</version>
         <version>2.0-1</version>
@@ -73,12 +85,36 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+        <name>android.hardware.usb</name>
+        <version>1.3</version>
+        <interface>
+            <name>IUsb</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.wifi.hostapd</name>
+        <version>1.0-3</version>
+        <interface>
+            <name>IHostapd</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
         <name>android.hardware.wifi.supplicant</name>
-        <version>1.0-2</version>
+        <version>1.0-4</version>
         <interface>
             <name>ISupplicant</name>
             <instance>default</instance>
             <instance>wigigp2p</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.wifi</name>
+        <version>1.0-5</version>
+        <interface>
+            <name>IWifi</name>
+            <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
@@ -186,6 +222,22 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+        <name>vendor.nxp.nxpese</name>
+        <version>1.0</version>
+        <interface>
+            <name>INxpEse</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.nxp.nxpnfc</name>
+        <version>1.0</version>
+        <interface>
+            <name>INxpNfc</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
         <name>vendor.nxp.nxpnfclegacy</name>
         <version>1.0</version>
         <interface>
@@ -240,6 +292,14 @@
         <interface>
             <name>IMIDASService</name>
             <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.oplus.hardware.commondcs</name>
+        <version>1.0</version>
+        <interface>
+            <name>ICommonDcsHalService</name>
+            <instance>commondcsservice</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
@@ -401,6 +461,14 @@
         <interface>
             <name>IOrmsHalService</name>
             <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.oplus.hardware.orms</name>
+        <version>1.0</version>
+        <interface>
+            <name>IOrmsHalProxy</name>
+            <instance>ORMS_HAL_PROXY</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
