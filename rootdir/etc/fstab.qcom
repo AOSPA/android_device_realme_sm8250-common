@@ -23,7 +23,6 @@ odm                                                     /odm                   e
 /dev/block/bootdevice/by-name/bluetooth                 /vendor/bt_firmware    vfat    ro,shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0 wait
 /dev/block/bootdevice/by-name/modemdump                 /mnt/vendor/modemdump  ext4    nosuid,nodev,noatime,barrier=1,discard             wait,check
 /dev/block/by-name/oplusreserve2                        /mnt/vendor/oplusreserve ext4  nosuid,nodev,noatime,barrier=1                     wait,check,first_stage_mount,nofail
-/dev/block/by-name/oplusreserve2                        /mnt/oplus/op2         ext4    nosuid,nodev,noatime,barrier=1
 
 # Need to have this entry in here even though the mount point itself is no longer needed.
 # The update_engine code looks for this entry in order to determine the boot device address
