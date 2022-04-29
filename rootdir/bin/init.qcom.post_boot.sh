@@ -630,185 +630,6 @@ function configure_zram_parameters() {
     fi
 }
 
-#ifdef VENDOR_EDIT
-#/*Huacai.Zhou@Tech.Kernel.MM, add zram opt*/
-function oplus_configure_zram_parameters() {
-    MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-    MemTotal=${MemTotalStr:16:8}
-
-    echo lz4 > /sys/block/zram0/comp_algorithm
-    echo 160 > /proc/sys/vm/swappiness
-    echo 60 > /proc/sys/vm/direct_swappiness
-    echo 0 > /proc/sys/vm/page-cluster
-
-    if [ -f /sys/block/zram0/disksize ]; then
-        if [ -f /sys/block/zram0/use_dedup ]; then
-            echo 1 > /sys/block/zram0/use_dedup
-        fi
-
-        if [ $MemTotal -le 524288 ]; then
-            #config 384MB zramsize with ramsize 512MB
-            echo 402653184 > /sys/block/zram0/disksize
-        elif [ $MemTotal -le 1048576 ]; then
-            #config 768MB zramsize with ramsize 1GB
-            echo 805306368 > /sys/block/zram0/disksize
-        elif [ $MemTotal -le 2097152 ]; then
-            #config 1GB+256MB zramsize with ramsize 2GB
-            echo lz4 > /sys/block/zram0/comp_algorithm
-            echo 1342177280 > /sys/block/zram0/disksize
-        elif [ $MemTotal -le 3145728 ]; then
-            #config 1GB+512MB zramsize with ramsize 3GB
-            echo 1610612736 > /sys/block/zram0/disksize
-        elif [ $MemTotal -le 4194304 ]; then
-            #config 2GB+512MB zramsize with ramsize 4GB
-            echo 2684354560 > /sys/block/zram0/disksize
-        elif [ $MemTotal -le 6291456 ]; then
-            #config 3GB zramsize with ramsize 6GB
-            echo 3221225472 > /sys/block/zram0/disksize
-        else
-            #config 4GB zramsize with ramsize >=8GB
-            echo 4294967296 > /sys/block/zram0/disksize
-        fi
-        mkswap /dev/block/zram0
-        swapon /dev/block/zram0 -p 32758
-    fi
-}
-#/*Add swappiness tunning parameters*/
-function oplus_configure_tunning_swappiness() {
-    MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-    MemTotal=${MemTotalStr:16:8}
-
-    if [ $MemTotal -le 6291456 ]; then
-        echo 0 > /proc/sys/vm/swappiness_threshold1_size
-        echo 0 > /proc/sys/vm/swappiness_threshold1_size
-        echo 0 > /proc/sys/vm/vm_swappiness_threshold2
-        echo 0 > /proc/sys/vm/swappiness_threshold2_size
-    elif [ $MemTotal -le 8388608 ]; then
-        echo 100 > /proc/sys/vm/vm_swappiness_threshold1
-        echo 2000 > /proc/sys/vm/swappiness_threshold1_size
-        echo 120 > /proc/sys/vm/vm_swappiness_threshold2
-        echo 1500 > /proc/sys/vm/swappiness_threshold2_size
-    fi
-}
-
-#endif /*VENDOR_EDIT*/
-
-#ifdef OPLUS_FEATURE_ZRAM_WRITEBACK
-#Huangwen.Chen@OPTIMIZATION, 2021/01/11, Add for zram writeback
-function configure_zram_writeback() {
-    # get backing storage size, unit: MB
-    backing_dev_size=$(getprop persist.vendor.zwriteback.backing_dev_size 2048)
-    case $backing_dev_size in
-        [1-9])
-            ;;
-        [1-9][0-9]*)
-            ;;
-        *)
-            backing_dev_size=2048
-            ;;
-    esac
-
-    # back up backing_dev file
-    dump_switch=$(getprop persist.sys.dump)
-    wb_file="/data/vendor/swap/zram_wb"
-    if [[ -f $wb_file && $dump_switch == 1 ]];then
-        rm -f "/data/vendor/swap/zram_wb.old"
-        mv $wb_file "/data/vendor/swap/zram_wb.old"
-    fi
-    # create backing storage
-    # check if dd command success
-    ret=$(dd if=/dev/zero of=/data/vendor/swap/zram_wb bs=1m count=$backing_dev_size 2>&1)
-    if [ $? -ne 0 ];then
-        rm -f /data/vendor/swap/zram_wb
-        echo "zwb $ret" > /dev/kmsg
-        return 1
-    fi
-
-    # check if attaching file success
-    losetup -f
-    loop_device=$(losetup -f -s /data/vendor/swap/zram_wb 2>&1)
-    if [ $? -ne 0 ];then
-        rm -f /data/vendor/swap/zram_wb
-        echo "zwb $loop_device" > /dev/kmsg
-        return 1
-    fi
-    echo $loop_device > /sys/block/zram0/backing_dev
-
-    mem_limit=$(getprop persist.vendor.zwriteback.mem_limit)
-    case $mem_limit in
-        [1-9])
-            mem_limit="${mem_limit}M"
-            ;;
-        [1-9][0-9]*)
-            mem_limit="${mem_limit}M"
-            ;;
-        *)
-            mem_limit="1G"
-            ;;
-    esac
-    echo $mem_limit > /sys/block/zram0/mem_limit
-}
-
-function configure_zwb_parameters() {
-    setprop vendor.sys.zwriteback.postboot 1
-    zwb_switch=`getprop persist.vendor.zwriteback.enable 1`
-    case "$zwb_switch" in
-        "1")
-            # enable zram writeback
-            oppo_zram_disksize=$(cat /sys/block/zram0/disksize)
-            rm /data/vendor/swap/swapfile
-            # reset zram swapspace
-            echo "zwb swapoff start" > /dev/kmsg
-            ret=$(swapoff /dev/block/zram0 2>&1)
-            if [ $? -ne 0 ];then
-                echo "zwb $ret" > /dev/kmsg
-                return
-            fi
-            echo "zwb swapoff done" > /dev/kmsg
-            echo 1 > /sys/block/zram0/reset
-
-            disksize=$(getprop persist.vendor.zwriteback.disksize 4096)
-            case $disksize in
-                [1-9])
-                    disksize="${disksize}M"
-                    ;;
-                [1-9][0-9]*)
-                    disksize="${disksize}M"
-                    ;;
-                *)
-                    disksize="${oppo_zram_disksize}"
-                    ;;
-            esac
-
-            # check if ZRAM_WRITEBACK_CONFIG enable
-            writeback_file="/sys/block/zram0/writeback"
-            if [[ -f $writeback_file ]];then
-                configure_zram_writeback
-                # check if configure_zram_writeback success
-                if [ $? -ne 0 ];then
-                    disksize=$oppo_zram_disksize
-                    echo 0 > /sys/block/zram0/mem_limit
-                fi
-            else
-                rm -f /data/vendor/swap/zram_wb
-                disksize=$oppo_zram_disksize
-                echo 0 > /sys/block/zram0/mem_limit
-            fi
-            echo $disksize > /sys/block/zram0/disksize
-
-            mkswap /dev/block/zram0
-            echo "zwb swapon start" > /dev/kmsg
-            swapon /dev/block/zram0 -p 32758
-            echo "zwb swapon done" > /dev/kmsg
-            ;;
-        *)
-            # disable zram writeback
-            ;;
-    esac
-    setprop vendor.sys.zwriteback.postboot 2
-}
-#endif /* OPLUS_FEATURE_ZRAM_WRITEBACK */
-
 function configure_read_ahead_kb_values() {
     MemTotalStr=`cat /proc/meminfo | grep MemTotal`
     MemTotal=${MemTotalStr:16:8}
@@ -899,28 +720,11 @@ low_ram=`getprop ro.config.low_ram`
 
 if [ "$ProductName" == "msmnile" ] || [ "$ProductName" == "kona" ] || [ "$ProductName" == "sdmshrike_au" ]; then
       # Enable ZRAM
-#ifdef VENDOR_EDIT
-#/*Huacai.Zhou@Tech.Kernel.MM, add zram opt*/
-       oplus_configure_zram_parameters
-       oplus_configure_tunning_swappiness
-#else
-#      configure_zram_parameters
-#endif /*VENDOR_EDIT*/
-
-#ifdef OPLUS_FEATURE_ZRAM_WRITEBACK
-#Huangwen.Chen@OPTIMIZATION, 2021/01/11, Add for zram writeback
-#    postboot_running=$(getprop vendor.sys.zwriteback.postboot 0)
-#    if [ $postboot_running != 3 ];then
-#        configure_zwb_parameters
-#    fi
-#endif /* OPLUS_FEATURE_ZRAM_WRITEBACK */
+      configure_zram_parameters
 
       configure_read_ahead_kb_values
       echo 0 > /proc/sys/vm/page-cluster
-#ifndef VENDOR_EDIT
-#/*Huacai.Zhou@Tech.Kernel.MM, add zram opt*/
-#      echo 100 > /proc/sys/vm/swappiness
-#endif /*VENDOR_EDIT*/
+      echo 100 > /proc/sys/vm/swappiness
 else
     arch_type=`uname -m`
 
@@ -1031,29 +835,7 @@ else
     # wsf Range : 1..1000 So set to bare minimum value 1.
     echo 1 > /proc/sys/vm/watermark_scale_factor
 
-#ifdef VENDOR_EDIT
-#/*Huacai.Zhou@Tech.Kernel.MM, add zram opt*/
-	oplus_configure_zram_parameters
-	oplus_configure_tunning_swappiness
-#else
-    #configure_zram_parameters
-#endif /*VENDOR_EDIT*/
-
-#ifdef OPLUS_ANDROID_PERFORMANCE
-#/*Kejun.Xu@Tech.Performance, disable boost water mark and enlarger gap between low and high*/
-    if [ $MemTotal -le 6291456 ]; then
-        echo 40 > /proc/sys/vm/watermark_scale_factor
-        echo 0 > /proc/sys/vm/watermark_boost_factor
-    fi
-#endif /*OPLUS_ANDROID_PERFORMANCE*/
-
-#ifdef OPLUS_FEATURE_ZRAM_WRITEBACK
-#Huangwen.Chen@OPTIMIZATION, 2021/01/11, Add for zram writeback
-#    postboot_running=$(getprop vendor.sys.zwriteback.postboot 0)
-#    if [ $postboot_running != 3 ];then
-#        configure_zwb_parameters
-#    fi
-#endif /* OPLUS_FEATURE_ZRAM_WRITEBACK */
+    configure_zram_parameters
 
     configure_read_ahead_kb_values
 
@@ -1079,14 +861,6 @@ function enable_memory_features()
 
 function start_hbtp()
 {
-#ifndef VENDOR_EDIT
-#Qicai.gu@PSW.BSP.TP 2018/03/12 del for closing hbtp
-#        # Start the Host based Touch processing but not in the power off mode.
-#        bootmode=`getprop ro.bootmode`
-#        if [ "charger" != $bootmode ]; then
-#                start vendor.hbtp
-#        fi
-#endif
 }
 
 case "$target" in
@@ -3796,9 +3570,6 @@ case "$target" in
         # Set Memory parameters
         configure_memory_parameters
 
-        #/*Kai Huang@BSP.kernel.Performance change IO scheduler to noop */
-        echo noop > /sys/block/sda/queue/scheduler
-
         if [ `cat /sys/devices/soc0/revision` == "2.0" ]; then
              # r2.0 related changes
              echo "0:1075200" > /sys/devices/system/cpu/cpu_boost/input_boost_freq
@@ -5636,8 +5407,6 @@ case "$target" in
         setprop vendor.dcvs.prop 0
 	setprop vendor.dcvs.prop 1
     echo N > /sys/module/lpm_levels/parameters/sleep_disabled
-    #/*Wangtao@BSP.kernel.MM change IO scheduler to noop */
-    echo noop > /sys/block/sda/queue/scheduler
     configure_memory_parameters
     ;;
 esac
