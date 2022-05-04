@@ -104,7 +104,7 @@ vendor.hw.fm.init=0
 vendor.qcom.bluetooth.soc=hastings
 
 # Camera
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,org.lineageos.snap
+vendor.camera.aux.packagelist=com.android.camera2
 
 # Chipset
 ro.soc.manufacturer=Qualcomm
