@@ -9,6 +9,12 @@ on init
     write /proc/fastchg_fw_update 1
     write /proc/ui_soc_decimal 1
 
+on property:ro.boot.startupmode=dc_charger
+    # Offline charging
+    mount_all /vendor/etc/charger_fw_fstab.qti --early
+    write /sys/kernel/boot_adsp/boot 1
+    wait /sys/class/power_supply/battery
+
 on fs
     # Update touchpanel firmware in case we ship newer firmware in /odm
     write /proc/touchpanel/tp_fw_update 0
