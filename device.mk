@@ -374,6 +374,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.oppo.display.rc \
+    init.oplus.charging.rc \
     init.oplus.usb.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
