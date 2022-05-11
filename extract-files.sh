@@ -55,9 +55,6 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-        system_ext/lib64/libwfdnative.so | system_ext/lib/libwfdnative.so )
-            "${PATCHELF}" --remove-needed "android.hidl.base@1.0.so" "${2}"
-            ;;
         odm/lib64/libgf_hal_G3.so)
             sed -i "s|ro.boot.flash.locked|vendor.flash.locked\x00|" "${2}"
             ;;
