@@ -872,7 +872,6 @@ vendor/lib64/libsysmon_cdsp_skel.so
 odm/bin/hw/vendor.oplus.hardware.charger@1.0-service
 odm/etc/init/vendor.oplus.hardware.charger@1.0-service.rc
 -odm/etc/vintf/manifest/manifest_oplus_charger.xml
-odm/firmware/fastchg/21615/oplus_vooc_fw_rk826.bin
 odm/firmware/fastchg/21619/oplus_vooc_fw_rk826.bin
 odm/firmware/fastchg/2169A/oplus_vooc_fw_rk826.bin
 odm/firmware/fastchg/2169B/oplus_vooc_fw_rk826.bin
@@ -1651,6 +1650,7 @@ odm/etc/sensor/config/kona_qrd_icm4x6xx.json
 odm/etc/sensor/config/kona_qrd_lsm6dso.json
 odm/etc/sensor/config/kona_qrd_sx933x_0.json
 odm/etc/sensor/sensor_config.json
+odm/lib64/liboplus_service.so
 odm/lib64/sensors.hal.tof.so
 odm/lib64/sensors.hal.tofcalib.so
 vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service

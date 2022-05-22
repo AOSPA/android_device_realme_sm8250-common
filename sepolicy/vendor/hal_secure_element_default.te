@@ -1,5 +1,0 @@
-allow hal_secure_element_default hal_nfc_oplus_hwservice:hwservice_manager find;
-
-binder_call(hal_secure_element_default, hal_nfc_oplus)
-
-get_prop(hal_secure_element_default, hwservicemanager_prop)

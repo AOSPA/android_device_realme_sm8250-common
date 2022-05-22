@@ -1,1 +1,14 @@
+# Camera
+type stmvl53l1_ranging_device, dev_type;
+
+# Charging
+type oplus_charger_device, dev_type, fs_type;
+
+# Display
+type oplus_display_device, dev_type;
+
+# Fingerprint
 type fingerprintd_device, dev_type;
+
+# Midas
+type oplus_midas_device, dev_type;

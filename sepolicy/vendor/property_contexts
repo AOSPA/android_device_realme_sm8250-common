@@ -1,42 +1,23 @@
 # Camera
-persist.camera.                 u:object_r:vendor_camera_prop:s0
-persist.ipe.debug               u:object_r:vendor_camera_prop:s0
-persist.sys.log.                u:object_r:vendor_camera_prop:s0
-vendor.oppo.camera.             u:object_r:vendor_camera_prop:s0
+vendor.oppo.camera.             u:object_r:vendor_oplus_prop:s0
 
 # Display
-persist.sys.display.            u:object_r:vendor_display_prop:s0
-vendor.dps.                     u:object_r:vendor_display_prop:s0
+vendor.dps.dump.composerpid     u:object_r:vendor_display_prop:s0
 
 # Fingerprint
-f.debug.dump_dsp_log            u:object_r:vendor_fingerprint_prop:s0
-oplus.fingerprint.              u:object_r:vendor_fingerprint_prop:s0
-oplus.optical.goodix.fp         u:object_r:vendor_fingerprint_prop:s0
 persist.vendor.fingerprint.     u:object_r:vendor_fingerprint_prop:s0
+persist.vendor.fp.              u:object_r:vendor_fingerprint_prop:s0
 vendor.flash.locked             u:object_r:exported_default_prop:s0
 vendor.fingerprint.             u:object_r:vendor_fingerprint_prop:s0
 
-# Modem
-persist.sys.enable_modem_dump   u:object_r:vendor_modem_prop:s0
-ro.sys.reserve.integrate        u:object_r:vendor_modem_prop:s0
-vendor.modem_dump_action        u:object_r:vendor_modem_prop:s0
+# Power
+persist.vendor.rpmb.enable.state u:object_r:vendor_powerctl_prop:s0
 
-# NFC
-vendor.nfc_se.                  u:object_r:vendor_nfc_prop:s0
-
-# Project
-ro.separate.soft                u:object_r:exported_default_prop:s0
+# Oplus
 ro.vendor.oplus.                u:object_r:vendor_oplus_prop:s0
 
 # Radio
-persist.sys.dump                u:object_r:vendor_radio_prop:s0
-ro.build.display.full_id        u:object_r:exported_default_prop:s0
-ro.build.version.ota            u:object_r:exported_default_prop:s0
-ro.oplus.radio.                 u:object_r:vendor_radio_prop:s0
-ro.rf_version                   u:object_r:vendor_radio_prop:s0
-
-# Sensors
-persist.sys.assert.panic        u:object_r:vendor_sensors_prop:s0
+ro.vendor.oplus.radio.          u:object_r:vendor_radio_prop:s0
 
 # WiFi
 vendor.vold.serialno            u:object_r:vendor_wcnss_prop:s0

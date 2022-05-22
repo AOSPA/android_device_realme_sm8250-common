@@ -1,21 +1,22 @@
-allow hal_camera_default proc_oplus:dir r_dir_perms;
-allow hal_camera_default proc_oplus:file r_file_perms;
+add_hwservice(hal_camera_default, hal_camera_oplus_hwservice)
+allow hal_camera_default hal_orms_oplus_hwservice:hwservice_manager find;
+allow hal_camera_default hal_commondcs_oplus_hwservice:hwservice_manager find;
 
 allow hal_camera_default mnt_vendor_file:dir r_dir_perms;
-allow hal_camera_default vendor_persist_file:dir r_dir_perms;
 
+allow hal_camera_default vendor_camera_update_data_file:dir rw_dir_perms;
+allow hal_camera_default vendor_camera_update_data_file:file create_file_perms;
 allow hal_camera_default vendor_persist_camera_file:dir rw_dir_perms;
 allow hal_camera_default vendor_persist_camera_file:file create_file_perms;
 
-allow hal_camera_default proc_meminfo:file r_file_perms;
+allow hal_camera_default vendor_proc_flash:file rw_file_perms;
 
-allow hal_camera_default proc_flash:file rw_file_perms;
+allow hal_camera_default vendor_sysfs_tof_control:dir r_dir_perms;
+allow hal_camera_default vendor_sysfs_tof_control:file rw_file_perms;
+allow hal_camera_default stmvl53l1_ranging_device:chr_file { open read write ioctl };
+allowxperm hal_camera_default stmvl53l1_ranging_device:chr_file ioctl { 0x7001-0x7013 };
+allow hal_camera_default vendor_sysfs_vl53l1:dir r_dir_perms;
+allow hal_camera_default vendor_sysfs_vl53l1:file rw_file_perms;
 
-allow hal_camera_default sysfs_vl53l1:dir r_dir_perms;
-allow hal_camera_default sysfs_vl53l1:file rw_file_perms;
-
-allow hal_camera_default hal_orms_oplus_hwservice:hwservice_manager find;
-
-set_prop(hal_camera_default, vendor_camera_prop)
-get_prop(hal_camera_default, vendor_sensors_prop)
-vndbinder_use(hal_camera_default)
+set_prop(hal_camera_default, vendor_oplus_prop)
+get_prop(hal_camera_default, vendor_oplus_prop)

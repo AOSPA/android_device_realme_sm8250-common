@@ -10,8 +10,8 @@ allow vl53l1_daemon self:{
     netlink_socket
 } create_socket_perms_no_ioctl;
 
-allow vl53l1_daemon sysfs_vl53l1:dir search;
-allow vl53l1_daemon sysfs_vl53l1:file rw_file_perms;
+allow vl53l1_daemon vendor_sysfs_vl53l1:dir search;
+allow vl53l1_daemon vendor_sysfs_vl53l1:file rw_file_perms;
 
 allow vl53l1_daemon mnt_vendor_file:dir r_dir_perms;
 

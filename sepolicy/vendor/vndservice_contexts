@@ -1,2 +1,2 @@
-vendor.oplus.audio_stream             u:object_r:vendor_camera_vndservice:s0
-vendor.oplus.camera_stream            u:object_r:vendor_camera_vndservice:s0
+# Display
+dp.service    u:object_r:vendor_dp_service:s0

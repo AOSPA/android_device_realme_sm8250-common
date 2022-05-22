@@ -1,0 +1,3 @@
+attribute hal_midas;
+attribute hal_midas_client;
+attribute hal_midas_server;

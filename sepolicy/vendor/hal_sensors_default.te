@@ -1,4 +1,5 @@
-allow hal_sensors_default proc_oplus:dir r_dir_perms;
-allow hal_sensors_default proc_oplus:file r_file_perms;
+allow hal_sensors_default vendor_persist_engineer_file:dir r_dir_perms;
+allow hal_sensors_default vendor_persist_engineer_file:file rw_file_perms;
 
-allow hal_sensors_default vendor_persist_sensors_file:fifo_file rw_file_perms;
+allow hal_sensors_default vendor_sysfs_graphics:dir r_dir_perms;
+allow hal_sensors_default vendor_sysfs_graphics:file rw_file_perms;
