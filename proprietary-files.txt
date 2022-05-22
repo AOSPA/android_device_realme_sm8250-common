@@ -2651,12 +2651,12 @@ odm/firmware/lighthouse.mp3
 # Widevine
 odm/bin/hw/android.hardware.drm@1.3-service.widevine
 odm/etc/init/android.hardware.drm@1.3-service.widevine.rc
-vendor/etc/OPlus_QC_LTM_Commercial_SM8250_2020_02_07.pfm
-vendor/etc/Oppo_QC_LTM_Commercial_2020_01_03.pfm
 -odm/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
 odm/lib64/mediadrm/libwvdrmengine.so
 odm/lib64/liboemcrypto.so
 odm/lib64/libwvhidl.so
+vendor/etc/OPlus_QC_LTM_Commercial_SM8250_2020_02_07.pfm
+vendor/etc/Oppo_QC_LTM_Commercial_2020_01_03.pfm
 vendor/lib64/libbase64.so
 vendor/lib64/libcpion.so
 vendor/lib64/libtrustedapploader.so
