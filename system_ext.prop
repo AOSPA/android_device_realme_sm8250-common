@@ -1,0 +1,26 @@
+# Bluetooth
+persist.bluetooth.a2dp.lhdc=true
+persist.bluetooth.absvolume_support=true
+persist.bluetooth.bqr.choppy_threshold=9,6
+persist.bluetooth.bqr.event_mask=0x8000000E
+persist.bluetooth.bqr.min_interval_ms=60000
+persist.bluetooth.default.power_level=10
+persist.bluetooth.disableabsvol=false
+persist.bluetooth.disableinbandringing=false
+persist.sys.bluetooth.ble.retry.support=true
+persist.sys.bluetooth.gatt.cache.support=true
+persist.sys.bluetooth.random=true
+persist.sys.bluetooth.rssi_distance.support=true
+persist.sys.bluetooth.wearcheck_support=true
+persist.vendor.bluetooth.a2dp.hal.implementation=true
+persist.vendor.bluetooth.modem_nv_support=true
+persist.vendor.bt.a2dp.hal.implementation=true
+persist.vendor.btstack.enable.lpa=true
+persist.vendor.service.bt.iot.enablelogging=true
+persist.vendor.service.bt.iotinfo.report.enable=true
+
+# DPM
+persist.vendor.dpm.feature=11
+
+# Radio
+persist.vendor.radio.poweron_opt=1

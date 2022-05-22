@@ -1,0 +1,29 @@
+# Audio
+af.fast_track_multiplier=1
+audio.offload.min.duration.secs=30
+audio.offload.video=true
+audio.sys.mute.latency.factor=2
+audio.sys.noisy.broadcast.delay=500
+audio.sys.offload.pstimeout.secs=3
+audio.sys.routing.latency=0
+ro.af.client_heap_size_kbyte=7168
+
+# Display
+debug.sf.disable_backpressure=1
+debug.sf.latch_unsignaled=1
+ro.vendor.display.sensortype=2
+vendor.display.primary_mixer_stages=9
+vendor.display.smomo_camera_support=1
+vendor.display.smomo_game_support=0
+
+# Media
+media.stagefright.audio.deep=false
+
+# NFC
+persist.nfc.smartcard.recorder.enable=true
+
+# Radio
+persist.vendor.ims.res_maintain_factor=1
+persist.vendor.oplus.radio.osc.force_refresh=1
+persist.vendor.radio.wait_for_pbm=0
+ro.telephony.default_network=27,9
