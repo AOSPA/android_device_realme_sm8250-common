@@ -1361,12 +1361,9 @@ vendor/lib64/unnhal-acc-hta.so
 vendor/lib64/unnhal-acc-hvx.so
 
 # NFC
-odm/etc/init/init.SN100x.nfc.rc
-odm/etc/nfc/sn100u.bin_sn100t_fw_01_10_57
--odm/etc/vintf/manifest/manifest_nfc_sn100t.xml
-
-# NFC Firmware
-odm/lib/libsn100u_fw.so
+odm/etc/nfc/libnfc-mtp-SN100.conf_2169B:vendor/etc/libnfc-mtp-SN100.conf
+odm/etc/nfc/libnfc-nci.conf_2169B:vendor/etc/libnfc-nci.conf
+odm/lib/libsn100u_fw.so:vendor/lib/libsn100u_fw.so
 
 # Perf
 odm/lib64/vendor.oplus.hardware.performance@1.0.so
