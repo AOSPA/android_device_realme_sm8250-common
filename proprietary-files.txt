@@ -108,31 +108,19 @@ vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 # Audio
 odm/lib/hw/awinic.haptic.effect.so
 odm/lib/libaudioEngineerTest.so
-odm/lib/liblvimfs.so
-odm/lib/liblvimfs_wrapper.so
-odm/lib/libui.so
 odm/lib64/libaudioEngineerTest.so
-odm/lib64/liblvimfs.so
-odm/lib64/liblvimfs_wrapper.so
-odm/lib64/libui.so
-vendor/lib/hw/audio.primary.kona.so
 vendor/lib/hw/vendor.qti.hardware.audiohalext@1.0-impl.so
 vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
 vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioconfigstore.so
 vendor/lib/libqtigef.so
-vendor/lib/libtinycompress.so
-vendor/lib/vendor.qti.hardware.audiohalext@1.0.so
-vendor/lib64/hw/audio.primary.kona.so
 vendor/lib64/hw/vendor.qti.hardware.audiohalext@1.0-impl.so
 vendor/lib64/libadiertac.so
 vendor/lib64/libaudcal.so
 vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libaudioconfigstore.so
 vendor/lib64/libqtigef.so
-vendor/lib64/libtinycompress.so
-vendor/lib64/vendor.qti.hardware.audiohalext@1.0.so
 
 # Audio configs
 odm/etc/lvimfs_params/LVACFS_Configuration.txt
@@ -1266,8 +1254,6 @@ vendor/lib64/libqcbor.so
 vendor/lib64/libqtikeymaster4.so
 
 # Listen
-vendor/lib/hw/sound_trigger.primary.kona.so
-vendor/lib64/hw/sound_trigger.primary.kona.so
 vendor/lib64/libcapiv2svacnn.so
 vendor/lib64/libcapiv2svarnn.so
 vendor/lib64/libcapiv2vop.so
@@ -1383,10 +1369,6 @@ odm/etc/nfc/sn100u.bin_sn100t_fw_01_10_57
 odm/lib/libsn100u_fw.so
 
 # Perf
-odm/bin/hw/vendor.oplus.hardware.performance@1.0-service
-odm/etc/init/vendor.oplus.hardware.performance@1.0-service.rc
--odm/etc/vintf/manifest/manifest_oplus_performance.xml
-odm/lib/vendor.oplus.hardware.performance@1.0.so
 odm/lib64/vendor.oplus.hardware.performance@1.0.so
 vendor/bin/hw/vendor.qti.hardware.perf@2.2-service
 vendor/etc/init/vendor.qti.hardware.perf@2.2-service.rc
@@ -1402,7 +1384,6 @@ vendor/lib/libperfioctl.so
 vendor/lib/libqti-perfd-client.so
 vendor/lib/libqti-perfd.so
 vendor/lib/libqti-util.so
-vendor/lib/vendor.oplus.hardware.performance@1.0.so
 vendor/lib64/liblearningmodule.so
 vendor/lib64/libmeters.so
 vendor/lib64/libperfconfig.so
@@ -1411,7 +1392,6 @@ vendor/lib64/libperfioctl.so
 vendor/lib64/libqti-perfd-client.so
 vendor/lib64/libqti-perfd.so
 vendor/lib64/libqti-util.so
-vendor/lib64/vendor.oplus.hardware.performance@1.0.so
 
 # Peripheral
 vendor/bin/pm-proxy
