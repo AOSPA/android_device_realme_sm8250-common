@@ -235,8 +235,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/prebuilt/modules/,$(TARGET_COPY_OUT_VENDOR)/lib/modules)
 
-PRODUCT_VENDOR_KERNEL_HEADERS += hardware/qcom-caf/sm8250/kernel-headers
-
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/touchpanel.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/touchpanel.kl
