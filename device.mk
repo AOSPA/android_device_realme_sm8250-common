@@ -134,6 +134,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
 PRODUCT_PACKAGES += \
+    libcamera2ndk_vendor \
+    libstdc++.vendor
+
+PRODUCT_PACKAGES += \
     Camera2
 
 PRODUCT_COPY_FILES += \
