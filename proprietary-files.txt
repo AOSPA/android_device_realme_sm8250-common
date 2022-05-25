@@ -1375,6 +1375,7 @@ vendor/etc/configstore/vpp.configstore.xml
 vendor/etc/init/vppservice_osie_sr.rc
 vendor/etc/seccomp_policy/mediacodec.policy
 vendor/etc/system_properties.xml
+-vendor/etc/vintf/manifest/manifest_oplus_osiesr.xml
 vendor/lib/libAlacSwDec.so
 vendor/lib/libApeSwDec.so
 vendor/lib/libFlacSwDec.so
