@@ -18,32 +18,24 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
-         USB interfaces.  If the device doesn't want to support tethering over USB this should
-         be empty.  An example would be "usb.*" -->
-    <string-array translatable="false" name="config_tether_usb_regexs">
-        <item>"usb\\d"</item>
-        <item>"rndis\\d"</item>
-    </string-array>
-
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
-         Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
-         should be empty.  An example would be "softap.*" -->
-    <string-array name="config_tether_wifi_regexs">
-        <item>"wlan\\d"</item>
-    </string-array>
-
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
          should be empty. -->
-    <string-array translatable="false" name="config_tether_bluetooth_regexs">
-        <item>"bnep\\d"</item>
-        <item>"bt-pan"</item>
+    <string-array name="config_tether_bluetooth_regexs">
+        <item>bnep\\d</item>
+        <item>bt-pan</item>
     </string-array>
 
     <!-- Dhcp range (min, max) to use for tethering purposes -->
-    <string-array translatable="false" name="config_tether_dhcp_range">
+    <!-- USB is  192.168.42.1 and 255.255.255.0
+         Wifi is 192.168.43.1 and 255.255.255.0
+         BT is limited to max default of 5 connections. 192.168.44.1 to 192.168.48.1
+         with 255.255.255.0
+         P2P is 192.168.49.1 and 255.255.255.0
+         Wigig is 192.168.50.1 and 255.255.255.0
+         Wigig P2P is 192.168.51.1 and 255.255.255.0
+    -->
+    <string-array name="config_tether_dhcp_range">
         <item>192.168.42.2</item>
         <item>192.168.42.254</item>
         <item>192.168.43.2</item>
@@ -64,6 +56,55 @@
         <item>192.168.50.254</item>
         <item>192.168.51.2</item>
         <item>192.168.51.254</item>
+    </string-array>
+
+    <!-- Array of ConnectivityManager.TYPE_xxxx values allowable for tethering.
+         Common options are [1, 4] for TYPE_WIFI and TYPE_MOBILE_DUN or
+         [1,7,0] for TYPE_WIFI, TYPE_BLUETOOTH, and TYPE_MOBILE.
+         This list is also modified by code within the framework, including:
+             - TYPE_ETHERNET (9) is prepended to this list, and
+             - the return value of TelephonyManager.getTetherApnRequired()
+               determines how the array is further modified:
+                   * DUN_REQUIRED
+                     TYPE_MOBILE is removed (if present)
+                     TYPE_MOBILE_HIPRI is removed (if present)
+                     TYPE_MOBILE_DUN is appended (if not already present)
+                   * DUN_NOT_REQUIRED
+                     TYPE_MOBILE_DUN is removed (if present)
+                     TYPE_MOBILE is appended (if not already present)
+                     TYPE_MOBILE_HIPRI is appended (if not already present)
+                   * DUN_UNSPECIFIED
+                     if any of TYPE_MOBILE{,_DUN,_HIPRI} are present:
+                         change nothing
+                     else:
+                         TYPE_MOBILE is appended
+                         TYPE_MOBILE_HIPRI is appended
+         For other changes applied to this list, now and in the future, see
+         com.android.server.connectivity.tethering.TetheringConfiguration.
+         Note also: the order of this is important. The first upstream type
+         for which a satisfying network exists is used.
+    -->
+    <integer-array name="config_tether_upstream_types">
+        <item>0</item>
+        <item>1</item>
+        <item>5</item>
+        <item>7</item>
+    </integer-array>
+
+    <!-- List of regexpressions describing the interface (if any) that represent tetherable
+         USB interfaces.  If the device doesn't want to support tething over USB this should
+         be empty.  An example would be "usb.*" -->
+    <string-array name="config_tether_usb_regexs">
+        <item>usb\\d</item>
+        <item>rndis\\d</item>
+    </string-array>
+
+    <!-- List of regexpressions describing the interface (if any) that represent tetherable
+         Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
+         should be empty.  An example would be "softap.*" -->
+    <string-array name="config_tether_wifi_regexs">
+        <item>softap0</item>
+        <item>wlan0</item>
     </string-array>
 
 </resources>
