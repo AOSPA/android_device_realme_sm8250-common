@@ -137,7 +137,7 @@ ro.surface_flinger.use_color_management=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
 vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_offline_rotator=1
-vendor.display.enable_async_powermode=1
+vendor.display.enable_async_powermode=0
 
 # DPM
 persist.vendor.dpmhalservice.enable=1
