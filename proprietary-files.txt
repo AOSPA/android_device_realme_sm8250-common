@@ -970,12 +970,14 @@ vendor/lib64/libsysmon_cdsp_skel.so
 odm/bin/hw/vendor.oplus.hardware.charger@1.0-service
 odm/etc/init/vendor.oplus.hardware.charger@1.0-service.rc
 -odm/etc/vintf/manifest/manifest_oplus_charger.xml
+odm/firmware/fastchg/20161/oplus_vooc_fw_rt5125.bin
 odm/firmware/fastchg/21619/charging_thermal_config_default.txt
 odm/firmware/fastchg/21619/oplus_vooc_fw_rk826.bin
 odm/firmware/fastchg/2169A/charging_thermal_config_default.txt
 odm/firmware/fastchg/2169A/oplus_vooc_fw_rk826.bin
 odm/firmware/fastchg/2169B/charging_thermal_config_default.txt
 odm/firmware/fastchg/2169B/oplus_vooc_fw_rk826.bin
+odm/firmware/fastchg/charging_thermal_config_default.txt
 odm/lib/vendor.oplus.hardware.charger@1.0.so
 odm/lib64/vendor.oplus.hardware.charger@1.0.so
 vendor/bin/init.qti.chg_policy.sh
