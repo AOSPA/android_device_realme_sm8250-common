@@ -18,14 +18,17 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common ArrowOS stuff
+$(call inherit-product, vendor/arrow/config/common.mk)
+ARROW_GAPPS := true
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_INCLUDE_PIXEL_CHARGER := true
 
 # Inherit from device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_bitra
+PRODUCT_NAME := arrow_bitra
 PRODUCT_DEVICE := bitra
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := RMX3370
@@ -38,4 +41,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_PRODUCT=RMX3370 \
     PRIVATE_BUILD_DESC="RMX3370-user 12 SKQ1.210216.001 R.202203191836 release-keys"
 
-BUILD_FINGERPRINT := realme/RMX3370/RE879AL1:12/SKQ1.210216.001/R.202203191836:user/release-keys
+BUILD_FINGERPRINT := google/redfin/redfin:12/SP2A.220505.002/8353555:user/release-keys
