@@ -37,9 +37,6 @@
 /odm/vendor/firmware(/.*)?                                                                                             u:object_r:vendor_firmware_file:s0
 /odm/firmware(/.*)?                                                                                                    u:object_r:vendor_firmware_file:s0
 
-# Light
-/(vendor|system/vendor)/bin/hw/android\.hardware\.light-service\.realme_bitra                                          u:object_r:hal_light_default_exec:s0
-
 # Midas
 /dev/binder_stats                                                                                                      u:object_r:oplus_midas_device:s0
 /dev/midas_dev 		                                                                                                   u:object_r:oplus_midas_device:s0
