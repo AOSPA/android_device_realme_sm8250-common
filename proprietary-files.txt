@@ -1184,7 +1184,6 @@ vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
 # GPS
-odm/etc/gps.conf
 odm/etc/izat.conf
 odm/etc/sap.conf
 -vendor/app/CACertService/CACertService.apk
