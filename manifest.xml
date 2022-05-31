@@ -193,12 +193,12 @@
     <hal format="hidl">
         <name>com.qualcomm.qti.uceservice</name>
         <transport>hwbinder</transport>
-        <version>2.2</version>
+        <version>2.3</version>
         <interface>
             <name>IUceService</name>
             <instance>com.qualcomm.qti.uceservice</instance>
         </interface>
-        <fqname>@2.2::IUceService/com.qualcomm.qti.uceservice</fqname>
+        <fqname>@2.3::IUceService/com.qualcomm.qti.uceservice</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.nxp.hardware.nfc</name>
@@ -242,12 +242,12 @@
     <hal format="hidl">
         <name>vendor.qti.data.factory</name>
         <transport>hwbinder</transport>
-        <version>2.1</version>
+        <version>2.2</version>
         <interface>
             <name>IFactory</name>
             <instance>default</instance>
         </interface>
-        <fqname>@2.1::IFactory/default</fqname>
+        <fqname>@2.2::IFactory/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.esepowermanager</name>
@@ -372,12 +372,12 @@
     <hal format="hidl">
         <name>vendor.qti.hardware.embmssl</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>IEmbms</name>
             <instance>embmsslServer0</instance>
         </interface>
-        <fqname>@1.0::IEmbms/embmsslServer0</fqname>
+        <fqname>@1.1::IEmbms/embmsslServer0</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.factory</name>
@@ -408,6 +408,16 @@
             <instance>default</instance>
         </interface>
         <fqname>@1.0::IFstManager/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.mwqemadapter</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IMwqemAdapter</name>
+            <instance>MwqemAdapter</instance>
+        </interface>
+        <fqname>@1.0::IMwqemAdapter/MwqemAdapter</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.perf</name>
@@ -553,16 +563,6 @@
             <instance>default</instance>
         </interface>
         <fqname>@1.0::ISensorsCalibrate/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.slmadapter</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ISlmAdapter</name>
-            <instance>SlmAdapter</instance>
-        </interface>
-        <fqname>@1.0::ISlmAdapter/SlmAdapter</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.soter</name>

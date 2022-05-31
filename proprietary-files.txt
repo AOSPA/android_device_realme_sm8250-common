@@ -156,7 +156,6 @@ odm/etc/lvimfs_params/LVIMFS_Parameter_ID9_MIC_Voice.txt
 odm/firmware/tfa98xx.cnt
 
 # Audio FX modules
-odm/lib/soundfx/libhaptic_effect.so
 system_ext/etc/permissions/audiosphere.xml
 system_ext/framework/audiosphere.jar
 vendor/lib/soundfx/libasphere.so
@@ -178,23 +177,28 @@ vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/libbtnv.so
+vendor/lib64/libsoc_helper.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
 # Bluetooth (A2DP)
 vendor/lib/hw/audio.bluetooth_qti.default.so
 vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
+vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.1-impl.so
 vendor/lib/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so
 vendor/lib/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so
 vendor/lib/btaudio_offload_if.so
 vendor/lib/libbluetooth_audio_session_qti.so
+vendor/lib/libbluetooth_audio_session_qti_2_1.so
 vendor/lib64/hw/audio.bluetooth_qti.default.so
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.1-impl.so
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so
 vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so
 vendor/lib64/btaudio_offload_if.so
 vendor/lib64/libbluetooth_audio_session_qti.so
+vendor/lib64/libbluetooth_audio_session_qti_2_1.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
 
@@ -666,6 +670,7 @@ odm/lib64/camera/components/com.oplus.node.videohdr.so
 odm/lib64/camera/components/com.oplus.node.videonight.so
 odm/lib64/camera/components/com.qti.node.remosaic.so
 odm/lib64/camera/components/com.qti.stats.pdlib.so
+odm/lib64/camera/components/libipebpsstriping.so
 odm/lib64/camera/com.qti.sensor.hi846.so
 odm/lib64/camera/com.qti.sensor.imx471.so
 odm/lib64/camera/com.qti.sensor.ov02b.so
@@ -925,7 +930,6 @@ vendor/lib64/libcvpcpuRev_skel.so
 vendor/lib64/libextcamera_client.so
 vendor/lib64/libface3d_dev.so
 vendor/lib64/libgui1_vendor.so
-vendor/lib64/libipebpsstriping.so
 vendor/lib64/libmidasserviceintf.so
 vendor/lib64/libmmcamera_faceproc.so
 vendor/lib64/libmmcamera_faceproc2.so
@@ -1014,8 +1018,8 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile3.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile4.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile5.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml
-vendor/etc/cne/profileSlm.xml
-vendor/etc/cne/slm.conf
+vendor/etc/cne/mwqem.conf
+vendor/etc/cne/profileMwqem.xml
 vendor/etc/default-permissions/com.qualcomm.qti.cne.xml
 vendor/etc/init/cnd.rc
 vendor/lib64/libcacertclient.so
@@ -1028,6 +1032,7 @@ vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
 vendor/lib64/vendor.qti.data.factory@2.0.so
 vendor/lib64/vendor.qti.data.factory@2.1.so
+vendor/lib64/vendor.qti.data.factory@2.2.so
 vendor/lib64/vendor.qti.data.slm@1.0.so
 vendor/lib64/vendor.qti.hardware.cacert@1.0.so
 vendor/lib64/vendor.qti.hardware.data.cne.internal.api@1.0.so
@@ -1037,10 +1042,13 @@ vendor/lib64/vendor.qti.hardware.data.connection@1.0.so
 vendor/lib64/vendor.qti.hardware.data.connection@1.1.so
 vendor/lib64/vendor.qti.hardware.data.dynamicdds@1.0.so
 vendor/lib64/vendor.qti.hardware.data.iwlan@1.0.so
+vendor/lib64/vendor.qti.hardware.data.lce@1.0.so
 vendor/lib64/vendor.qti.hardware.data.latency@1.0.so
 vendor/lib64/vendor.qti.hardware.data.qmi@1.0.so
+vendor/lib64/vendor.qti.hardware.mwqemadapter@1.0.so
 vendor/lib64/vendor.qti.hardware.slmadapter@1.0.so
 vendor/lib64/vendor.qti.latency@2.0.so
+vendor/lib64/vendor.qti.latency@2.1.so
 
 # ConfigStore
 vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
@@ -1261,6 +1269,7 @@ vendor/lib/libc2d30_bltlib.so
 vendor/lib/libgsl.so
 vendor/lib/libllvm-glnext.so
 vendor/lib/libllvm-qcom.so
+vendor/lib/libpvr.so
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
 vendor/lib64/egl/libGLESv1_CM_adreno.so
@@ -1275,6 +1284,7 @@ vendor/lib64/libc2d30_bltlib.so
 vendor/lib64/libgsl.so
 vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
+vendor/lib64/libpvr.so
 
 # Graphics (DRM)
 vendor/lib/libsdedrm.so
@@ -1374,9 +1384,13 @@ system_ext/lib/libmmosal.so
 system_ext/lib/libmmparser_lite.so
 system_ext/lib64/libmmosal.so
 system_ext/lib64/libmmparser_lite.so
+vendor/bin/hw/vendor.qti.media.c2@1.0-service
 vendor/bin/vppservice
 vendor/etc/configstore/vpp.configstore.xml
+vendor/etc/init/vendor.qti.media.c2@1.0-service.rc
 vendor/etc/init/vppservice_osie_sr.rc
+vendor/etc/seccomp_policy/codec2.vendor.base-arm.policy
+vendor/etc/seccomp_policy/codec2.vendor.ext-arm.policy
 vendor/etc/seccomp_policy/mediacodec.policy
 vendor/etc/system_properties.xml
 -vendor/etc/vintf/manifest/manifest_oplus_osiesr.xml
@@ -1406,6 +1420,12 @@ vendor/lib/libOmxWmaDec.so
 vendor/lib/libdsd2pcm.so
 vendor/lib/libmm-color-convertor.so
 vendor/lib/libmmosal.so
+vendor/lib/libqcodec2_base.so
+vendor/lib/libqcodec2_basecodec.so
+vendor/lib/libqcodec2_core.so
+vendor/lib/libqcodec2_platform.so
+vendor/lib/libqcodec2_utils.so
+vendor/lib/libqcodec2_v4l2codec.so
 vendor/lib/libswvdec.so
 vendor/lib/libvppclient.so
 vendor/lib/libvpphcp.so
@@ -1438,6 +1458,12 @@ vendor/lib64/libOmxVpp.so
 vendor/lib64/libOmxWmaDec.so
 vendor/lib64/libmm-color-convertor.so
 vendor/lib64/libmmosal.so
+vendor/lib64/libqcodec2_base.so
+vendor/lib64/libqcodec2_basecodec.so
+vendor/lib64/libqcodec2_core.so
+vendor/lib64/libqcodec2_platform.so
+vendor/lib64/libqcodec2_utils.so
+vendor/lib64/libqcodec2_v4l2codec.so
 vendor/lib64/libswvdec.so
 vendor/lib64/libvppclient.so
 vendor/lib64/libvpphcp.so
@@ -1634,6 +1660,7 @@ vendor/lib64/vendor.qti.hardware.radio.am@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.internal.deviceinfo@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.lpa@1.0.so
+vendor/lib64/vendor.qti.hardware.radio.lpa@1.1.so
 vendor/lib64/vendor.qti.hardware.radio.qcrilhook@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.0.so
@@ -1641,6 +1668,7 @@ vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.1.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.2.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.3.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.4.so
+vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.5.so
 vendor/lib64/vendor.qti.hardware.radio.uim@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.uim@1.1.so
 vendor/lib64/vendor.qti.hardware.radio.uim@1.2.so
@@ -1672,6 +1700,7 @@ system_ext/framework/com.qualcomm.qti.imscmservice-V2.2-java.jar
 system_ext/framework/com.qualcomm.qti.uceservice-V2.0-java.jar
 system_ext/framework/com.qualcomm.qti.uceservice-V2.1-java.jar
 system_ext/framework/com.qualcomm.qti.uceservice-V2.2-java.jar
+system_ext/framework/com.qualcomm.qti.uceservice-V2.3-java.jar
 system_ext/framework/vendor.qti.ims.callinfo-V1.0-java.jar
 system_ext/framework/vendor.qti.ims.factory-V1.0-java.jar
 system_ext/framework/vendor.qti.ims.factory-V1.1-java.jar
@@ -1682,6 +1711,8 @@ system_ext/lib64/com.qualcomm.qti.imscmservice@2.1.so
 system_ext/lib64/com.qualcomm.qti.imscmservice@2.2.so
 system_ext/lib64/com.qualcomm.qti.uceservice@2.0.so
 system_ext/lib64/com.qualcomm.qti.uceservice@2.1.so
+system_ext/lib64/com.qualcomm.qti.uceservice@2.2.so
+system_ext/lib64/com.qualcomm.qti.uceservice@2.3.so
 system_ext/lib64/lib-imsvideocodec.so
 system_ext/lib64/lib-imsvt.so
 system_ext/lib64/lib-imsvtextutils.so
@@ -1709,6 +1740,7 @@ vendor/lib64/com.qualcomm.qti.imscmservice@2.2.so
 vendor/lib64/com.qualcomm.qti.uceservice@2.0.so
 vendor/lib64/com.qualcomm.qti.uceservice@2.1.so
 vendor/lib64/com.qualcomm.qti.uceservice@2.2.so
+vendor/lib64/com.qualcomm.qti.uceservice@2.3.so
 vendor/lib64/lib-imscmservice.so
 vendor/lib64/lib-imsdpl.so
 vendor/lib64/lib-imsqimf.so
@@ -2764,6 +2796,7 @@ vendor/etc/OPlus_QC_LTM_Commercial_SM8250_2020_02_07.pfm
 vendor/etc/Oppo_QC_LTM_Commercial_2020_01_03.pfm
 vendor/lib64/libbase64.so
 vendor/lib64/libcpion.so
+vendor/lib64/librmp.so
 vendor/lib64/libtrustedapploader.so
 
 # WiFi
