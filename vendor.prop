@@ -140,7 +140,7 @@ ro.surface_flinger.use_content_detection_for_refresh_rate=false
 ro.surface_flinger.wcg_composition_dataspace=143261696
 vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_offline_rotator=1
-vendor.display.enable_async_powermode=0
+vendor.display.enable_async_powermode=1
 
 # DPM
 persist.vendor.dpmhalservice.enable=1
