@@ -32,11 +32,6 @@ on early-init
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_q6_pdr audio_q6_notifier audio_snd_event audio_apr audio_adsp_loader audio_q6 audio_native audio_usf audio_pinctrl_wcd audio_pinctrl_lpi audio_swr audio_platform audio_hdmi audio_stub audio_wcd_core audio_wsa881x audio_bolero_cdc audio_wsa_macro audio_va_macro audio_rx_macro audio_tx_macro audio_wcd938x audio_wcd938x_slave audio_extend audio_machine_kona audio_max98937 audio_tfa98xx-v6 audio_ak4376
     write /proc/sys/kernel/sched_boost 1
 
-on property:sys.oplus.bootupgrade=1
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 1670400
-    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq 1977600
-    write /dev/kmsg "first boot, sys.oplus.bootupgrade = 1.  limit cpufreq."
-
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
     write /dev/stune/top-app/schedtune.sched_boost_no_override 1
@@ -50,11 +45,6 @@ on init
     chown system system /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     chmod 0660 /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     start logd
-
-on property:sys.boot_completed=1 && property:sys.oplus.bootupgrade=1
-    write /dev/kmsg "first boot completed, sys.oplus.bootupgrade = 1. free cpufreq limit."
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 4294967295
-    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq 4294967295
 
 on early-fs
     start vold
