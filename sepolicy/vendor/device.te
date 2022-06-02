@@ -9,6 +9,3 @@ type oplus_display_device, dev_type;
 
 # Fingerprint
 type fingerprintd_device, dev_type;
-
-# Midas
-type oplus_midas_device, dev_type;

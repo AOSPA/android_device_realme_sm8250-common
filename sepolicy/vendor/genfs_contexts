@@ -25,9 +25,6 @@ genfscon sysfs /devices/virtual/oplus_chg           u:object_r:vendor_sysfs_usb_
 # Devinfo
 genfscon proc /devinfo                              u:object_r:vendor_proc_devinfo:s0
 
-# DDR
-genfscon sysfs /power/ddr/residency                 u:object_r:vendor_sysfs_ddr_trans_file:s0
-
 # Display
 genfscon proc /devinfo/lcd                          u:object_r:vendor_proc_display:s0
 genfscon proc /touchpanel                           u:object_r:vendor_proc_display:s0
@@ -35,13 +32,6 @@ genfscon sysfs /kernel/oplus_display                u:object_r:vendor_sysfs_grap
 
 # Fingerprint
 genfscon proc /fp_id                                u:object_r:vendor_proc_fingerprint:s0
-
-# RPMH
-genfscon sysfs /power/system_sleep/oplus_rpmh_stats           u:object_r:vendor_sysfs_rpmh_stats:s0
-genfscon sysfs /sys/power/rpmh_stats/oplus_rpmh_master_stats  u:object_r:vendor_sysfs_rpmh_stats:s0
-
-# UFS
-genfscon proc /devinfo/ufsplus_status               u:object_r:vendor_proc_ufsplus:s0
 
 # Vibrator
 genfscon sysfs /devices/platform/soc/a8c000.i2c/i2c-6/6-005a/leds/vibrator u:object_r:sysfs_leds:s0

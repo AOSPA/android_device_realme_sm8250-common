@@ -12,11 +12,6 @@ vendor.oplus.hardware.commondcs::ICommonDcsHalService                         u:
 # Fingerprint
 vendor.oplus.hardware.biometrics.fingerprint::IBiometricsFingerprint          u:object_r:hal_fingerprint_oplus_hwservice:s0
 
-# Midas
-vendor.oplus.hardware.binderstats::IBinderStats                               u:object_r:hal_midasdev_oplus_hwservice:s0
-vendor.oplus.hardware.handlefactory::IHandleFactory                           u:object_r:hal_midasdev_oplus_hwservice:s0
-vendor.oplus.hardware.midasdev::IMidasDev                                     u:object_r:hal_midasdev_oplus_hwservice:s0
-
 # Orms
 vendor.oplus.hardware.orms.ormsHalService::IOrmsHalService                    u:object_r:hal_orms_oplus_hwservice:s0
 vendor.oplus.hardware.orms::IOrmsHalProxy                                     u:object_r:hal_orms_oplus_hwservice:s0

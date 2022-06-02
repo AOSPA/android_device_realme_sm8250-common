@@ -36,11 +36,6 @@
 /odm/vendor/firmware(/.*)?                                                                                             u:object_r:vendor_firmware_file:s0
 /odm/firmware(/.*)?                                                                                                    u:object_r:vendor_firmware_file:s0
 
-# Midas
-/dev/binder_stats                                                                                                      u:object_r:oplus_midas_device:s0
-/dev/midas_dev 		                                                                                                   u:object_r:oplus_midas_device:s0
-/(odm|vendor/odm)/bin/hw/venndor\.oplus\.hardware\.midas@1\.0-service                                                  u:object_r:hal_midas_oplus_exec:s0
-
 # NFC
 /(odm|vendor/odm)/bin/hw/vendor\.qti\.esepowermanager@1\.1-service                                                     u:object_r:vendor_hal_esepowermanager_qti_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.qti\.secure_element@1\.2-service                                                      u:object_r:hal_secure_element_default_exec:s0
