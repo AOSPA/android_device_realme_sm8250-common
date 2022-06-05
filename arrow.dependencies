@@ -1,0 +1,14 @@
+[
+  {
+    "repository": "android_vendor_realme_bitra",
+    "target_path": "vendor/realme/bitra"
+  },
+  {
+    "repository": "android_kernel_realme_sm8250",
+    "target_path": "kernel/realme/sm8250"
+  },
+  {
+    "repository": "android_hardware_oplus",
+    "target_path": "hardware/oplus"
+  }
+]
