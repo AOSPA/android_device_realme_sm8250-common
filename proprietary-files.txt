@@ -970,6 +970,10 @@ vendor/lib64/libsysmon_cdsp_skel.so
 odm/bin/hw/vendor.oplus.hardware.charger@1.0-service
 odm/etc/init/vendor.oplus.hardware.charger@1.0-service.rc
 -odm/etc/vintf/manifest/manifest_oplus_charger.xml
+odm/firmware/fastchg/136858/charging_thermal_config_default.txt|910c17ddb6aeef45441409e8c217a630c573d901
+odm/firmware/fastchg/136858/oplus_vooc_fw_rk826.bin|f68c8de767849278e89d938546f201a2f6be77f9
+odm/firmware/fastchg/136859/charging_thermal_config_default.txt|e986641ed10b6a1c1d6b592a11a8e35e5a797636
+odm/firmware/fastchg/136859/oplus_vooc_fw_rk826.bin|f68c8de767849278e89d938546f201a2f6be77f9
 odm/firmware/fastchg/20161/oplus_vooc_fw_rt5125.bin
 odm/firmware/fastchg/21619/charging_thermal_config_default.txt
 odm/firmware/fastchg/21619/oplus_vooc_fw_rk826.bin
