@@ -2856,8 +2856,8 @@
         <ctl name="HPHR_COMP Switch" value="0" />
         <ctl name="HPHL_RDAC Switch" value="1" />
         <ctl name="HPHR_RDAC Switch" value="1" />
-        <ctl name="RX_RX0 Digital Volume" value="80" />
-        <ctl name="RX_RX1 Digital Volume" value="80" />
+        <ctl name="RX_RX0 Digital Volume" value="74" />
+        <ctl name="RX_RX1 Digital Volume" value="74" />
         <ctl name="HPHL Volume" value="16" />
         <ctl name="HPHR Volume" value="16" />
     </path>
@@ -4744,8 +4744,8 @@
         <ctl name="HPHR_COMP Switch" value="1" />
         <ctl name="HPHL_RDAC Switch" value="1" />
         <ctl name="HPHR_RDAC Switch" value="1" />
-        <ctl name="RX_RX0 Digital Volume" value="76" />
-        <ctl name="RX_RX1 Digital Volume" value="76" />
+        <ctl name="RX_RX0 Digital Volume" value="70" />
+        <ctl name="RX_RX1 Digital Volume" value="70" />
 
         <ctl name="TX_CDC_DMA_TX_4 Channels" value="One" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
