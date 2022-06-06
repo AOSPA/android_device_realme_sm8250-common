@@ -314,6 +314,7 @@ PRODUCT_PACKAGES += \
 # NFC
 PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.2.vendor \
+    nqnfcinfo \
     vendor.nxp.hardware.nfc@2.0-service
 
 PRODUCT_PACKAGES += \
