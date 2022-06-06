@@ -22,6 +22,7 @@
 # definition file).
 #
 
+BOARD_VENDOR := realme
 DEVICE_PATH := device/realme/bitra
 
 BUILD_BROKEN_DUP_RULES := true
