@@ -286,9 +286,8 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.secure_element@1.2.vendor \
-    nqnfcinfo \
-    vendor.nxp.hardware.nfc@2.0-service
+    android.hardware.nfc_snxxx@1.2-service \
+    android.hardware.secure_element@1.2.vendor
 
 PRODUCT_PACKAGES += \
     NfcNci \
@@ -394,7 +393,6 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/oplus \
-    vendor/nxp/opensource/sn100x \
     vendor/qcom/opensource/usb/etc
 
 # Telephony

@@ -160,9 +160,6 @@ vendor.media.vpp.enable=0
 vendor.media.vpp.osie.enable=0
 vendor.media.vpp.sr.enable=0
 
-# NFC
-vendor.qti.nfc.chipid=0x51
-
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 
