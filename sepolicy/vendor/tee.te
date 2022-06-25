@@ -1,4 +1,0 @@
-allow tee oplus_fingerprint_file:dir create_dir_perms;
-allow tee oplus_fingerprint_file:file create_file_perms;
-allow tee factorytestreport_vendor_data_file:dir create_dir_perms;
-allow tee factorytestreport_vendor_data_file:file create_file_perms;

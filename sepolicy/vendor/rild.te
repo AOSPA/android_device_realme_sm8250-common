@@ -1,7 +1,0 @@
-allow rild vendor_proc_oplusversion:dir r_dir_perms;
-allow rild vendor_proc_oplusversion:file rw_file_perms;
-
-allow rild mnt_vendor_file:dir r_dir_perms;
-
-set_prop(rild, vendor_radio_prop)
-get_prop(rild, vendor_oplus_prop)
