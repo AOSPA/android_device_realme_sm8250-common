@@ -723,9 +723,6 @@ odm/lib64/libwatermark_photo.so
 odm/lib64/vendor.oplus.hardware.cammidasservice@1.0.so
 odm/lib64/vendor.oplus.hardware.orms@1.0.so
 vendor/lib/libcamxexternalformatutils.so
-vendor/lib/libextcamera_client.so
-vendor/lib/libgui1_vendor.so
-vendor/lib/vendor.oplus.hardware.extcamera@1.0.so
 vendor/lib64/camera/components/com.qti.camx.chiiqutils.so
 vendor/lib64/camera/components/com.qti.eisv2.so
 vendor/lib64/camera/components/com.qti.eisv3.so
