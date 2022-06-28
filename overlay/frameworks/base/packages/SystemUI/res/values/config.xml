@@ -31,9 +31,6 @@
 
     <dimen name="rounded_corner_content_padding">74px</dimen>
 
-    <!-- The Enrollment Progress bar for UDFPS sensor in pixels -->
-    <integer name="config_udfpsEnrollProgressBar" translatable="false">109</integer>
-
     <!-- Color of the UDFPS Pressed view -->
     <color name="config_udfpsColor">#ffffe6</color>
 
