@@ -65,22 +65,13 @@ persist.sys.fflag.override.settings_bluetooth_hearing_aid=true
 persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
 persist.vendor.bt.aac_frm_ctl.enabled=true
 persist.vendor.bt.aac_vbr_frm_ctl.enabled=true
-persist.vendor.qcom.bluetooth.a2dp_mcast_test.enabled=false
 persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptiver2
 persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true
 persist.vendor.qcom.bluetooth.aac_vbr_ctl.enabled=true
-persist.vendor.qcom.bluetooth.aptxadaptiver2_1_support=false
 persist.vendor.qcom.bluetooth.enable.splita2dp=true
-persist.vendor.qcom.bluetooth.scram.enabled=false
 persist.vendor.qcom.bluetooth.soc=hastings
-persist.vendor.qcom.bluetooth.twsp_state.enabled=false
 ro.bluetooth.a2dp_offload.supported=true
-ro.vendor.bluetooth.wipower=false
-vendor.hw.fm.init=0
 vendor.qcom.bluetooth.soc=hastings
-
-# Boot
-sys.vendor.shutdown.waittime=500
 
 # Chipset
 ro.soc.manufacturer=Qualcomm
@@ -91,32 +82,19 @@ ro.crypto.dm_default_key.options_format.version=2
 ro.crypto.volume.filenames_mode=aes-256-cts
 ro.crypto.volume.metadata.method=dm-default-key
 
+# DPM
+persist.vendor.dpmhalservice.enable=1
+
 # Display
-debug.sf.enable_advanced_sf_phase_offset=1
-debug.sf.enable_gl_backpressure=1
-debug.sf.high_fps_early_gl_phase_offset_ns=-4000000
-debug.sf.high_fps_early_phase_offset_ns=-4000000
-debug.sf.high_fps_late_sf_phase_offset_ns=-4000000
-debug.sf.oplus.bindbigcore=1
-persist.demo.hdmirotationlock=false
-persist.sys.sf.color_saturation=1.0
-ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
-ro.surface_flinger.has_HDR_display=true
-ro.surface_flinger.has_wide_color_display=true
-ro.surface_flinger.max_frame_buffer_acquired_buffers=3
-ro.surface_flinger.max_virtual_display_dimension=4096
-ro.surface_flinger.protected_contents=true
-ro.surface_flinger.set_idle_timer_ms=4000
-ro.surface_flinger.set_touch_timer_ms=4000
-ro.surface_flinger.use_color_management=true
-ro.surface_flinger.use_content_detection_for_refresh_rate=true
-ro.surface_flinger.wcg_composition_dataspace=143261696
+ro.vendor.display.AIRefreshRate.brightness=3600
+ro.vendor.display.sensortype=2
 vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_offline_rotator=1
 vendor.display.enable_async_powermode=1
-
-# DPM
-persist.vendor.dpmhalservice.enable=1
+vendor.display.primary_mixer_stages=9
+vendor.display.smomo_camera_support=1
+vendor.display.smomo_game_support=0
+vendor.display.use_smooth_motion=1
 
 # DRM
 drm.service.enabled=true
@@ -131,22 +109,37 @@ ro.frp.pst=/dev/block/bootdevice/by-name/frp
 # Gatekeeper
 vendor.gatekeeper.disable_spu=true
 
-# GPS
-persist.backup.ntpServer=0.pool.ntp.org
-
 # Graphics
+debug.sf.enable_advanced_sf_phase_offset=1
+debug.sf.enable_gl_backpressure=1
+debug.sf.high_fps_early_gl_phase_offset_ns=-4000000
+debug.sf.high_fps_early_phase_offset_ns=-4000000
+debug.sf.high_fps_late_sf_phase_offset_ns=-4000000
+debug.sf.oplus.bindbigcore=1
+persist.demo.hdmirotationlock=false
+persist.sys.sf.color_saturation=1.0
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
+ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
+ro.surface_flinger.has_HDR_display=true
+ro.surface_flinger.has_wide_color_display=true
+ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+ro.surface_flinger.protected_contents=true
+ro.surface_flinger.set_idle_timer_ms=4000
+ro.surface_flinger.set_touch_timer_ms=4000
+ro.surface_flinger.use_color_management=true
+ro.surface_flinger.use_content_detection_for_refresh_rate=true
+ro.surface_flinger.wcg_composition_dataspace=143261696
 vendor.opengles.version=196610
 
-# IncrementalFS
+# Incremental FS
 ro.incremental.enable=1
 
 # Media
 debug.stagefright.ccodec=0
-
-# Netflix
-ro.netflix.bsp_rev=Q8250-19134-1
+vendor.media.vpp.enable=0
+vendor.media.vpp.osie.enable=0
+vendor.media.vpp.sr.enable=0
 
 # NFC
 vendor.qti.nfc.chipid=0x51
@@ -154,11 +147,10 @@ vendor.qti.nfc.chipid=0x51
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 
-# QCOM system daemon
+# Qualcomm System Daemon
 persist.vendor.qcomsysd.enabled=1
 
 # Radio
-keyguard.no_require_sim=true
 persist.radio.multisim.config=dsds
 persist.vendor.radio.apm_sim_not_pwdn=1
 persist.vendor.radio.custom_ecc=1
@@ -166,9 +158,6 @@ persist.vendor.radio.enableadvancedscan=true
 persist.vendor.radio.procedure_bytes=SKIP
 persist.vendor.radio.rat_on=combine
 persist.vendor.radio.sib16_support=1
-ro.carrier=unknown
-ro.com.android.dataroaming=true
-ro.vendor.dynamic.single.sim=true
 
 # Sensors
 persist.vendor.sensors.allow_non_default_discovery=true
