@@ -98,6 +98,20 @@ on property:ro.boot.prjname=*
 on early-boot
     start vendor.sensors
 
+    # SSR
+    write /sys/bus/msm_subsys/devices/subsys0/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys1/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys2/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys3/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys4/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys5/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys6/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys7/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys8/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys9/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys10/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys11/restart_level RELATED
+
 on boot
     write /dev/cpuset/audio-app/cpus 1-2
     # Add a cpuset for the camera daemon
