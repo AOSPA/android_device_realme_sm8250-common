@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from RMX3370_11.C.06
+# All unpinned blobs below are extracted from RMX3370_11.C.07
 
 # ACDB
 vendor/etc/acdbdata/adsp_avs_config.acdb
