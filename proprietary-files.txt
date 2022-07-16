@@ -754,7 +754,6 @@ vendor/lib64/camera/components/com.qti.stats.awb.so
 vendor/lib64/camera/components/com.qti.stats.awbwrapper.so
 vendor/lib64/camera/components/com.qti.stats.haf.so
 vendor/lib64/camera/components/com.qti.stats.hafoverride.so
-vendor/lib64/camera/components/com.qti.stats.pdlib.so|ba29b7789042cf3ec98c8dcd1a750df004cda4c1
 vendor/lib64/camera/components/com.qti.stats.pdlibsony.so
 vendor/lib64/camera/components/com.qti.stats.pdlibwrapper.so
 vendor/lib64/camera/components/com.qti.stats.tracker.so
@@ -763,7 +762,6 @@ vendor/lib64/camera/components/com.qtistatic.stats.af.so
 vendor/lib64/camera/components/com.qtistatic.stats.awb.so
 vendor/lib64/camera/components/com.qtistatic.stats.pdlib.so
 vendor/lib64/camera/components/libdepthmapwrapper.so
-vendor/lib64/camera/components/libipebpsstriping.so|0d02a417fb26379c569e7f8c6cb90126235eb2f8
 vendor/lib64/camera/com.qti.eeprom.truly_cmb433.so
 vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/com.qti.chi.override.so
@@ -810,7 +808,6 @@ vendor/lib64/libcvpcpuRev_skel.so
 vendor/lib64/libextcamera_client.so
 vendor/lib64/libface3d_dev.so
 vendor/lib64/libgui1_vendor.so
-vendor/lib64/libipebpsstriping.so|0d02a417fb26379c569e7f8c6cb90126235eb2f8
 vendor/lib64/libmidasserviceintf.so
 vendor/lib64/libmmcamera_faceproc.so
 vendor/lib64/libmmcamera_faceproc2.so
