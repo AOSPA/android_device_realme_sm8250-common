@@ -132,7 +132,8 @@ vendor.opengles.version=196610
 ro.incremental.enable=1
 
 # Media
-debug.stagefright.ccodec=0
+debug.stagefright.ccodec=4
+debug.stagefright.omx_default_rank=512
 vendor.media.vpp.enable=0
 vendor.media.vpp.osie.enable=0
 vendor.media.vpp.sr.enable=0
