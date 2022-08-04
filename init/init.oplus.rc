@@ -4,22 +4,11 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-on early-init
-    # Oplus audio modules
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_extend audio_max98937 audio_tfa98xx-v6 audio_ak4376
-
-on init
+on fs
     # Charger
     write /proc/fastchg_fw_update 1
     write /proc/ui_soc_decimal 1
 
-on property:ro.boot.startupmode=dc_charger
-    # Offline charging
-    mount_all /vendor/etc/charger_fw_fstab.qti --early
-    write /sys/kernel/boot_adsp/boot 1
-    wait /sys/class/power_supply/battery
-
-on fs
     # Update touchpanel firmware in case we ship newer firmware in /odm
     write /proc/touchpanel/tp_fw_update 0
 
