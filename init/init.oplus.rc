@@ -32,6 +32,50 @@ on early-boot
     write /sys/bus/msm_subsys/devices/subsys11/restart_level RELATED
 
 on boot
+    # Charger
+    chown system system /proc/charger/charger_factorymode_test
+    chown system system /proc/charger/integrate_gauge_fcc_flag
+    chown system system /proc/charger/hmac
+    chown system system /proc/charger_critical_log
+    chown system system /proc/fastchg_fw_update
+    chown system system /proc/tbatt_pwroff
+
+    chown system system /sys/class/oplus_chg/battery/call_mode
+    chown system system /sys/class/oplus_chg/battery/cool_down
+    chown system system /sys/class/oplus_chg/battery/bcc_current
+    chown system system /sys/class/oplus_chg/battery/bcc_exception
+    chown system system /sys/class/oplus_chg/battery/em_mode
+    chown system system /sys/class/oplus_chg/battery/mmi_charging_enable
+    chown system system /sys/class/oplus_chg/battery/ship_mode
+    chown system system /sys/class/oplus_chg/battery/short_c_hw_status
+    chown system system /sys/class/oplus_chg/battery/short_c_hw_feature
+    chown system system /sys/class/oplus_chg/battery/short_c_limit_chg
+    chown system system /sys/class/oplus_chg/battery/short_c_limit_rechg
+    chown system system /sys/class/oplus_chg/battery/short_ic_otp_status
+    chown system system /sys/class/oplus_chg/battery/short_ic_otp_value
+    chown system system /sys/class/oplus_chg/battery/short_ic_volt_thresh
+    chown system system /sys/class/oplus_chg/battery/soc_ajust
+    chown system system /sys/class/power_supply/battery/battery_info
+    chown system system /sys/class/power_supply/battery/battery_info_id
+    chown system system /sys/class/power_supply/battery/charging_enabled
+    chown system system /sys/class/power_supply/battery/cool_down
+    chown system system /sys/class/power_supply/battery/ship_mode
+    chown system system /sys/class/power_supply/battery/restore_soc
+    chown system system /sys/class/power_supply/battery/short_c_batt_in_idle
+    chown system system /sys/class/power_supply/battery/short_c_batt_limit_chg
+    chown system system /sys/class/power_supply/battery/short_c_batt_limit_rechg
+    chown system system /sys/class/power_supply/battery/short_c_batt_update_change
+    chown system system /sys/class/power_supply/battery/short_c_hw_feature
+    chown system system /sys/class/power_supply/battery/short_ic_otp_status
+    chown system system /sys/class/power_supply/battery/short_ic_volt_thresh
+    chown system system /sys/class/power_supply/battery/smooth_switch
+    chown system system /sys/class/power_supply/battery/soc_notify_ready
+    chown system system /sys/class/power_supply/battery/soc_reporting_ready
+
+    chown system system /sys/class/oplus_chg/usb/otg_switch
+    chown system system /sys/class/power_supply/usb/otg_switch
+    chown system system /sys/class/power_supply/usb/type
+
     # Display
     chown system system /dev/oplus_display
     chown system system /sys/kernel/oplus_display/dimlayer_bl_en
