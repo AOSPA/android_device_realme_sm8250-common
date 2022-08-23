@@ -66,6 +66,9 @@ function blob_fixup() {
         odm/lib64/libui.so)
             patchelf --replace-needed "android.hardware.graphics.common-V1-ndk_platform.so" "android.hardware.graphics.common-V1-ndk.so" "${2}"
             ;;
+        product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml)
+            sed -i "s|my_product|product|" "${2}"
+            ;;
         vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so)
             "${SIGSCAN}" -p "AB 0B 00 94" -P "1F 20 03 D5" -f "${2}"
             ;;
