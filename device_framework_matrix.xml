@@ -135,6 +135,14 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+        <name>vendor.oplus.hardware.oplusSensor</name>
+        <version>1.0</version>
+        <interface>
+            <name>ISensorFeature</name>
+            <instance>default</instance>
+        </interface>
+    </hal>    
+    <hal format="hidl" optional="true">
         <name>vendor.oplus.hardware.orms</name>
         <version>1.0</version>
         <interface>
