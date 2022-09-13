@@ -94,7 +94,6 @@ ro.crypto.volume.metadata.method=dm-default-key
 persist.vendor.dpmhalservice.enable=1
 
 # Display
-ro.vendor.display.AIRefreshRate.brightness=3600
 ro.vendor.display.sensortype=2
 vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_offline_rotator=1
@@ -118,13 +117,12 @@ ro.frp.pst=/dev/block/bootdevice/by-name/frp
 vendor.gatekeeper.disable_spu=true
 
 # Graphics
+debug.sf.disable_backpressure=1
 debug.sf.enable_advanced_sf_phase_offset=1
 debug.sf.enable_gl_backpressure=1
 debug.sf.high_fps_early_gl_phase_offset_ns=-2000000
 debug.sf.high_fps_early_phase_offset_ns=-4000000
 debug.sf.high_fps_late_sf_phase_offset_ns=-2000000
-debug.sf.oplus.bindbigcore=1
-persist.demo.hdmirotationlock=false
 persist.sys.sf.color_saturation=1.0
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
@@ -143,7 +141,7 @@ ro.incremental.enable=1
 
 # Media
 debug.stagefright.ccodec=4
-debug.stagefright.omx_default_rank=512
+debug.stagefright.omx_default_rank=0
 vendor.media.vpp.enable=0
 vendor.media.vpp.osie.enable=0
 vendor.media.vpp.sr.enable=0
