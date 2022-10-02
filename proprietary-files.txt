@@ -1026,8 +1026,10 @@ odm/bin/init.oplus.fingerprints.sh
 odm/etc/init/vendor.oplus.hardware.biometrics.fingerprint@2.1-service.rc
 odm/etc/vintf/manifest/manifest_oplus_fingerprint.xml
 odm/lib64/hw/fingerprint.goodix_G3.default.so
+odm/lib64/hw/fingerprint.goodix_G5.default.so
 odm/lib64/anc.hal.so
 odm/lib64/libgf_hal_G3.so
+odm/lib64/libgf_hal_G5.so
 odm/lib64/librpmbengclient.so
 odm/lib64/vendor.oplus.hardware.biometrics.fingerprint@2.1.so
 odm/lib64/vendor.oplus.hardware.commondcs@1.0.so

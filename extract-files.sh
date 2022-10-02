@@ -63,6 +63,9 @@ function blob_fixup() {
         odm/lib64/libgf_hal_G3.so)
             sed -i "s|ro.boot.flash.locked|vendor.flash.locked\x00|" "${2}"
             ;;
+        odm/lib64/libgf_hal_G5.so)
+            sed -i "s|ro.boot.flash.locked|vendor.flash.locked\x00|" "${2}"
+            ;;
         odm/lib64/libui.so)
             patchelf --replace-needed "android.hardware.graphics.common-V1-ndk_platform.so" "android.hardware.graphics.common-V1-ndk.so" "${2}"
             ;;
