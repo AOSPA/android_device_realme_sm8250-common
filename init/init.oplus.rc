@@ -171,6 +171,20 @@ on property:sys.usb.ffs.ready=1 && property:sys.usb.config=rndis,none,adb && pro
     write /config/usb_gadget/g1/idVendor 0x22D9
     write /config/usb_gadget/g1/idProduct 0x2766
 
+# Route touch_sensitivity_mode to persist
+on property:debug.touch_polling_mode=0
+    setprop persist.vendor.touch_polling_mode 0
+
+on property:debug.touch_polling_mode=1
+    setprop persist.vendor.touch_polling_mode 1
+
+# Toggle glove mode.
+on property:persist.vendor.touch_polling_mode=0 && property:sys.boot_completed=1
+    write /proc/touchpanel/game_switch_enable "0"
+
+on property:persist.vendor.touch_polling_mode=1 && property:sys.boot_completed=1
+    write /proc/touchpanel/game_switch_enable "1"
+
 service oplus-sh /odm/bin/init.oplus.sh
     user root
     group root
