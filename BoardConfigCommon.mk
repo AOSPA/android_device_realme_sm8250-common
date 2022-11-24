@@ -22,15 +22,15 @@
 # definition file).
 #
 
-BOARD_VENDOR := realme
 COMMON_PATH := device/realme/sm8250-common
 
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
 # Architecture
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
+TARGET_ARCH_VARIANT := armv8-2a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
@@ -103,7 +103,7 @@ TARGET_SURFACEFLINGER_UDFPS_LIB := //hardware/oplus:libudfps_extension.oplus
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(COMMON_PATH)/device_framework_matrix.xml \
-    $(COMMON_PATH)/vendor_framework_compatibility_matrix.xml
+    vendor/qcom/opensource/core-utils/vendor_framework_compatibility_matrix.xml
 DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 
@@ -131,9 +131,7 @@ BOARD_KERNEL_CMDLINE := \
     swiotlb=2048
 
 BOARD_KERNEL_IMAGE_NAME := Image
-TARGET_KERNEL_ADDITIONAL_FLAGS += NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip
-TARGET_KERNEL_SOURCE := kernel/realme/sm8250
-TARGET_KERNEL_CONFIG := vendor/sm8250_defconfig
+KERNEL_DEFCONFIG := vendor/sm8250_defconfig
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
@@ -197,11 +195,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
 
-# Security patch level
-VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
-
 # SELinux
-include device/qcom/sepolicy_vndr-legacy-um/SEPolicy.mk
 include hardware/oplus/sepolicy/qti/SEPolicy.mk
 
 # Verified boot

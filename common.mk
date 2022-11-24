@@ -72,7 +72,7 @@ PRODUCT_PACKAGES += \
     libvisualizer \
     libvolumelistener
 
-AUDIO_HAL_DIR := hardware/qcom-caf/sm8250/audio
+AUDIO_HAL_DIR := vendor/qcom/opensource/audio-hal/primary-hal
 
 PRODUCT_COPY_FILES += \
     $(AUDIO_HAL_DIR)/configs/common/bluetooth_qti_hearing_aid_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_qti_hearing_aid_audio_policy_configuration.xml \
@@ -329,16 +329,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# Perf
-PRODUCT_PACKAGES += \
-    libqti-perfd-client
-
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.oplus-libperfmgr
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    android.hardware.power-service \
+    android.hardware.power@1.2.vendor \
+    vendor.qti.hardware.perf@2.2.vendor
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -347,6 +342,9 @@ PRODUCT_PACKAGES += \
     libqti_vndfwk_detect.vendor \
     libvndfwk_detect_jni.qti \
     libvndfwk_detect_jni.qti.vendor
+
+# QTI
+TARGET_BOARD_PLATFORM := kona
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -390,24 +388,10 @@ PRODUCT_COPY_FILES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     device/realme/sm8250-common \
-    hardware/google/interfaces \
-    hardware/google/pixel \
     hardware/oplus \
     vendor/qcom/opensource/usb/etc
 
 # Telephony
-PRODUCT_PACKAGES += \
-    ims-ext-common \
-    ims_ext_common.xml \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml \
-    telephony-ext \
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
@@ -420,7 +404,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.3-service-qti
+    android.hardware.usb@1.2-service-qti
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
