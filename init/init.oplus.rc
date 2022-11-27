@@ -13,6 +13,11 @@ on fs
     # Update touchpanel firmware in case we ship newer firmware in /odm
     write /proc/touchpanel/tp_fw_update 0
 
+on post-fs-data
+    # Media XML codecs
+    setprop ro.media.xml_variant.codecs _kona
+    setprop ro.media.xml_variant.codecs_performance _kona
+
 on early-boot
     # Radio
     exec_start oplus-sh
