@@ -125,6 +125,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor
 
+# Media
+GENERIC_ODM_IMAGE := true
+
 # Net
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
