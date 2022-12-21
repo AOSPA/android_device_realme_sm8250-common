@@ -125,6 +125,7 @@ vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
 # Camera
+odm/bin/vl53l1_daemon_main
 odm/etc/camera/aicolor/duallut_background.bmp
 odm/etc/camera/aicolor/duallut_portrait.bmp
 odm/etc/camera/ancsegbase/anc_cl_kernel.cache
@@ -723,7 +724,9 @@ odm/lib64/libtriplecam_image_optical_zoom.so
 odm/lib64/libtriplecam_optical_zoom_control.so
 odm/lib64/libtriplecam_video_optical_zoom.so
 odm/lib64/libui.so
+odm/lib64/libvl53l1_daemon.so
 odm/lib64/libwatermark_photo.so
+odm/lib64/sensors.hal.tof.so
 odm/lib64/vendor.oplus.hardware.cammidasservice@1.0.so
 odm/lib64/vendor.oplus.hardware.orms@1.0.so
 vendor/lib/libcamxexternalformatutils.so
