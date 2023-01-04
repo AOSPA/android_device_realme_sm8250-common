@@ -92,6 +92,7 @@ on boot
     chmod 0666 /sys/kernel/oplus_display/hbm
     chmod 0666 /sys/kernel/oplus_display/notify_fppress
     chmod 0666 /sys/kernel/oplus_display/panel_serial_number
+    chown 0666 /sys/kernel/oplus_display/power_status
 
     chown system system /dev/oplus_display
     chown system system /sys/kernel/oplus_display/dimlayer_bl_en
@@ -99,6 +100,7 @@ on boot
     chown system system /sys/kernel/oplus_display/hbm
     chown system system /sys/kernel/oplus_display/notify_fppress
     chown system system /sys/kernel/oplus_display/panel_serial_number
+    chown system system /sys/kernel/oplus_display/power_status
 
     # TOF
     chown cameraserver cameraserver /dev/stmvl53l1_ranging
