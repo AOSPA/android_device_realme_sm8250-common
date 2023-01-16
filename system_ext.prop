@@ -14,6 +14,8 @@ ro.netflix.bsp_rev=Q8250-19134-1
 
 # Sensors
 persist.vendor.sensors.enable.mag_filter=true
+ro.sensor.pickup=android.sensor.tilt_detector
+ro.sensor.pickup.value=0
 
 # Vendor
 ro.vendor.qti.va_aosp.support=1

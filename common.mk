@@ -65,7 +65,7 @@ PRODUCT_PACKAGES += \
 
 # Doze
 PRODUCT_PACKAGES += \
-    OplusDoze
+    ParanoidDoze
 
 # DRM
 PRODUCT_PACKAGES += \
