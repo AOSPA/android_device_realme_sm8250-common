@@ -47,6 +47,9 @@
         <boolean name="csp_enabled_bool" value="true" />
         <!-- PA: Use 4G icon for LTE by popular request -->
         <boolean name="show_4g_for_lte_data_icon_bool" value="true" />
+        <!-- PA: Allow VoLTE and WFC by default -->
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="001" mnc="01">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -2376,10 +2379,12 @@
             <item value="3,11,9,10,15" />
         </string-array>
     </carrier_config>
-    <!-- PA: Do not allow 5G NSA on Jio --> 
-    <carrier_config mcc="405" mnc="840,854,855,856,857,858,859,860,861,862,863,864,865,866,867,868,869,870,871,872,873,874"> 
-        <int-array name="carrier_nr_availabilities_int_array" num="1"> 
-            <item value="2" /> 
+
+    <!-- PA: Do not allow 5G NSA on Jio -->
+    <carrier_config mcc="405" mnc="840,854,855,856,857,858,859,860,861,862,863,864,865,866,867,868,869,870,871,872,873,874">
+        <int-array name="carrier_nr_availabilities_int_array" num="1">
+            <item value="2" />
         </int-array>
     </carrier_config>
+
 </carrier_config_list>
