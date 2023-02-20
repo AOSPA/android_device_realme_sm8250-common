@@ -158,6 +158,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     AOSPAOPlusFrameworksResCommon \
     FrameworksResTarget \
+    OPlusCarrierConfigResCommon \
     OPlusFrameworksResCommon \
     OPlusSettingsResCommon \
     OPlusSystemUIResCommon \
