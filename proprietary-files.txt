@@ -1146,6 +1146,9 @@ vendor/lib64/unnhal-acc-common.so
 vendor/lib64/unnhal-acc-hta.so
 vendor/lib64/unnhal-acc-hvx.so
 
+# NFC
+odm/etc/nfc/sn100u.bin_sn100t_fw_01_10_57:vendor/firmware/sn100u.bin
+
 # OMX
 vendor/lib/libAlacSwDec.so
 vendor/lib/libApeSwDec.so
