@@ -17,7 +17,6 @@ vendor.qcom.bluetooth.soc=hastings
 vendor.camera.aux.packageexcludelist=org.telegram.messenger,org.thunderdog.challegram
 
 # Chipset
-ro.soc.manufacturer=Qualcomm
 ro.soc.model=SM8250
 
 # Crypto
