@@ -28,6 +28,11 @@ PRODUCT_PACKAGES += \
     com.dsi.ant@1.0.vendor
 
 # Audio
+ifeq ($(TARGET_USES_BLUETOOTH_LE_AUDIO), true)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/audio_policy_configuration_ble_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration.xml
+endif
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_io_policy.conf:$(TARGET_COPY_OUT_ODM)/etc/audio_io_policy.conf \
     $(LOCAL_PATH)/audio/audio_io_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_io_policy.conf \
