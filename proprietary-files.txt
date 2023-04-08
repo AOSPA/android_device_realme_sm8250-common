@@ -2452,6 +2452,7 @@ odm/lib64/libwvhidl.so
 vendor/lib64/libtrustedapploader.so
 
 # Wifi
+odm/etc/wifi/bin_version
 vendor/bin/cnss-daemon
 
 # WiFi Display (vendor)
