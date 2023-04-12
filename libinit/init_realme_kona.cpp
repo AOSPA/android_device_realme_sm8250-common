@@ -16,6 +16,14 @@ static const variant_info_t RMX2071_CN_info = {
     .name = "RMX2071",
 };
 
+static const variant_info_t RMX2072_CN_info = {
+    .prjversion_value = "20607",
+
+    .device = "RMX2072CN",
+    .model = "RMX2072",
+    .name = "RMX2072",
+};
+
 static const variant_info_t RMX2075_GLOBAL_info = {
     .prjversion_value = "19705",
 
@@ -66,6 +74,7 @@ static const variant_info_t RMX3370_IN_info = {
 
 static const std::vector<variant_info_t> variants = {
     RMX2071_CN_info,
+    RMX2072_CN_info,
     RMX2075_GLOBAL_info,
     RMX2076_IN_info,
     RMX3370_CN_info,
