@@ -6,6 +6,13 @@
 
 # Reserve
 /dev/block/bootdevice/by-name/oplusreserve1    0660    root    system
+/dev/block/bootdevice/by-name/oplusreserve3    0660    root    system
+/dev/block/sde13                               0660    root    system
+/dev/block/sde15                               0660    root    system
+/dev/block/sde50                               0660    root    system
+/dev/block/sdf10                               0660    root    system
+/dev/block/sdf13                               0660    root    system
+/dev/block/sdf15                               0660    root    system
 
 # WiFi
 firmware_directories /mnt/vendor/persist/copy/ /mnt/vendor/persist/ /odm/etc/wifi/
