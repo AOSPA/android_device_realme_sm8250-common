@@ -7,6 +7,7 @@ persist.bluetooth.bqr.min_interval_ms=60000
 ro.charger.enable_suspend=1
 
 # Display
+persist.sys.brightness.low.gamma=true
 ro.sf.use_latest_hwc_vsync_period=0
 
 # GPS
