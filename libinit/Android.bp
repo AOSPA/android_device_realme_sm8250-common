@@ -1,12 +1,24 @@
 //
 // Copyright (C) 2022 The LineageOS Project
+//
 // SPDX-License-Identifier: Apache-2.0
 //
 
+cc_library_static {
+    name: "libinit_realme_kona",
+    srcs: [
+        "libinit_variant.cpp",
+        "libinit_utils.cpp",
+    ],
+    whole_static_libs: ["libbase"],
+    export_include_dirs: ["include"],
+    recovery_available: true,
+}
 
 cc_library_static {
-    name: "libinit_oplus",
+    name: "init_realme_kona",
+    srcs: ["init_realme_kona.cpp"],
+    whole_static_libs: ["libinit_realme_kona"],
+    include_dirs: ["system/core/init"],
     recovery_available: true,
-    shared_libs: ["libbase"],
-    srcs: ["init_oplus.cpp"],
 }
