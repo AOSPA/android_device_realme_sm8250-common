@@ -33,6 +33,7 @@ $(CAMERA_COMPONENTS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Creating camera components symlinks: $@"
 	@mkdir -p $@
 	@mkdir -p $@/camera/components
+	$(hide) ln -sf /odm/lib64/camera/components/com.qti.stats.haf.so $@/camera/components/com.qti.stats.haf.so
 	$(hide) ln -sf /odm/lib64/camera/components/com.qti.stats.pdlib.so $@/camera/components/com.qti.stats.pdlib.so
 	$(hide) ln -sf /odm/lib64/camera/components/libipebpsstriping.so $@/libipebpsstriping.so
 
