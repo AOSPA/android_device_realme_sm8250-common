@@ -17,19 +17,19 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.oplus.hardware.binderstats</name>
-        <version>1.0</version>
-        <interface>
-            <name>IBinderStats</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
         <name>vendor.oplus.hardware.biometrics.fingerprint</name>
         <version>2.1</version>
         <interface>
             <name>IBiometricsFingerprint</name>
             <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.oplus.hardware.cameraextension</name>
+        <version>1.0</version>
+        <interface>
+            <name>ICameraExtensionService</name>
+            <instance>cameraextensionservice</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
@@ -49,34 +49,10 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.oplus.hardware.charger</name>
-        <version>1.0</version>
-        <interface>
-            <name>ICharger</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.oplus.hardware.engcamera</name>
-        <version>1.0</version>
-        <interface>
-            <name>IEngCamera</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
         <name>vendor.oplus.hardware.extcamera</name>
         <version>1.0</version>
         <interface>
             <name>IExtCamera</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.oplus.hardware.handlefactory</name>
-        <version>1.0</version>
-        <interface>
-            <name>IHandleFactory</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -90,23 +66,15 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.oplus.hardware.midasdev</name>
-        <version>1.0</version>
-        <interface>
-            <name>IMidasDev</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
         <name>vendor.oplus.hardware.oplusSensor</name>
         <version>1.0</version>
         <interface>
             <name>ISensorFeature</name>
             <instance>default</instance>
         </interface>
-    </hal>    
+    </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.oplus.hardware.orms</name>
+        <name>vendor.oplus.hardware.orms.ormsHalService</name>
         <version>1.0</version>
         <interface>
             <name>IOrmsHalProxy</name>
