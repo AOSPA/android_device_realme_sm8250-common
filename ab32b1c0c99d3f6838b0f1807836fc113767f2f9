@@ -16,6 +16,24 @@
       "message": "thought you didn\u0027t need this anymore?",
       "revId": "ab32b1c0c99d3f6838b0f1807836fc113767f2f9",
       "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f85bcf24_4a6864eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000498
+      },
+      "writtenOn": "2023-04-18T16:30:52Z",
+      "side": 1,
+      "message": "realme broke brightness again in Android 13 kernel source/firmware/blobs and I don\u0027t wanna mess my time trying to figure what kind of weird hack they did this time",
+      "parentUuid": "643d3c6a_d14b3210",
+      "revId": "ab32b1c0c99d3f6838b0f1807836fc113767f2f9",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
     }
   ]
 }
