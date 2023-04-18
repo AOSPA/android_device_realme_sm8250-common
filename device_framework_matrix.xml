@@ -1,4 +1,4 @@
-<compatibility-matrix version="4.0" type="framework">
+<compatibility-matrix version="5.0" type="framework" level="6">
     <hal format="hidl" optional="true">
         <name>android.hardware.drm</name>
         <version>1.4</version>
