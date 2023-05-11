@@ -18,6 +18,9 @@ on post-fs-data
     setprop ro.media.xml_variant.codecs _kona
     setprop ro.media.xml_variant.codecs_performance _kona
 
+    # Vibrator
+    chown audioserver audioserver /dev/awinic_haptic
+
 on early-boot
     # Radio
     exec_start oplus-sh
