@@ -1550,6 +1550,19 @@ vendor/lib64/libQTEEConnector_listener.so
 vendor/lib64/libQTEEConnector_vendor.so
 vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 
+# Vibrator
+odm/bin/hw/vendor.oplus.hardware.vibrator-service
+odm/etc/aac_richtap.config
+odm/etc/init/vibrator-default.rc
+odm/etc/vintf/manifest/vibrator-default.xml
+odm/lib/hw/awinic.haptic.effect.so
+odm/lib/libaacvibrator.so
+odm/lib/vendor.aac.hardware.richtap.vibrator-V1-ndk_platform.so
+odm/lib64/libaacvibrator.so
+odm/lib64/vendor.aac.hardware.richtap.vibrator-V1-ndk_platform.so
+vendor/lib/hw/vibrator.default.so
+vendor/lib64/hw/vibrator.default.so
+
 # Vibrator firmware
 odm/firmware/aw8697_haptic.bin
 odm/firmware/aw8697_haptic_170.bin
