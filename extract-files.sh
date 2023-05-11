@@ -60,9 +60,6 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-        odm/lib64/libui.so)
-            patchelf --replace-needed "android.hardware.graphics.common-V1-ndk_platform.so" "android.hardware.graphics.common-V1-ndk.so" "${2}"
-            ;;
         product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml)
             sed -i "s|my_product|product|" "${2}"
             ;;
