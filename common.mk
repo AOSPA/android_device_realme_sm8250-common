@@ -39,10 +39,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     $(LOCAL_PATH)/audio/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml
 
-# Bootanimation
-TARGET_SCREEN_WIDTH := 1080
-TARGET_SCREEN_HEIGHT := 2400
-
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
