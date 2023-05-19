@@ -1255,6 +1255,7 @@ odm/lib64/vendor.oplus.hardware.osense.client@1.0.so
 
 # Perf
 odm/lib64/vendor.oplus.hardware.performance@1.0.so
+vendor/etc/smomo_setting.xml
 vendor/lib/vendor.oplus.hardware.performance@1.0.so
 
 # Peripheral
