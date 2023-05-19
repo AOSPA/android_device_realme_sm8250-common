@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89e43a69_31b46db1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-05-19T01:37:10Z",
+      "side": 1,
+      "message": "shouldn\u0027t we do this in the 4.19 display component?",
+      "revId": "bdf49cd12da07f55df5ca608bce6792c552ee838",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    }
+  ]
+}
