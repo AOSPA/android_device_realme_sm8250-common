@@ -16,6 +16,24 @@
       "message": "shouldn\u0027t we do this in the 4.19 display component?",
       "revId": "bdf49cd12da07f55df5ca608bce6792c552ee838",
       "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "585c6b9c_b11c1cb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000498
+      },
+      "writtenOn": "2023-05-23T15:02:48Z",
+      "side": 1,
+      "message": "I suppose not, as I have no idea where this file originally come from on CLO manifest for KAMORTA, SAIPAN and SMxx50 and OEMs might probably mod it like OPlus did",
+      "parentUuid": "89e43a69_31b46db1",
+      "revId": "bdf49cd12da07f55df5ca608bce6792c552ee838",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
     }
   ]
 }
