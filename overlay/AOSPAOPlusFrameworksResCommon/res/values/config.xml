@@ -17,7 +17,6 @@
 
     <!-- Key codes of gestures. If the gesture is not supported set it to 0. -->
     <integer name="config_doubleTapKeyCode">143</integer>
-    <integer name="config_singleTapKeyCode">262</integer>
     <integer name="config_drawVKeyCode">248</integer>
     <integer name="config_drawInverseVKeyCode">249</integer>
     <integer name="config_drawOKeyCode">252</integer>
@@ -43,7 +42,6 @@
             7 - Open camera
             8 - Open dialer -->
     <integer name="config_doubleTapDefault">1</integer>
-    <integer name="config_singleTapDefault">2</integer>
     <integer name="config_drawVDefault">3</integer>
     <integer name="config_drawODefault">8</integer>
     <integer name="config_twoFingerSwipeDefault">5</integer>
