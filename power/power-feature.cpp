@@ -36,7 +36,6 @@ static const std::unordered_map<Feature, int> GESTURE_MAP = {
     {Feature::ONE_FINGER_SWIPE_LEFT, 9},
     {Feature::TWO_FINGER_SWIPE, 7},
     {Feature::DRAW_S, 18},
-    {Feature::SINGLE_TAP, 16},
 };
 
 bool setDeviceSpecificFeature(Feature feature, bool enabled) {
