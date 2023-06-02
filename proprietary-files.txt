@@ -87,8 +87,6 @@ vendor/lib/libhdmipassthru.so
 vendor/lib/libqtigef.so
 
 # Bluetooth
-odm/etc/bt/htnv20.bin
-odm/etc/bt/htnv20_ch1.bin
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
