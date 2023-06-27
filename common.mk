@@ -61,8 +61,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_CHARACTERISTICS := nosdcard
 
 # Display
-TARGET_DISABLE_MEMTRACK := true
-
 PRODUCT_PACKAGES += \
     android.hardware.graphics.common-V1-ndk.vendor
 
