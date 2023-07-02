@@ -6,9 +6,6 @@ persist.bluetooth.bqr.min_interval_ms=60000
 # Charging
 ro.charger.enable_suspend=1
 
-# Display
-ro.sf.use_latest_hwc_vsync_period=0
-
 # GPS
 persist.backup.ntpServer=0.pool.ntp.org
 
