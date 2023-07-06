@@ -869,6 +869,9 @@ odm/vendor/firmware/ois_bu63169_sec.prog
 odm/vendor/firmware/ois_sem1215s_19066_dvt.bin
 vendor/firmware/CAMERA_ICP.elf
 
+# Charger
+vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc
+
 # CNE
 vendor/app/CneApp/CneApp.apk
 vendor/bin/cnd
