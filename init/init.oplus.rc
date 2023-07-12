@@ -37,9 +37,6 @@ on early-boot
     write /sys/bus/msm_subsys/devices/subsys10/restart_level RELATED
     write /sys/bus/msm_subsys/devices/subsys11/restart_level RELATED
 
-    # Disable serial console notification
-    stop console
-
 on boot
     # Charger
     chown system system /proc/charger/charger_factorymode_test
