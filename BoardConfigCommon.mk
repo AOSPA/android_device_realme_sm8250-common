@@ -85,6 +85,7 @@ BOARD_KERNEL_CMDLINE := \
     swiotlb=2048
 
 KERNEL_CUSTOM_LLVM := true
+KERNEL_FULL_LLVM := true
 
 BOARD_KERNEL_IMAGE_NAME := Image
 KERNEL_DEFCONFIG := vendor/sm8250_defconfig
