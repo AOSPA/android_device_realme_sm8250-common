@@ -178,6 +178,7 @@ TARGET_BOARD_PLATFORM := kona
 
 TARGET_COMMON_QTI_COMPONENTS := \
     adreno \
+    alarm \
     audio \
     av \
     bt \
