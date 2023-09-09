@@ -62,6 +62,10 @@ PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_PACKAGES += \
     android.hardware.graphics.common-V1-ndk.vendor
 
+# Dolby
+PRODUCT_PACKAGES += \
+    DolbyManager
+
 # Doze
 PRODUCT_PACKAGES += \
     ParanoidDoze
@@ -120,7 +124,8 @@ TARGET_USES_CUSTOM_C2_MANIFEST := true
 GENERIC_ODM_IMAGE := true
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/media/media_codecs_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2.xml
+    $(LOCAL_PATH)/media/media_codecs_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2.xml \
+    $(LOCAL_PATH)/media/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml
 
 # Neural networks
 PRODUCT_PACKAGES += \
