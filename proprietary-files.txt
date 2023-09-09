@@ -86,6 +86,35 @@ vendor/lib/libaudioconfigstore.so
 vendor/lib/libhdmipassthru.so
 vendor/lib/libqtigef.so
 
+# Audio (Dolby)
+odm/bin/hw/vendor.dolby_v3_6.hardware.dms360@2.0-service
+odm/etc/dolby/multimedia_dolby_dax_default.xml
+odm/etc/init/vendor.dolby_v3_6.hardware.dms360@2.0-service.rc
+odm/etc/media_codecs_dolby_audio.xml:vendor/etc/media_codecs_dolby_audio.xml
+odm/etc/vintf/manifest/manifest_dax_dolby_v3_6.xml
+odm/lib/soundfx/libhwdap_v3_6.so
+odm/lib/soundfx/libswdap_v3_6.so
+odm/lib/soundfx/libswgamedap_v3_6.so
+odm/lib/libdapparamstorage_v3_6.so
+odm/lib/libdeccfg_v3_6.so
+odm/lib/libdlbdsservice_v3_6.so
+odm/lib/libqtigef.so
+odm/lib/libstagefright_soft_ac4dec_v3_6.so
+odm/lib/libstagefright_soft_ddpdec_v3_6.so
+odm/lib/libstagefrightdolby.so
+odm/lib/vendor.dolby_v3_6.hardware.dms360@2.0-impl.so
+odm/lib/vendor.dolby_v3_6.hardware.dms360@2.0.so
+odm/lib64/soundfx/libhwdap_v3_6.so
+odm/lib64/soundfx/libswdap_v3_6.so
+odm/lib64/soundfx/libswgamedap_v3_6.so
+odm/lib64/libdapparamstorage_v3_6.so
+odm/lib64/libdeccfg_v3_6.so
+odm/lib64/libdlbdsservice_v3_6.so
+odm/lib64/libqtigef.so
+odm/lib64/vendor.dolby_v3_6.hardware.dms360@2.0-impl.so
+odm/lib64/vendor.dolby_v3_6.hardware.dms360@2.0.so
+
+
 # Audio (OZO)
 odm/bin/hw/vendor.ozoaudio.media.c2@1.0-service
 odm/etc/init/vendor.ozoaudio.media.c2@1.0-service.rc
