@@ -16,6 +16,8 @@ typedef struct variant_info {
     std::string device;
     std::string model;
     std::string name;
+
+    std::string sku;
 } variant_info_t;
 
 void search_variant(const std::vector<variant_info_t> variants);

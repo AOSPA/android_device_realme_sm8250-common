@@ -13,6 +13,7 @@
 using android::base::GetProperty;
 
 #define PRJVERSION_PROP "ro.boot.prj_version"
+#define SKU_PROP "ro.boot.hardware.sku"
 
 void search_variant(const std::vector<variant_info_t> variants) {
     std::string prjversion_value = GetProperty(PRJVERSION_PROP, "");
@@ -29,4 +30,5 @@ void set_variant_props(const variant_info_t variant) {
     set_ro_build_prop("device", variant.device, true);
     set_ro_build_prop("model", variant.model, true);
     set_ro_build_prop("name", variant.name, true);
+    property_override(SKU_PROP, variant.sku, true);
 }
