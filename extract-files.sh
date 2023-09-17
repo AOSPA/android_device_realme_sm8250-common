@@ -60,6 +60,9 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        odm/bin/hw/vendor.ozoaudio.media.c2@1.0-service)
+            "${PATCHELF}" --add-needed "libshims_ozoc2store.so" "${2}"
+            ;;
         product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml)
             sed -i "s|my_product|product|" "${2}"
             ;;
