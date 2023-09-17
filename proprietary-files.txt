@@ -86,6 +86,22 @@ vendor/lib/libaudioconfigstore.so
 vendor/lib/libhdmipassthru.so
 vendor/lib/libqtigef.so
 
+# Audio (OZO)
+odm/bin/hw/vendor.ozoaudio.media.c2@1.0-service
+odm/etc/init/vendor.ozoaudio.media.c2@1.0-service.rc
+odm/etc/media_codecs_c2_oplus_audio.xml:vendor/etc/media_codecs_c2_oplus_audio.xml
+odm/etc/ozosdk_CC160.license
+odm/etc/ozosdk_CC169.license
+odm/etc/ozosdk_x3_x3pro.license
+odm/lib/libav_ozodecoder.so
+odm/lib/libav_ozoencoder.so
+odm/lib/libcodec2_soft_ozodec.so
+odm/lib/libcodec2_soft_ozoenc.so
+odm/lib/libozoaudiodecoder.so
+odm/lib/libozoaudioencoder.so
+odm/lib/libozoc2store.so
+odm/lib/soundfx/libozoprocessing.so
+
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
@@ -1105,7 +1121,6 @@ vendor/lib64/libqcodec2_utils.so
 vendor/lib64/libqcodec2_v4l2codec.so
 
 # Media - from RMX3370_11.C.10
-vendor/etc/media_codecs_c2.xml|490211cad553ce69d536c0e55848b6a7d499260d
 vendor/etc/media_codecs_performance_c2.xml|e16b7768c91f1e15ca3ddc146a77645605a1d090
 vendor/etc/init/vendor.qti.media.c2@1.0-service.rc|11209316ba8aae64b689217bc13b0804f6620678
 
