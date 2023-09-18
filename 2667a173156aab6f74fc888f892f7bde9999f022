@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fcc24f7_ba1de281",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000498
+      },
+      "writtenOn": "2023-09-18T21:18:27Z",
+      "side": 1,
+      "message": "Need to test on non-stock enabled ozoaudio target like bladerunner. Already tested on bitra",
+      "revId": "2667a173156aab6f74fc888f892f7bde9999f022",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    }
+  ]
+}
