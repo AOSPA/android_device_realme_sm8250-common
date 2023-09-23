@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise, are
-## from realme GT Neo2 5G (RMX3370_13.1.0.504(EX01)).
+## from realme GT Neo2 5G (RMX3370_13.1.0.600(EX01)).
 
 # ACDB
 vendor/etc/acdbdata/adsp_avs_config.acdb
@@ -1249,7 +1249,13 @@ vendor/lib64/vendor.qti.qspmhal@1.0.so
 
 # Radio
 odm/bin/oemnvbkdaemon
+odm/lib64/lib-virtual-modem-protos.so
+odm/lib64/libcommcenterfw.so
+odm/lib64/libcommcenterutils.so
+odm/lib64/libdmtp-protos-lite.so
+odm/lib64/libdmtpclient.so
 odm/lib64/vendor.oplus.hardware.appradio@1.0.so
+odm/lib64/vendor.oplus.hardware.communicationcenter_compat@1.0.so
 odm/lib64/vendor.oplus.hardware.radio@1.0.so
 vendor/app/IWlanService/IWlanService.apk
 vendor/bin/hw/qcrild
