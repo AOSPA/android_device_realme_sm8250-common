@@ -69,8 +69,8 @@ function blob_fixup() {
         odm/lib/libcodec2_soft_ozoenc.so)
             "${PATCHELF}" --add-needed "libshims_ozoc2store.so" "${2}"
             ;;
-        product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml)
-            sed -i "s|my_product|product|" "${2}"
+        system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml)
+            sed -i "s/my_product/system_ext/" "${2}"
             ;;
         vendor/etc/msm_irqbalance.conf)
             sed -i "s/IGNORED_IRQ=27,23,38$/&,115,332/" "${2}"
