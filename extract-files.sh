@@ -82,7 +82,7 @@ function blob_fixup() {
             "${SIGSCAN}" -p "AF 0B 00 94" -P "1F 20 03 D5" -f "${2}"
             ;;
         vendor/lib/libgui1_vendor.so)
-            patchelf --replace-needed "libui.so" "libui-v30.so" "${2}"
+            "${PATCHELF}" --replace-needed "libui.so" "libui-v30.so" "${2}"
             ;;
     esac
 }
