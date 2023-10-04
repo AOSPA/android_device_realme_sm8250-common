@@ -150,6 +150,11 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nxp-china.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp-china.conf \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nxp-global.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp-global.conf
+
+PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.ese.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hce.xml \
     frameworks/native/data/etc/android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hcef.xml \
