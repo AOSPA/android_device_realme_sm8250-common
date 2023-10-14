@@ -1090,6 +1090,15 @@ vendor/lib64/libpwirishalwrapper.so
 vendor/bin/msm_irqbalance
 vendor/etc/msm_irqbalance.conf
 
+# Keymaster
+vendor/bin/hw/android.hardware.keymaster@4.1-service-qti
+vendor/etc/init/android.hardware.keymaster@4.1-service-qti.rc
+vendor/etc/permissions/android.hardware.hardware_keystore.xml
+vendor/lib64/libkeymasterdeviceutils.so
+vendor/lib64/libkeymasterprovision.so
+vendor/lib64/libkeymasterutils.so
+vendor/lib64/libqtikeymaster4.so
+
 # Listen
 vendor/lib/libcapiv2svacnn.so
 vendor/lib/libcapiv2vop.so
