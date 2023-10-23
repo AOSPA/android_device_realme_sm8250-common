@@ -5,5 +5,5 @@
 
 runtime_resource_overlay {
     name: "OPlusNfcResCommon",
-    vendor: true,
+    product_specific: true,
 }
