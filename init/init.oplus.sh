@@ -14,13 +14,6 @@ elif [ "$prjname" = "19705" ]; then
     setprop vendor.radio.multisim.config ssss
 fi
 
-# NFC
-if [ "$prjname" = "19705" ] || [ "$prjname" = "19706" ] || [ "$prjname" = "2169A" ] || [ "$prjname" = "2169B" ]; then
-    setprop persist.vendor.nfc.config_file_name "libnfc-nxp-global.conf"
-elif [ "$prjname" = "19795" ] || [ "$prjname" = "20607" ] || [ "$prjname" = "21619" ] || [ "$prjname" = "2161A" ]; then
-    setprop persist.vendor.nfc.config_file_name "libnfc-nxp-china.conf"
-fi
-
 # Wifi
 persistbdf=`md5sum /mnt/vendor/persist/bdwlan.elf |cut -d" " -f1`
 persistRegdb=`md5sum /odm/etc/wifi/regdb.bin |cut -d" " -f1`
