@@ -120,6 +120,7 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor
 
 # Media
+TARGET_USES_CUSTOM_C2_MANIFEST := true
 GENERIC_ODM_IMAGE := true
 
 PRODUCT_COPY_FILES += \
