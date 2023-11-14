@@ -60,13 +60,7 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-        odm/bin/hw/vendor.ozoaudio.media.c2@1.0-service)
-            "${PATCHELF}" --add-needed "libshims_ozoc2store.so" "${2}"
-            ;;
-        odm/lib/libcodec2_soft_ozodec.so)
-            "${PATCHELF}" --add-needed "libshims_ozoc2store.so" "${2}"
-            ;;
-        odm/lib/libcodec2_soft_ozoenc.so)
+        odm/bin/hw/vendor.ozoaudio.media.c2@1.0-service|odm/lib/libcodec2_soft_ozodec.so|odm/lib/libcodec2_soft_ozoenc.so)
             "${PATCHELF}" --add-needed "libshims_ozoc2store.so" "${2}"
             ;;
         system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml)
