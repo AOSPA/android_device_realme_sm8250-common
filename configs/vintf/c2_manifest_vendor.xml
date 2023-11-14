@@ -35,7 +35,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IComponentStore</name>
             <instance>default</instance>
             <instance>software</instance>
-            <instance>ozoaudio</instance>
         </interface>
    </hal>
 </manifest>

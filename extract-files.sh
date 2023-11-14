@@ -63,6 +63,11 @@ function blob_fixup() {
         odm/bin/hw/vendor.ozoaudio.media.c2@1.0-service|odm/lib/libcodec2_soft_ozodec.so|odm/lib/libcodec2_soft_ozoenc.so)
             "${PATCHELF}" --add-needed "libshims_ozoc2store.so" "${2}"
             ;;
+        odm/etc/init/vendor.ozoaudio.media.c2@1.0-service.rc)
+            cat << EOF >> "${2}"
+    disabled
+EOF
+            ;;
         system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml)
             sed -i "s/my_product/system_ext/" "${2}"
             ;;
