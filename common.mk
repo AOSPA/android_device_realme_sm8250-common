@@ -82,6 +82,8 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 # Fingerprint
+TARGET_USES_FOD_ZPOS := true
+
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.3-service.oplus
 
@@ -189,6 +191,10 @@ TARGET_COMMON_QTI_COMPONENTS := \
     vibrator \
     wfd \
     wlan
+
+# RIL
+PRODUCT_PACKAGES += \
+    libshims_ocsclk
 
 # Sensors
 PRODUCT_PACKAGES += \
