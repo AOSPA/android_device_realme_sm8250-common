@@ -82,6 +82,8 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 # Fingerprint
+TARGET_USES_FOD_ZPOS := true
+
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.3-service.oplus
 
@@ -237,6 +239,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.graphics.common-V1-ndk_platform.vendor
+
+PRODUCT_PACKAGES += \
+    libqdutils_shim
 
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v30/arm/arch-arm-armv7-a-neon/shared/vndk-core/libui.so:$(TARGET_COPY_OUT_VENDOR)/lib/libui-v30.so
