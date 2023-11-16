@@ -130,7 +130,6 @@ vendor/lib64/libbluetooth_audio_session_qti.so
 vendor/lib64/libbluetooth_audio_session_qti_2_1.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
-vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
 # Camera
 odm/bin/vl53l1_daemon_main
@@ -1152,12 +1151,10 @@ vendor/lib64/libOmxAmrDec.so
 vendor/lib64/libOmxAmrwbplusDec.so
 vendor/lib64/libOmxApeDec.so
 vendor/lib64/libOmxApeDecSw.so
-vendor/lib64/libOmxCore.so
 vendor/lib64/libOmxEvrcDec.so
 vendor/lib64/libOmxG711Dec.so
 vendor/lib64/libOmxMpeghEncSw.so
 vendor/lib64/libOmxQcelp13Dec.so
-vendor/lib64/libOmxVenc.so
 vendor/lib64/libOmxVpp.so
 vendor/lib64/libOmxWmaDec.so
 
@@ -1610,7 +1607,6 @@ vendor/lib/libmiracast.so
 vendor/lib/libmm-hdcpmgr.so
 vendor/lib/libmmrtpdecoder_proprietary.so
 vendor/lib/libmmrtpencoder_proprietary.so
-vendor/lib/libwfdaac_vendor.so
 vendor/lib/libwfdcodecv4l2_proprietary.so
 vendor/lib/libwfdcommonutils_proprietary.so
 vendor/lib/libwfdconfigutils_proprietary.so
