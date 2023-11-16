@@ -1,6 +1,2 @@
-# Graphics
-debug.sf.high_fps_early_gl_phase_offset_ns=-2000000
-debug.sf.high_fps_late_sf_phase_offset_ns=-2000000
-
 # Media
 ro.odm.build.media_performance_class=30
