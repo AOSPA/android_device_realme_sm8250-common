@@ -161,7 +161,8 @@ PRODUCT_PACKAGES += \
     OPlusSettingsResCommon \
     OPlusSystemUIResCommon \
     OPlusTetheringResCommon \
-    OPlusWifiResCommon
+    OPlusWifiResCommon \
+    OPlusWifiResCommonMainline
 
 # Partition
 PRODUCT_BUILD_SUPER_PARTITION := false
