@@ -66,6 +66,9 @@ function blob_fixup() {
         odm/etc/dolby/multimedia_dolby_dax_default.xml)
             sed -i "/volume-leveler-enable/ s/true/false/g" "${2}"
             ;;
+        odm/lib/libdlbdsservice_v3_6.so|odm/lib/libstagefright_soft_ddpdec.so|odm/lib/libstagefrightdolby.so|odm/lib64/libdlbdsservice_v3_6.so)
+            "${PATCHELF}" --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
+            ;;
         system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml)
             sed -i "s/my_product/system_ext/" "${2}"
             ;;
