@@ -74,7 +74,6 @@ BOARD_KERNEL_CMDLINE := \
     androidboot.hardware=qcom \
     androidboot.usbcontroller=a600000.dwc3 \
     cgroup.memory=nokmem,nosocket \
-    earlycon=msm_geni_serial,0xa90000 \
     kpti=off \
     loop.max_part=7 \
     lpm_levels.sleep_disabled=1 \
