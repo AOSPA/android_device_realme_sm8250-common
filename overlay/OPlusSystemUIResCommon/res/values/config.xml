@@ -21,9 +21,6 @@
      for different hardware and product builds. -->
 <resources>
 
-    <!-- Allow devices override audio panel location to the left side -->
-    <bool name="config_audioPanelOnLeftSide">true</bool>
-
     <!-- Color of the UDFPS Pressed view -->
     <color name="config_udfpsColor">#00ffffff</color>
 
