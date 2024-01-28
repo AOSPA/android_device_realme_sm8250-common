@@ -177,6 +177,13 @@
             <Limit name="concurrent-instances" max="16" />
             <Limit name="performance-point-1920x1080" value="30" />
         </MediaCodec>
+        <!-- #ifdef OPLUS_FEATURE_SURROUND_AUDIO-->
+        <MediaCodec name="c2.oplus.ozoaudio.decoder" type="audio/ozoaudio">
+            <Limit name="channel-count" max="8" />
+            <Limit name="sample-rate" ranges="48000" />
+            <Limit name="bitrate" range="8000-960000" />
+        </MediaCodec>
+        <!-- #endif OPLUS_FEATURE_SURROUND_AUDIO-->
 
         <!-- OMX alias decoders (Codec2 decoders with OMX names) -->
         <MediaCodec name="OMX.qcom.video.decoder.avc" type="video/avc" >
@@ -403,6 +410,13 @@
             <Limit name="performance-point-1920x1080" value="120" />
             <Limit name="performance-point-1280x720" value="240" />
         </MediaCodec>
+        <!-- #ifdef OPLUS_FEATURE_SURROUND_AUDIO-->
+        <MediaCodec name="c2.oplus.ozoaudio.encoder" type="audio/ozoaudio">
+            <Limit name="channel-count" max="3" />
+            <Limit name="sample-rate" ranges="48000" />
+            <Limit name="bitrate" range="128000-960000" />
+        </MediaCodec>
+        <!-- #endif OPLUS_FEATURE_SURROUND_AUDIO-->
 
         <!-- OMX alias encoders (Codec2 encoders with OMX names) -->
         <MediaCodec name="OMX.qcom.video.encoder.avc" type="video/avc" >
@@ -459,8 +473,4 @@
         </MediaCodec>
     </Encoders>
     <Include href="media_codecs_google_c2.xml" />
-    <!-- #ifdef OPLUS_FEATURE_SURROUND_AUDIO -->
-    <!-- shumin.nie@PSW.MM.MediaServer.Record, 2019/09/16, Add for SurroudAudio -->
-    <Include href="media_codecs_c2_oplus_audio.xml" />
-    <!-- #endif OPLUS_FEATURE_SURROUND_AUDIO-->
 </Included>
