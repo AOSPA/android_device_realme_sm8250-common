@@ -89,7 +89,6 @@ vendor/lib/libqtigef.so
 # Audio (OZO)
 odm/bin/hw/vendor.ozoaudio.media.c2@1.0-service
 odm/etc/init/vendor.ozoaudio.media.c2@1.0-service.rc
-odm/etc/media_codecs_c2_oplus_audio.xml:vendor/etc/media_codecs_c2_oplus_audio.xml
 odm/etc/ozosdk_CC160.license
 odm/etc/ozosdk_CC169.license
 odm/etc/ozosdk_x3_x3pro.license
