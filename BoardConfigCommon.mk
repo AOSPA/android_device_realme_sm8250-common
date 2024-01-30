@@ -83,11 +83,13 @@ BOARD_KERNEL_CMDLINE := \
     service_locator.enable=1 \
     swiotlb=2048
 
-KERNEL_CUSTOM_LLVM := true
-KERNEL_FULL_LLVM := true
-
 BOARD_KERNEL_IMAGE_NAME := Image
-KERNEL_DEFCONFIG := vendor/sm8250_defconfig
+
+TARGET_KERNEL_CLANG_PATH := $(abspath .)/prebuilts/clang-standalone
+TARGET_KERNEL_NO_GCC := true
+
+TARGET_KERNEL_CONFIG := vendor/sm8250_defconfig
+TARGET_KERNEL_SOURCE := kernel/msm-4.19
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
