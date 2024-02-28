@@ -5,11 +5,11 @@
 
 runtime_resource_overlay {
     name: "OPlusWifiResCommon",
-    product_specific: true,
+    device_specific: true,
 }
 
 runtime_resource_overlay {
     name: "OPlusWifiResCommonMainline",
     manifest: "AndroidGoogleManifest.xml",
-    product_specific: true,
+    device_specific: true,
 }
