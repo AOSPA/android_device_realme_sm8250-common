@@ -1,4 +1,4 @@
 runtime_resource_overlay {
     name: "OPlusSystemUIResCommon",
-    product_specific: true
+    device_specific: true
 }

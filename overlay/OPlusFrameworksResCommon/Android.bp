@@ -5,5 +5,5 @@
 
 runtime_resource_overlay {
     name: "OPlusFrameworksResCommon",
-    product_specific: true,
+    device_specific: true,
 }

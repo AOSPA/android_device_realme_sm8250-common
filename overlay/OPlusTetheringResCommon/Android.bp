@@ -1,4 +1,4 @@
 runtime_resource_overlay {
     name: "OPlusTetheringResCommon",
-    product_specific: true
+    vendor: true
 }
