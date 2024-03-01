@@ -156,15 +156,12 @@ PRODUCT_COPY_FILES += \
 # Overlays
 PRODUCT_PACKAGES += \
     AOSPAOPlusFrameworksResCommon \
-    FrameworksResTarget \
     OPlusCarrierConfigResCommon \
     OPlusFrameworksResCommon \
     OPlusNfcResCommon \
     OPlusSettingsResCommon \
     OPlusSystemUIResCommon \
-    OPlusTetheringResCommon \
-    OPlusWifiResCommon \
-    OPlusWifiResCommonMainline
+    OPlusTetheringResCommon
 
 # Partition
 PRODUCT_BUILD_SUPER_PARTITION := false
