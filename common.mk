@@ -237,9 +237,6 @@ PRODUCT_COPY_FILES += \
 
 # VNDK
 PRODUCT_PACKAGES += \
-    vndservicemanager
-
-PRODUCT_PACKAGES += \
     android.hardware.graphics.common-V1-ndk_platform.vendor
 
 PRODUCT_COPY_FILES += \
@@ -249,9 +246,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay \
     WifiOverlay
-
-PRODUCT_PACKAGES += \
-    libwfdaac_vendor:32
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
