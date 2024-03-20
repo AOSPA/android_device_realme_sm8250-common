@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise, are
-## from realme GT Neo2 5G (RMX3370_13.1.0.700(EX01)).
+## from realme GT Neo2 5G (RMX3370_13.1.0.801(EX01)).
 
 # ACDB
 vendor/etc/acdbdata/adsp_avs_config.acdb
