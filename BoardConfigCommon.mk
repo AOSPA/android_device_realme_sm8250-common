@@ -59,10 +59,6 @@ DEVICE_MANIFEST_FILE += \
     $(COMMON_PATH)/manifest.xml \
     $(COMMON_PATH)/configs/vintf/c2_manifest_vendor.xml
 
-# Init
-TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):init_realme_kona
-TARGET_RECOVERY_DEVICE_MODULES := init_realme_kona
-
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
