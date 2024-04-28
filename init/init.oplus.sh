@@ -8,10 +8,10 @@
 prjname=`getprop ro.boot.prjname`
 
 # Radio
-if [ "$prjname" = "19706" ] || [ "$prjname" = "19795" ] || [ "$prjname" = "21619" ] || [ "$prjname" = "2161A" ] || [ "$prjname" = "2169A" ] || [ "$prjname" = "2169B" ]; then
-    setprop vendor.radio.multisim.config dsds
-elif [ "$prjname" = "19705" ]; then
+if [ "$prjname" = "19705" ]; then
     setprop vendor.radio.multisim.config ssss
+else
+    setprop vendor.radio.multisim.config dsds
 fi
 
 # Wifi
