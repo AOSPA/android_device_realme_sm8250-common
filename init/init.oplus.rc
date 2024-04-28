@@ -13,6 +13,9 @@ on init
     copy_per_line /dev/cpuctl/tasks /dev/cpuctl/system/tasks
 
 on fs
+    # Create oplusreserve directory on /mnt/vendor
+    mkdir /mnt/vendor/oplusreserve 0771 system system
+
     # Update touchpanel firmware in case we ship newer firmware in /odm
     write /proc/touchpanel/tp_fw_update 0
 
